@@ -593,7 +593,7 @@
         <div class="container">
           <div class="page-inner">
             <div class="page-header">
-              <h3 class="fw-bold mb-3">Tabel Izin Anggota</h3>
+              <h3 class="fw-bold mb-3">Detail Pegawai</h3>
               <ul class="breadcrumbs mb-3">
                 <li class="nav-home">
                   <a href="#">
@@ -604,13 +604,13 @@
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="#">Tables</a>
+                  <a href={{ route('pegawai.index') }}>Pegawai</a>
                 </li>
                 <li class="separator">
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="#">Datatables</a>
+                  <a href="#">Detail</a>
                 </li>
               </ul>
             </div>
@@ -619,154 +619,87 @@
                 <div class="card">
                   <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title">Tabel Izin</h4>
-                        <a class="btn btn-primary btn-round ms-auto" href="{{ url('pegawai-create') }}">
-                        <i class="fa fa-plus"></i>
-                        Tambah Pegawai
-                        </a>
+                        <h4 class="card-title">Detail Pegawai</h4>
                     </div>
                   </div>
-                  <div class="card-body">
-                    <div class="table-responsive">
-                      <table
-                        id="basic-datatables"
-                        class="display table table-striped table-hover">
-                        <thead>
-                          <tr>
-                            <th>Nama</th>
-                            <th>NIP</th>
-                            <th>NIP BPS</th>
-                            <th>Jabatan</th>
-                            <th>Wilayah</th>
-                            <th>Status</th>
-                            <th>Pendidikan</th>
-                            <th>Tempat Lahir</th>
-                            <th>Tanggal Lahir</th>
-                            <th style="width: 10%">Action</th>
-                          </tr>
-                        </thead>
-                        <tfoot>
-                          <tr>
-                            <th>Nama</th>
-                            <th>NIP</th>
-                            <th>NIP BPS</th>
-                            <th>Jabatan</th>
-                            <th>Wilayah</th>
-                            <th>Status</th>
-                            <th>Pendidikan</th>
-                            <th>Tempat Lahir</th>
-                            <th>Tanggal Lahir</th>
-                            <th style="width: 10%">Action</th>
-                          </tr>
-                        </tfoot>
-                        <tbody>
-                          <tr>
-                            <td>Eddy Erwan Nopianoor, S.Si, MP</td>
-                            <td>197311251994121001</td>
-                            <td>340015040</td>
-                            <td>Statistisi Ahli Madya BPS Kabupaten/Kota</td>
-                            <td>Kab. Banjar</td>
-                            <td>PNS</td>
-                            <td>S-2 Ekonomi Pertanian</td>
-                            <td>Banjar</td>
-                            <td>25-11-1973</td>
-                            <td>
-                              <div class="form-button-action">
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-primary btn-lg"
-                                  data-original-title="Edit Task"
-                                >
-                                  <i class="fa fa-edit"></i>
-                                </button>
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-danger"
-                                  data-original-title="Remove"
-                                >
-                                  <i class="fa fa-times"></i>
-                                </button>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Badal Imamuddin, SST</td>
-                            <td>199205082014101001</td>
-                            <td>340056798</td>
-                            <td>Kepala Subbagian Umum</td>
-                            <td>Kab. Banjar</td>
-                            <td>PNS</td>
-                            <td>D-IV Statistik Ekonomi</td>
-                            <td>Sumbawa</td>
-                            <td>08-05-1992</td>
-                            <td>
-                              <div class="form-button-action">
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-primary btn-lg"
-                                  data-original-title="Edit Task"
-                                >
-                                  <i class="fa fa-edit"></i>
-                                </button>
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-danger"
-                                  data-original-title="Remove"
-                                >
-                                  <i class="fa fa-times"></i>
-                                </button>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Deisy Andriani, SST</td>
-                            <td>198202222004122001</td>
-                            <td>340017353</td>
-                            <td>Analis Pengelolaan Keuangan APBN Ahli Muda Subbagian Umum</td>
-                            <td>Kab. Banjar</td>
-                            <td>PNS</td>
-                            <td>D-IV Statistik Sosial Kependudukan</td>
-                            <td>Negara</td>
-                            <td>22-02-1982</td>
-                            <td>
-                              <div class="form-button-action">
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-primary btn-lg"
-                                  data-original-title="Edit Task"
-                                >
-                                  <i class="fa fa-edit"></i>
-                                </button>
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-danger"
-                                  data-original-title="Remove"
-                                >
-                                  <i class="fa fa-times"></i>
-                                </button>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <div class="card-body">
+                        <div class="col-md-10 mx-auto">
+                            <div class="card shadow-lg border-0 rounded-3">
+                                <div class="card-body px-5 py-4">
+
+                                    <h2 class="mb-0 text-primary fw-bold">
+                                        <i class="fa fa-id-card me-2"></i> Detail Pegawai
+                                    </h2>
+                                    <p class="text-muted">Informasi lengkap pegawai BPS</p>
+                                    <hr class="mt-0 mb-4">
+
+                                    <div class="text-center mb-4">
+                                        <h3 class="fw-bold text-dark">{{ $pegawai->nama }}</h3>
+                                        <span class="badge bg-info text-dark px-3 py-2" style="font-size: 14px;">
+                                            {{ $pegawai->jabatan }}
+                                        </span>
+                                    </div>
+
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <th width="30%">NIP</th>
+                                                    <td>{{ $pegawai->nip ?? '-' }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>NIP BPS</th>
+                                                    <td>{{ $pegawai->nip_bps ?? '-' }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Jabatan</th>
+                                                    <td>{{ $pegawai->jabatan }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Wilayah</th>
+                                                    <td>{{ $pegawai->wilayah }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Status</th>
+                                                    <td>
+                                                        <span class="badge
+                                                            @if ($pegawai->status == 'Aktif') bg-success
+                                                            @elseif ($pegawai->status == 'Cuti') bg-warning text-dark
+                                                            @else bg-secondary
+                                                            @endif
+                                                        px-3 py-2">
+                                                            {{ $pegawai->status }}
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Pendidikan</th>
+                                                    <td>{{ $pegawai->pendidikan }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Tempat Lahir</th>
+                                                    <td>{{ $pegawai->tempat_lahir }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Tanggal Lahir</th>
+                                                    <td>{{ $pegawai->tanggal_lahir }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="text-end mt-4">
+                                        <a href="{{ route('pegawai.index') }}" class="btn btn-secondary">
+                                            <i class="fa fa-arrow-left me-1"></i> Kembali
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
               </div>
-
-
             </div>
           </div>
         </div>

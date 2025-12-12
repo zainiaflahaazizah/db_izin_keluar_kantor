@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PegawaiController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -75,18 +76,25 @@ Route::get('/approval', function () {
 // Route::get('/index-pegawai', function () {
 //         return view('pegawai.index');
 // });
-Route::get('/pegawai-index', function () {
-        return view('pegawai.index');
-});
-Route::get('/pegawai-create', function () {
-        return view('pegawai.create');
-});
-Route::get('/pegawai-edit', function () {
-        return view('pegawai.edit');
-});
-Route::get('/pegawai-show', function () {
-        return view('pegawai.show');
-});
+// Route::get('/pegawai-index', function () {
+//         return view('pegawai.index');
+// });
+// Route::get('/pegawai-create', function () {
+//         return view('pegawai.create');
+// });
+// Route::get('/pegawai-edit', function () {
+//         return view('pegawai.edit');
+// });
+// Route::get('/pegawai-show', function () {
+//         return view('pegawai.show');
+// });
+
+
+//--------------------------------------------------------------------------------------------//
+
+
+Route::resource('pegawai', PegawaiController::class);
+
 
 
 

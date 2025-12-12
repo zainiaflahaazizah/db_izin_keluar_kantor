@@ -593,7 +593,7 @@
         <div class="container">
           <div class="page-inner">
             <div class="page-header">
-              <h3 class="fw-bold mb-3">Tabel Izin Anggota</h3>
+              <h3 class="fw-bold mb-3">Tabel Pegawai</h3>
               <ul class="breadcrumbs mb-3">
                 <li class="nav-home">
                   <a href="#">
@@ -604,13 +604,7 @@
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="#">Tables</a>
-                </li>
-                <li class="separator">
-                  <i class="icon-arrow-right"></i>
-                </li>
-                <li class="nav-item">
-                  <a href="#">Datatables</a>
+                  <a href="#">Pegawai</a>
                 </li>
               </ul>
             </div>
@@ -619,19 +613,32 @@
                 <div class="card">
                   <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title">Tabel Izin</h4>
-                        <a class="btn btn-primary btn-round ms-auto" href="{{ url('pegawai-create') }}">
+                        <h4 class="card-title">Tabel Pegawai</h4>
+                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('pegawai.create') }}">
                         <i class="fa fa-plus"></i>
                         Tambah Pegawai
                         </a>
                     </div>
                   </div>
                   <div class="card-body">
+
+                    @if(session('success'))
+                    <script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Berhasil!',
+                            text: '{{ session("success") }}',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    </script>
+                    @endif
+
                     <div class="table-responsive">
                       <table
                         id="basic-datatables"
                         class="display table table-striped table-hover">
-                        <thead>
+                        <thead class="text-center align-middle">
                           <tr>
                             <th>Nama</th>
                             <th>NIP</th>
@@ -645,7 +652,8 @@
                             <th style="width: 10%">Action</th>
                           </tr>
                         </thead>
-                        <tfoot>
+
+                        <tfoot class="text-center align-middle">
                           <tr>
                             <th>Nama</th>
                             <th>NIP</th>
@@ -659,108 +667,63 @@
                             <th style="width: 10%">Action</th>
                           </tr>
                         </tfoot>
+
                         <tbody>
-                          <tr>
-                            <td>Eddy Erwan Nopianoor, S.Si, MP</td>
-                            <td>197311251994121001</td>
-                            <td>340015040</td>
-                            <td>Statistisi Ahli Madya BPS Kabupaten/Kota</td>
-                            <td>Kab. Banjar</td>
-                            <td>PNS</td>
-                            <td>S-2 Ekonomi Pertanian</td>
-                            <td>Banjar</td>
-                            <td>25-11-1973</td>
-                            <td>
-                              <div class="form-button-action">
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-primary btn-lg"
-                                  data-original-title="Edit Task"
-                                >
-                                  <i class="fa fa-edit"></i>
-                                </button>
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-danger"
-                                  data-original-title="Remove"
-                                >
-                                  <i class="fa fa-times"></i>
-                                </button>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Badal Imamuddin, SST</td>
-                            <td>199205082014101001</td>
-                            <td>340056798</td>
-                            <td>Kepala Subbagian Umum</td>
-                            <td>Kab. Banjar</td>
-                            <td>PNS</td>
-                            <td>D-IV Statistik Ekonomi</td>
-                            <td>Sumbawa</td>
-                            <td>08-05-1992</td>
-                            <td>
-                              <div class="form-button-action">
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-primary btn-lg"
-                                  data-original-title="Edit Task"
-                                >
-                                  <i class="fa fa-edit"></i>
-                                </button>
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-danger"
-                                  data-original-title="Remove"
-                                >
-                                  <i class="fa fa-times"></i>
-                                </button>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Deisy Andriani, SST</td>
-                            <td>198202222004122001</td>
-                            <td>340017353</td>
-                            <td>Analis Pengelolaan Keuangan APBN Ahli Muda Subbagian Umum</td>
-                            <td>Kab. Banjar</td>
-                            <td>PNS</td>
-                            <td>D-IV Statistik Sosial Kependudukan</td>
-                            <td>Negara</td>
-                            <td>22-02-1982</td>
-                            <td>
-                              <div class="form-button-action">
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-primary btn-lg"
-                                  data-original-title="Edit Task"
-                                >
-                                  <i class="fa fa-edit"></i>
-                                </button>
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-danger"
-                                  data-original-title="Remove"
-                                >
-                                  <i class="fa fa-times"></i>
-                                </button>
-                              </div>
-                            </td>
-                          </tr>
+                            @forelse ($pegawais as $pegawai)
+                                <tr>
+                                    <td>{{ $pegawai->nama }}</td>
+                                    <td>{{ $pegawai->nip }}</td>
+                                    <td>{{ $pegawai->nip_bps }}</td>
+                                    <td>{{ $pegawai->jabatan }}</td>
+                                    <td>{{ $pegawai->wilayah }}</td>
+                                    <td>{{ $pegawai->status }}</td>
+                                    <td>{{ $pegawai->pendidikan }}</td>
+                                    <td>{{ $pegawai->tempat_lahir }}</td>
+                                    <td>{{ $pegawai->tanggal_lahir }}</td>
+                                    <td>
+                                    <div class="form-button-action d-flex gap-2">
+
+                                        {{-- SHOW / DETAIL --}}
+                                        <a href="{{ route('pegawai.show', $pegawai->id_pegawai) }}"
+                                        class="btn btn-link btn-info"
+                                        data-bs-toggle="tooltip"
+                                        title="Lihat Detail">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+
+                                        {{-- EDIT --}}
+                                        <a href="{{ route('pegawai.edit', $pegawai->id_pegawai) }}"
+                                        class="btn btn-link btn-primary"
+                                        data-bs-toggle="tooltip"
+                                        title="Edit">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+
+                                        {{-- DELETE --}}
+                                        <form action="{{ route('pegawai.destroy', $pegawai->id_pegawai) }}"
+                                            method="POST"
+                                            onsubmit="return confirm('Yakin hapus data ini?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                    class="btn btn-link btn-danger"
+                                                    data-bs-toggle="tooltip"
+                                                    title="Hapus">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </form>
+
+                                    </div>
+                                    </td>
+                                </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="10" class="text-center">Tidak ada data pegawai</td>
+                                    </tr>
+                            @endforelse
                         </tbody>
                       </table>
+                      {{ $pegawais->links() }}
                     </div>
                   </div>
                 </div>
@@ -1002,6 +965,11 @@
 
     <!-- jQuery Scrollbar -->
     <script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+    <!--pop up simpan -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Datatables -->
     <script src="../assets/js/plugin/datatables/datatables.min.js"></script>
     <!-- Kaiadmin JS -->
@@ -1065,6 +1033,27 @@
         });
       });
     </script>
+
+    <script>
+        @if(session('success'))
+            Swal.fire({
+                icon: "success",
+                title: "BERHASIL",
+                text: "{{ session('success') }}",
+                showConfirmButton: false,
+                timer: 2000
+            });
+        @elseif(session('error'))
+            Swal.fire({
+                icon: "error",
+                title: "GAGAL!",
+                text: "{{ session('error') }}",
+                showConfirmButton: false,
+                timer: 2000
+            });
+        @endif
+    </script>
+
   </body>
 </html>
 
