@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IzinController;
 use App\Http\Controllers\PegawaiController;
 
 // Route::get('/', function () {
@@ -39,18 +40,18 @@ Route::get('/formizin', function () {
 //     return view('anggota.form-izin-2');
 // });
 
-Route::get('/form-izin-index', function () {
-        return view('form-izin.index');
-});
-Route::get('/form-izin-create', function () {
-        return view('form-izin.create');
-});
-Route::get('/form-izin-edit', function () {
-        return view('form-izin.edit');
-});
-Route::get('/form-izin-show', function () {
-        return view('form-izin.show ');
-});
+// Route::get('/form-izin-index', function () {
+//         return view('form-izin.index');
+// });
+// Route::get('/form-izin-create', function () {
+//         return view('form-izin.create');
+// });
+// Route::get('/form-izin-edit', function () {
+//         return view('form-izin.edit');
+// });
+// Route::get('/form-izin-show', function () {
+//         return view('form-izin.show ');
+// });
 
 
 //FORM DIKUMENTASI//
@@ -94,6 +95,19 @@ Route::get('/approval', function () {
 
 
 Route::resource('pegawai', PegawaiController::class);
+
+Route::resource('izin', IzinController::class);
+
+use App\Http\Controllers\PersetujuanController;
+
+Route::get('/approval', [PersetujuanController::class, 'index'])
+    ->name('approval.index');
+Route::patch('/approval/{id_izin}/setujui', [PersetujuanController::class, 'setujui'])
+    ->name('approval.setujui');
+Route::patch('/approval/{id_izin}/tolak', [PersetujuanController::class, 'tolak'])
+    ->name('approval.tolak');
+
+
 
 
 

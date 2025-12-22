@@ -95,11 +95,11 @@
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#base">
                   <i class='bx bxs-user-circle'></i>
-                  <p>User</p>
+                  <p>Akun</p>
                 </a>
               </li>
                 <li class="nav-item">
-                    <a  href="{{url('pegawai-index')}}">
+                    <a  href="{{route('pegawai.index')}}">
                     <i class='bx bxs-user-badge'></i>
                     <p>Pegawai</p>
                     </a>
@@ -113,7 +113,7 @@
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{ url('form-izin-index') }}">
+                      <a href="{{ route('izin.index') }}">
                         <span class="sub-item">Form Izin</span>
                       </a>
                     </li>
@@ -604,7 +604,7 @@
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="#">Pegawai</a>
+                  <a href="{{ route('pegawai.index') }}">Pegawai</a>
                 </li>
               </ul>
             </div>
@@ -649,6 +649,7 @@
                             <th>Pendidikan</th>
                             <th>Tempat Lahir</th>
                             <th>Tanggal Lahir</th>
+                            <th>Agama</th>
                             <th style="width: 10%">Action</th>
                           </tr>
                         </thead>
@@ -664,6 +665,7 @@
                             <th>Pendidikan</th>
                             <th>Tempat Lahir</th>
                             <th>Tanggal Lahir</th>
+                            <th>Agama</th>
                             <th style="width: 10%">Action</th>
                           </tr>
                         </tfoot>
@@ -680,6 +682,7 @@
                                     <td>{{ $pegawai->pendidikan }}</td>
                                     <td>{{ $pegawai->tempat_lahir }}</td>
                                     <td>{{ $pegawai->tanggal_lahir }}</td>
+                                    <td>{{ $pegawai->agama }}</td>
                                     <td>
                                     <div class="form-button-action d-flex gap-2">
 
@@ -723,13 +726,13 @@
                             @endforelse
                         </tbody>
                       </table>
-                      {{ $pegawais->links() }}
                     </div>
+                        {{-- <div class="d-flex justify-content-center mt-3">
+                            {{ $pegawais->links() }}
+                        </div> --}}
                   </div>
                 </div>
               </div>
-
-
             </div>
           </div>
         </div>

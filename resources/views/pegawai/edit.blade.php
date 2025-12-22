@@ -119,11 +119,11 @@
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#base">
                   <i class='bx bxs-user-circle'></i>
-                  <p>User</p>
+                  <p>Akun</p>
                 </a>
               </li>
                 <li class="nav-item">
-                    <a  href="{{url('pegawai-index')}}">
+                    <a  href="{{route('pegawai.index')}}">
                     <i class='bx bxs-user-badge'></i>
                     <p>Pegawai</p>
                     </a>
@@ -137,7 +137,7 @@
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{ url('form-izin-index') }}">
+                      <a href="{{ route('izin.index') }}">
                         <span class="sub-item">Form Izin</span>
                       </a>
                     </li>
@@ -734,11 +734,11 @@
                                             <div class="input-box">
                                                 <select id="jabatan" name="jabatan" class="form-control @error('jabatan') is-invalid @enderror" value="{{ old('jabatan', $pegawai->jabatan) }}" required>
                                                     <option value="" disabled selected>Pilih Jabatan</option>
-                                                    <option value="Kepala BPS">Kepala BPS</option>
-                                                    <option value="Kepala Subbagian Umum">Kepala Subbagian Umum</option>
-                                                    <option value="Ketua Tim">Ketua Tim</option>
-                                                    <option value="Anggota">Anggota</option>
-                                                    <option value="Mahasiswa Magang/PKL">Mahasiswa Magang/PKL</option>
+                                                    <option value="Kepala BPS" {{ old('jabatan', $pegawai->jabatan) == 'Kepala BPS' ? 'selected' : '' }}>Kepala BPS</option>
+                                                    <option value="Kepala Subbagian Umum" {{ old('jabatan', $pegawai->jabatan) == 'Kepala Subbagian Umum' ? 'selected' : '' }}>Kepala Subbagian Umum</option>
+                                                    <option value="Ketua Tim" {{ old('jabatan', $pegawai->jabatan) == 'Ketua Tim' ? 'selected' : '' }}>Ketua Tim</option>
+                                                    <option value="Anggota" {{ old('jabatan', $pegawai->jabatan) == 'Anggota' ? 'selected' : '' }}>Anggota</option>
+                                                    <option value="Mahasiswa Magang/PKL" {{ old('jabatan', $pegawai->jabatan) == 'Mahasiswa Magang/PKL' ? 'selected' : '' }}>Mahasiswa Magang/PKL</option>
                                                 </select>
                                                 <i class='bx bx-chevron-down'></i>
                                             </div>
@@ -794,6 +794,15 @@
                                         </div>
 
                                             @error('tanggal_lahir')
+                                                <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                            @enderror
+
+                                        <div class="form-group">
+                                            <label for="agama">Agama</label>
+                                            <input type="text" id="agama" name="agama" class="form-control @error('agama') is-invalid @enderror" value="{{ old('agama', $pegawai->agama) }}" required>
+                                        </div>
+
+                                            @error('agama')
                                                 <div class="alert alert-danger mt-2">{{ $message }}</div>
                                             @enderror
 

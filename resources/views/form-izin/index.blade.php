@@ -95,7 +95,7 @@
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#base">
                   <i class='bx bxs-user-circle'></i>
-                  <p>User</p>
+                  <p>Akun</p>
                 </a>
               </li>
                 <li class="nav-item">
@@ -113,7 +113,7 @@
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{ url('form-izin-index') }}">
+                      <a href="{{ route('izin.index') }}">
                         <span class="sub-item">Form Izin</span>
                       </a>
                     </li>
@@ -593,7 +593,7 @@
         <div class="container">
           <div class="page-inner">
             <div class="page-header">
-              <h3 class="fw-bold mb-3">Tabel Izin Anggota</h3>
+              <h3 class="fw-bold mb-3">Izin</h3>
               <ul class="breadcrumbs mb-3">
                 <li class="nav-home">
                   <a href="#">
@@ -604,13 +604,13 @@
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="#">Tables</a>
+                  <a href="#">Forms</a>
                 </li>
                 <li class="separator">
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="#">Datatables</a>
+                  <a href="#">Izin</a>
                 </li>
               </ul>
             </div>
@@ -620,18 +620,31 @@
                   <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Tabel Izin</h4>
-                        <a class="btn btn-primary btn-round ms-auto" href="{{ url('form-izin-create') }}">
+                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('izin.create') }}">
                             <i class="fa fa-plus"></i>
                             Tambah Izin
                         </a>
                     </div>
                   </div>
                   <div class="card-body">
+
+                    @if(session('success'))
+                    <script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Berhasil!',
+                            text: '{{ session("success") }}',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    </script>
+                    @endif
+
                     <div class="table-responsive">
                       <table
                         id="basic-datatables"
                         class="display table table-striped table-hover">
-                        <thead>
+                        <thead class="text-center align-middle">
                           <tr>
                             <th>Nama</th>
                             <th>NIP</th>
@@ -642,9 +655,10 @@
                             <th>Keterangan</th>
                             <th>Tujuan Persetujuan</th>
                             <th>Status</th>
+                            <th style="width: 10%">Action</th>
                           </tr>
                         </thead>
-                        <tfoot>
+                        <tfoot class="text-center align-middle">
                           <tr>
                             <th>Nama</th>
                             <th>NIP</th>
@@ -655,53 +669,70 @@
                             <th>Keterangan</th>
                             <th>Tujuan Persetujuan</th>
                             <th>Status</th>
+                            <th style="width: 10%">Action</th>
                           </tr>
                         </tfoot>
                         <tbody>
-                          <tr>
-                            <td>Nama</td>
-                            <td>NIP</td>
-                            <td>Jabatan</td>
-                            <td>Alasan</td>
-                            <td>Jam Keluar</td>
-                            <td>Jam Kembali</td>
-                            <td>Keterangan</td>
-                            <td>Tujuan Persetujuan</td>
-                            <td>Status</td>
-                          </tr>
-                          <tr>
-                            <td>Nama</td>
-                            <td>NIP</td>
-                            <td>Jabatan</td>
-                            <td>Alasan</td>
-                            <td>Jam Keluar</td>
-                            <td>Jam Kembali</td>
-                            <td>Keterangan</td>
-                            <td>Tujuan Persetujuan</td>
-                            <td>Status</td>
-                          </tr>
-                          <tr>
-                            <td>Nama</td>
-                            <td>NIP</td>
-                            <td>Jabatan</td>
-                            <td>Alasan</td>
-                            <td>Jam Keluar</td>
-                            <td>Jam Kembali</td>
-                            <td>Keterangan</td>
-                            <td>Tujuan Persetujuan</td>
-                            <td>Status</td>
-                          </tr>
-                          <tr>
-                            <td>Nama</td>
-                            <td>NIP</td>
-                            <td>Jabatan</td>
-                            <td>Alasan</td>
-                            <td>Jam Keluar</td>
-                            <td>Jam Kembali</td>
-                            <td>Keterangan</td>
-                            <td>Tujuan Persetujuan</td>
-                            <td>Status</td>
-                          </tr>
+                            @forelse ($izins as $izin)
+                                <tr>
+                                    <td>{{ $izin->pegawai->nama }}</td>
+                                    <td>{{ $izin->pegawai->nip }}</td>
+                                    <td>{{ $izin->pegawai->jabatan }}</td>
+                                    <td>{{ $izin->alasan }}</td>
+                                    <td>{{ $izin->jam_keluar }}</td>
+                                    <td>{{ $izin->jam_kembali }}</td>
+                                    <td>{{ $izin->keterangan }}</td>
+                                    <td>{{ $izin->tujuan_persetujuan }}</td>
+                                    <td>
+                                        @if ($izin->status === 'menunggu')
+                                            <span class="badge bg-warning">Menunggu</span>
+                                        @elseif ($izin->status === 'disetujui')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                    <div class="form-button-action d-flex gap-2">
+
+                                        {{-- SHOW / DETAIL --}}
+                                        <a href="{{ route('izin.show', $izin->id_izin) }}"
+                                        class="btn btn-link btn-info"
+                                        data-bs-toggle="tooltip"
+                                        title="Lihat Detail">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+
+                                        {{-- EDIT --}}
+                                        <a href="{{ route('izin.edit', $izin->id_izin) }}"
+                                        class="btn btn-link btn-primary"
+                                        data-bs-toggle="tooltip"
+                                        title="Edit">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+
+                                        {{-- DELETE --}}
+                                        <form action="{{ route('izin.destroy', $izin->id_izin) }}"
+                                            method="POST"
+                                            onsubmit="return confirm('Yakin hapus data ini?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                    class="btn btn-link btn-danger"
+                                                    data-bs-toggle="tooltip"
+                                                    title="Hapus">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </form>
+
+                                    </div>
+                                    </td>
+                                </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="10" class="text-center">Tidak ada data izin</td>
+                                    </tr>
+                            @endforelse
                         </tbody>
                       </table>
                     </div>

@@ -43,30 +43,6 @@
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <style>
-        .input-box {
-            position: relative;
-        }
-
-        .input-box i.bx-chevron-down {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 2;
-            font-size: 1.2rem;
-            color: #6c757d;
-            pointer-events: none;
-        }
-
-        .input-box select.form-control {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            padding-right: 40px;
-        }
-    </style>
-
   </head>
   <body>
     <div class="wrapper">
@@ -119,11 +95,11 @@
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#base">
                   <i class='bx bxs-user-circle'></i>
-                  <p>User</p>
+                  <p>Akun</p>
                 </a>
               </li>
                 <li class="nav-item">
-                    <a  href="{{url('pegawai-index')}}">
+                    <a  href="{{route('pegawai.index')}}">
                     <i class='bx bxs-user-badge'></i>
                     <p>Pegawai</p>
                     </a>
@@ -137,7 +113,7 @@
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{ url('form-izin-index') }}">
+                      <a href="{{ route('izin.index') }}">
                         <span class="sub-item">Form Izin</span>
                       </a>
                     </li>
@@ -665,125 +641,231 @@
         </div>
 
         <div class="container">
-          <div class="page-inner">
-            <div class="page-header">
-              <h3 class="fw-bold mb-3">Forms</h3>
-              <ul class="breadcrumbs mb-3">
-                <li class="nav-home">
-                  <a href="#">
-                    <i class="icon-home"></i>
-                  </a>
-                </li>
-                <li class="separator">
-                  <i class="icon-arrow-right"></i>
-                </li>
-                <li class="nav-item">
-                  <a href="#">Forms</a>
-                </li>
-                <li class="separator">
-                  <i class="icon-arrow-right"></i>
-                </li>
-                <li class="nav-item">
-                  <a href="#">Basic Form</a>
-                </li>
-              </ul>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-title">Formulir Pengajuan Izin Keluar Kantor</div>
-                        </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="nama">Nama Lengkap</label>
-                                            <input type="text" id="nama" name="nama" class="form-control" placeholder="Masukkan nama Anda" required>
-                                            </div>
+            <div class="page-inner">
 
-                                        <div class="form-group">
-                                            <label for="nim">NIP (Nomor Induk Pegawai)</label>
-                                            <input type="text" id="nip" name="nip" class="form-control" placeholder="Masukkan NIP Anda" required>
-                                        </div>
+                <!-- PAGE HEADER -->
+                <div class="page-header">
+                    <h3 class="fw-bold mb-3">Izin</h3>
 
-                                        <div class="form-group">
-                                            <label for="jabatan">Jabatan/Unit Kerja</label>
-                                            <div class="input-box">
-                                            <select id="jabatan" name="jabatan" class="form-control" required>
-                                                <option value="" disabled selected>Pilih Jabatan</option>
-                                                <option value="Kepala BPS">Kepala BPS</option>
-                                                <option value="Kepala Subbagian Umum">Kepala Subbagian Umum</option>
-                                                <option value="Ketua Tim">Ketua TIm</option>
-                                                <option value="Anggota">Anggota</option>
-                                                <option value="Mahasiswa Magang/PKL">Mahasiswa Magang/PKL</option>
-                                            </select>
-                                            <i class='bx bx-chevron-down'></i>
-                                            </div>
-                                        </div>
+                    <ul class="breadcrumbs mb-3">
+                        <li class="nav-home">
+                            <a href="{{ url('dashboard') }}">
+                                <i class="icon-home"></i>
+                            </a>
+                        </li>
 
-                                        <div class="form-group">
-                                            <label>Alasan Keluar</label>
-                                            <div class="radio-group d-flex" style="gap: 20px;">
-                                                <div class="form-check">
-                                                    <input type="radio" name="alasan_keluar" value="Pribadi" id="alasanPribadi" class="form-check-input" required>
-                                                    <label class="form-check-label" for="alasanPribadi">Pribadi</label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input type="radio" name="alasan_keluar" value="Dinas" id="alasanDinas" class="form-check-input">
-                                                    <label class="form-check-label" for="alasanDinas">Dinas</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <li class="separator">
+                            <i class="icon-arrow-right"></i>
+                        </li>
 
-                                    <div class="col-md-6">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="jam_keluar">Jam Keluar</label>
-                                                    <input type="time" id="jam_keluar" name="jam_keluar" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="jam_kembali">Jam Kembali (Estimasi)</label>
-                                                    <input type="time" id="jam_kembali" name="jam_kembali" class="form-control" required>
-                                                </div>
-                                            </div>
-                                        </div>
+                        <li class="nav-item">
+                            <a href="{{ route('izin.index') }}">Forms</a>
+                        </li>
 
-                                        <div class="form-group">
-                                            <label for="keterangan">Keterangan/Detail Keperluan</label>
-                                            <textarea id="keterangan" name="keterangan" class="form-control" rows="3" placeholder="Jelaskan secara singkat tujuan dan keperluan Anda keluar kantor..." required></textarea>
-                                        </div>
+                        <li class="separator">
+                            <i class="icon-arrow-right"></i>
+                        </li>
 
-                                        <div class="form-group">
-                                            <label for="tujuan">Tujuan Persetujuan</label>
-                                            <div class="input-box">
-                                            <select id="tujuan" name="tujuan" class="form-control" required>
-                                                <option value="" disabled selected>Pilih Tujuan Persetujuan</option>
-                                                <option value="Ketua Tim - Bpk. Ahmad">Ketua Tim - Bpk. Ahmad (Sosial)</option>
-                                                <option value="Ketua Tim - Ibu Siti">Ketua Tim - Ibu Siti (Distribusi)</option>
-                                                <option value="Ketua Tim - Bpk. Joni">Ketua Tim - Bpk. Joni (Produksi)</option>
-                                                <option value="Ketua Tim - Ibu Ani">Ketua Tim - Ibu Ani (IPDS)</option>
-                                                <option value="Kepala Bagian Umum">Kepala Bagian Umum</option>
-                                                <option value="Kepala BPS">Kepala BPS</option>
-                                            </select>
-                                            <i class='bx bx-chevron-down'></i>
-                                        </div>
+                        <li class="nav-item">
+                            <a href="#">Izin</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END PAGE HEADER -->
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!-- FORM -->
+                        <form action="{{ route('izin.store') }}" method="POST" id="izinForm">
+                            @csrf
+
+                            <div class="card">
+
+                                <!-- CARD HEADER -->
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        Formulir Pengajuan Izin Keluar Kantor
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="card-action  d-flex justify-content-end">
-                            <button type="submit" form="izinForm" class="btn btn-success">Perbarui</button>
-                            <button class="btn btn-danger ms-2">Batal</button>
-                        </div>
+
+                                <!-- CARD BODY -->
+                                <div class="card-body">
+                                    <div class="row">
+
+                                        <!-- KOLOM KIRI -->
+                                        <div class="col-md-6">
+
+                                            <div class="form-group">
+                                                <label for="id_pegawai">Nama</label>
+                                                <select name="id_pegawai" id="id_pegawai" class="form-control @error('id_pegawai') is-invalid @enderror" required >
+                                                    <option value="">-- Pilih Nama Pegawai --</option>
+
+                                                    @foreach ($pegawais as $pegawai)
+                                                        <option value="{{ $pegawai->id_pegawai }}" data-nip="{{ $pegawai->nip }}" data-jabatan="{{ $pegawai->jabatan }}" >
+                                                            {{ $pegawai->nama }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+
+                                                @error('id_pegawai')
+                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="nip">NIP</label>
+                                                <input type="text" id="nip" class="form-control" readonly>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="jabatan">Jabatan</label>
+                                                <input type="text" id="jabatan" class="form-control" readonly>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Alasan Keluar</label>
+                                                <div
+                                                    class="radio-group d-flex @error('alasan') is-invalid @enderror"
+                                                    style="gap: 20px;"
+                                                >
+                                                    <div class="form-check">
+                                                        <input
+                                                            type="radio"
+                                                            name="alasan"
+                                                            value="Pribadi"
+                                                            id="alasanPribadi"
+                                                            class="form-check-input"
+                                                            required
+                                                        >
+                                                        <label class="form-check-label" for="alasanPribadi">
+                                                            Pribadi
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="form-check">
+                                                        <input
+                                                            type="radio"
+                                                            name="alasan"
+                                                            value="Dinas"
+                                                            id="alasanDinas"
+                                                            class="form-check-input"
+                                                        >
+                                                        <label class="form-check-label" for="alasanDinas">
+                                                            Dinas
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                @error('alasan')
+                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+
+                                        </div>
+                                        <!-- END KOLOM KIRI -->
+
+                                        <!-- KOLOM KANAN -->
+                                        <div class="col-md-6">
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="jam_keluar">Jam Keluar</label>
+                                                        <input
+                                                            type="time"
+                                                            id="jam_keluar"
+                                                            name="jam_keluar"
+                                                            class="form-control @error('jam_keluar') is-invalid @enderror"
+                                                            value="{{ old('jam_keluar') }}"
+                                                            required
+                                                        >
+                                                        @error('jam_keluar')
+                                                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="jam_kembali">Jam Kembali (Estimasi)</label>
+                                                        <input
+                                                            type="time"
+                                                            id="jam_kembali"
+                                                            name="jam_kembali"
+                                                            class="form-control @error('jam_kembali') is-invalid @enderror"
+                                                            value="{{ old('jam_kembali') }}"
+                                                            required
+                                                        >
+                                                        @error('jam_kembali')
+                                                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="keterangan">Keterangan / Detail Keperluan</label>
+                                                <textarea
+                                                    id="keterangan"
+                                                    name="keterangan"
+                                                    class="form-control @error('keterangan') is-invalid @enderror"
+                                                    rows="3"
+                                                    placeholder="Jelaskan secara singkat tujuan dan keperluan Anda keluar kantor..."
+                                                    required
+                                                ></textarea>
+                                                @error('keterangan')
+                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Tujuan Persetujuan</label>
+                                                <select
+                                                    name="tujuan_persetujuan"
+                                                    class="form-control @error('tujuan_persetujuan') is-invalid @enderror"
+                                                    required
+                                                >
+                                                    <option value="">-- Pilih Tujuan Persetujuan --</option>
+                                                    <option value="Ketua Tim" {{ old('tujuan_persetujuan') == 'Ketua Tim' ? 'selected' : '' }}>
+                                                        Ketua Tim
+                                                    </option>
+                                                    <option value="Kepala Subbagian Umum" {{ old('tujuan_persetujuan') == 'Kepala Subbagian Umum' ? 'selected' : '' }}>
+                                                        Kepala Subbagian Umum
+                                                    </option>
+                                                    <option value="Kepala BPS Banjar" {{ old('tujuan_persetujuan') == 'Kepala BPS Banjar' ? 'selected' : '' }}>
+                                                        Kepala BPS Banjar
+                                                    </option>
+                                                </select>
+
+                                                @error('tujuan_persetujuan')
+                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+
+                                        </div>
+                                        <!-- END KOLOM KANAN -->
+
+                                    </div>
+                                </div>
+                                <!-- END CARD BODY -->
+
+                                <!-- CARD ACTION -->
+                                <div class="card-action d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-success">Simpan</button>
+                                    <a href="{{ route('izin.index') }}" class="btn btn-danger ms-2">Batal</a>
+                                </div>
+
+                            </div>
+                        </form>
+                        <!-- END FORM -->
+
                     </div>
                 </div>
+
             </div>
-          </div>
         </div>
+
 
         <footer class="footer">
           <div class="container-fluid d-flex justify-content-between">
@@ -1047,5 +1129,18 @@
 
     <!-- Kaiadmin DEMO methods, don't include it in your project! -->
     <script src="../assets/js/setting-demo2.js"></script>
+
+    <script>
+    document.getElementById('id_pegawai').addEventListener('change', function () {
+        const selected = this.options[this.selectedIndex];
+
+        document.getElementById('nip').value =
+            selected.getAttribute('data-nip') ?? '';
+
+        document.getElementById('jabatan').value =
+            selected.getAttribute('data-jabatan') ?? '';
+    });
+    </script>
+
   </body>
 </html>

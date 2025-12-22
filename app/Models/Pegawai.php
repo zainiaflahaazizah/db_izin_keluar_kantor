@@ -27,11 +27,17 @@ class Pegawai extends Model
         'pendidikan',
         'tempat_lahir',
         'tanggal_lahir',
+        'agama',
         'id_user',
     ];
 
      public function user()
     {
         return $this->belongsTo(User::class, 'id_user');
+    }
+
+    public function izins()
+    {
+        return $this->hasMany(Izin::class, 'id_pegawai', 'id_pegawai');
     }
 }

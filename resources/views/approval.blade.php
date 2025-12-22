@@ -95,11 +95,11 @@
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#base">
                   <i class='bx bxs-user-circle'></i>
-                  <p>User</p>
+                  <p>Akun</p>
                 </a>
               </li>
                 <li class="nav-item">
-                    <a  href="{{url('pegawai-index')}}">
+                    <a  href="{{route('pegawai.index')}}">
                     <i class='bx bxs-user-badge'></i>
                     <p>Pegawai</p>
                     </a>
@@ -113,7 +113,7 @@
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{ url('form-izin-index') }}">
+                      <a href="{{ route('izin.index') }}">
                         <span class="sub-item">Form Izin</span>
                       </a>
                     </li>
@@ -128,7 +128,7 @@
               <li class="nav-item">
                 <a href="{{url('approval')}}">
                   <i class="fas fa-table"></i>
-                  <p>Approval</p>
+                  <p>Persetujuan</p>
                 </a>
                 <div class="collapse" id="tables">
                   <ul class="nav nav-collapse">
@@ -593,7 +593,7 @@
         <div class="container">
           <div class="page-inner">
             <div class="page-header">
-              <h3 class="fw-bold mb-3">DataTables.Net</h3>
+              <h3 class="fw-bold mb-3">Persetujuan</h3>
               <ul class="breadcrumbs mb-3">
                 <li class="nav-home">
                   <a href="#">
@@ -604,13 +604,7 @@
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="#">Tables</a>
-                </li>
-                <li class="separator">
-                  <i class="icon-arrow-right"></i>
-                </li>
-                <li class="nav-item">
-                  <a href="#">Datatables</a>
+                  <a href="#">Tabel Persetujuan</a>
                 </li>
               </ul>
             </div>
@@ -619,15 +613,7 @@
                 <div class="card">
                   <div class="card-header">
                     <div class="d-flex align-items-center">
-                      <h4 class="card-title">Add Row</h4>
-                      <button
-                        class="btn btn-primary btn-round ms-auto"
-                        data-bs-toggle="modal"
-                        data-bs-target="#addRowModal"
-                      >
-                        <i class="fa fa-plus"></i>
-                        Add Row
-                      </button>
+                      <h4 class="card-title">Tabel Persetujuan</h4>
                     </div>
                   </div>
                   <div class="card-body">
@@ -718,6 +704,12 @@
                       </div>
                     </div>
 
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
                     <div class="table-responsive">
                       <table
                         id="add-row"
@@ -733,6 +725,7 @@
                             <th>Jam Kembali</th>
                             <th>Keterangan</th>
                             <th>Tujuan Persetujuan</th>
+                            <th style="width: 10%">Status</th>
                             <th style="width: 10%">Action</th>
                           </tr>
                         </thead>
@@ -746,106 +739,77 @@
                             <th>Jam Kembali</th>
                             <th>Keterangan</th>
                             <th>Tujuan Persetujuan</th>
+                            <th style="width: 10%">Status</th>
                             <th style="width: 10%">Action</th>
                           </tr>
                         </tfoot>
                         <tbody>
-                          <tr>
-                            <td>Tiger Nixon</td>
-                            <td>123456789</td>
-                            <td>Anggota</td>
-                            <td>Pribadi</td>
-                            <td>07.30</td>
-                            <td>12.00</td>
-                            <td>Sakit</td>
-                            <td>Kepala BPS</td>
-                            <td>
-                              <div class="form-button-action">
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-primary btn-lg"
-                                  data-original-title="Edit Task"
-                                >
-                                  <i class="fa fa-edit"></i>
-                                </button>
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-danger"
-                                  data-original-title="Remove"
-                                >
-                                  <i class="fa fa-times"></i>
-                                </button>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Garrett Winters</td>
-                            <td>123456789</td>
-                            <td>Ketua Tim</td>
-                            <td>Dinas</td>
-                            <td>07.30</td>
-                            <td>14.00</td>
-                            <td>Perjalanan Dinas</td>
-                            <td>Kepala BPS</td>
-                            <td>
-                              <div class="form-button-action">
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-primary btn-lg"
-                                  data-original-title="Edit Task"
-                                >
-                                  <i class="fa fa-edit"></i>
-                                </button>
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-danger"
-                                  data-original-title="Remove"
-                                >
-                                  <i class="fa fa-times"></i>
-                                </button>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Airi Satou</td>
-                            <td>123456789</td>
-                            <td>Ketua Tim</td>
-                            <td>Dinas</td>
-                            <td>07.30</td>
-                            <td>14.00</td>
-                            <td>Perjalanan Dinas</td>
-                            <td>Kepala Subbagian Umum</td>
-                            <td>
-                              <div class="form-button-action">
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-primary btn-lg"
-                                  data-original-title="Edit Task"
-                                >
-                                  <i class="fa fa-edit"></i>
-                                </button>
-                                <button
-                                  type="button"
-                                  data-bs-toggle="tooltip"
-                                  title=""
-                                  class="btn btn-link btn-danger"
-                                  data-original-title="Remove"
-                                >
-                                  <i class="fa fa-times"></i>
-                                </button>
-                              </div>
-                            </td>
-                          </tr>
+                            @forelse ($izins as $izin)
+                                <tr>
+                                    <td>{{ $izin->pegawai->nama }}</td>
+                                    <td>{{ $izin->pegawai->nip }}</td>
+                                    <td>{{ $izin->pegawai->jabatan }}</td>
+                                    <td>{{ $izin->alasan }}</td>
+                                    <td>{{ $izin->jam_keluar }}</td>
+                                    <td>{{ $izin->jam_kembali ?? '-' }}</td>
+                                    <td>{{ $izin->keterangan ?? '-' }}</td>
+                                    <td>{{ $izin->tujuan_persetujuan }}</td>
+
+                                    {{-- STATUS --}}
+                                    <td>
+                                        @if ($izin->status === 'menunggu')
+                                            <span class="badge bg-warning">Menunggu</span>
+                                        @elseif ($izin->status === 'disetujui')
+                                            <span class="badge bg-success">Disetujui</span>
+                                        @else
+                                            <span class="badge bg-danger">Ditolak</span>
+                                        @endif
+                                    </td>
+
+                                    {{-- ACTION --}}
+                                    <td>
+                                        @if ($izin->status === 'menunggu')
+                                            <div class="d-flex justify-content-center gap-1">
+
+                                                {{-- SETUJUI --}}
+                                                <form action="{{ route('approval.setujui', $izin->id_izin) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <button type="submit"
+                                                            class="btn btn-success btn-sm"
+                                                            data-bs-toggle="tooltip"
+                                                            title="Setujui">
+                                                        <i class="fa fa-check"></i>
+                                                    </button>
+                                                </form>
+
+                                                {{-- TOLAK --}}
+                                                <form action="{{ route('approval.tolak', $izin->id_izin) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <button type="submit"
+                                                            class="btn btn-danger btn-sm"
+                                                            data-bs-toggle="tooltip"
+                                                            title="Tolak">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </form>
+
+                                            </div>
+                                        @else
+                                            <span class="text-muted fst-italic">Selesai</span>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="10" class="text-center text-muted">
+                                        Tidak ada data persetujuan
+                                    </td>
+                                </tr>
+                            @endforelse
                         </tbody>
                       </table>
                     </div>

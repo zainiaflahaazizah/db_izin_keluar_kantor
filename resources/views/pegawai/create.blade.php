@@ -119,7 +119,7 @@
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#base">
                   <i class='bx bxs-user-circle'></i>
-                  <p>User</p>
+                  <p>Akun</p>
                 </a>
               </li>
                 <li class="nav-item">
@@ -137,7 +137,7 @@
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{ url('form-izin-index') }}">
+                      <a href="{{ url('form-izin.index') }}">
                         <span class="sub-item">Form Izin</span>
                       </a>
                     </li>
@@ -712,7 +712,7 @@
 
                                         <div class="form-group">
                                             <label for="nip">NIP</label>
-                                            <input type="text" id="nip" name="nip" class="form-control @error('nip') is-invalid @enderror" value="{{ old(key: 'nip') }}" placeholder="Masukkan NIP Anda" required>
+                                            <input type="text" id="nip" name="nip" class="form-control @error('nip') is-invalid @enderror" value="{{ old('nip') }}" placeholder="Masukkan NIP Anda" required>
 
                                             @error('nip')
                                                 <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -721,7 +721,7 @@
 
                                         <div class="form-group">
                                             <label for="nip_bps">NIP BPS</label>
-                                            <input type="text" id="nip_bps" name="nip_bps" class="form-control @error('nip_bps') is-invalid @enderror" value="{{ old(key: 'nip_bps') }}" placeholder="Masukkan NIP BPS Anda" required>
+                                            <input type="text" id="nip_bps" name="nip_bps" class="form-control @error('nip_bps') is-invalid @enderror" value="{{ old('nip_bps') }}" placeholder="Masukkan NIP BPS Anda" required>
                                         </div>
 
                                             @error('nip_bps')
@@ -731,7 +731,7 @@
                                         <div class="form-group">
                                             <label for="jabatan">Jabatan</label>
                                             <div class="input-box">
-                                                <select id="jabatan" name="jabatan" class="form-control @error('jabatan') is-invalid @enderror" value="{{ old(key: 'jabatan') }}" required>
+                                                <select id="jabatan" name="jabatan" class="form-control @error('jabatan') is-invalid @enderror" value="{{ old('jabatan') }}" required>
                                                     <option value="" disabled selected>Pilih Jabatan</option>
                                                     <option value="Kepala BPS">Kepala BPS</option>
                                                     <option value="Kepala Subbagian Umum">Kepala Subbagian Umum</option>
@@ -749,7 +749,7 @@
 
                                         <div class="form-group">
                                             <label for="wilayah">Wilayah</label>
-                                            <input type="text" id="wilayah" name="wilayah" class="form-control @error('wilayah') is-invalid @enderror" value="{{ old(key: 'wilayah') }}" placeholder="Masukkan Wilayah Anda" required>
+                                            <input type="text" id="wilayah" name="wilayah" class="form-control @error('wilayah') is-invalid @enderror" value="{{ old('wilayah') }}" placeholder="Masukkan Wilayah Anda" required>
                                         </div>
 
                                             @error('wilayah')
@@ -762,7 +762,7 @@
 
                                         <div class="form-group">
                                             <label for="status">Status</label>
-                                            <input type="text" id="status" name="status" class="form-control @error('status') is-invalid @enderror" value="{{ old(key: 'status') }}" placeholder="Masukkan Status Anda" required>
+                                            <input type="text" id="status" name="status" class="form-control @error('status') is-invalid @enderror" value="{{ old('status') }}" placeholder="Masukkan Status Anda" required>
                                         </div>
 
                                             @error('status')
@@ -771,7 +771,7 @@
 
                                         <div class="form-group">
                                             <label for="pendidikan">Pendidikan</label>
-                                            <input type="text" id="pendidikan" name="pendidikan" class="form-control @error('pendidikan') is-invalid @enderror" value="{{ old(key: 'pendidikan') }}" placeholder="Contoh: S1, D3, SMA" required>
+                                            <input type="text" id="pendidikan" name="pendidikan" class="form-control @error('pendidikan') is-invalid @enderror" value="{{ old('pendidikan') }}" placeholder="Contoh: S1, D3, SMA" required>
                                         </div>
 
                                                 @error('pendidikan')
@@ -780,7 +780,7 @@
 
                                         <div class="form-group">
                                             <label for="tempat_lahir">Tempat Lahir</label>
-                                            <input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control @error('tempat_lahir') is-invalid @enderror" value="{{ old(key: 'tempat_lahir') }}" placeholder="Masukkan tempat lahir..." required>
+                                            <input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control @error('tempat_lahir') is-invalid @enderror" value="{{ old('tempat_lahir') }}" placeholder="Masukkan tempat lahir..." required>
                                         </div>
 
                                             @error('tempat_lahir')
@@ -789,10 +789,19 @@
 
                                         <div class="form-group">
                                             <label for="tanggal_lahir">Tanggal Lahir</label>
-                                            <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control @error('tanggal_lahir') is-invalid @enderror" value="{{ old(key: 'tanggal_lahir') }}" required>
+                                            <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control @error('tanggal_lahir') is-invalid @enderror" value="{{ old('tanggal_lahir') }}" required>
                                         </div>
 
                                             @error('tanggal_lahir')
+                                                <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                            @enderror
+
+                                        <div class="form-group">
+                                            <label for="agama">Agama</label>
+                                            <input type="text" id="agama" name="agama" class="form-control @error('agama') is-invalid @enderror" value="{{ old('agama') }}" required>
+                                        </div>
+
+                                            @error('agama')
                                                 <div class="alert alert-danger mt-2">{{ $message }}</div>
                                             @enderror
 

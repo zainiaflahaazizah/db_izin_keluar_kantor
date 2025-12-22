@@ -11,16 +11,16 @@ use Illuminate\Support\Facades\Storage;
 
 class PegawaiController extends Controller
 {
-     public function index() : View
+    public function index() : View
     {
-        //get all products
+        //get all pegawais
         $pegawais = Pegawai::latest()->paginate(10);
 
-        //render view with products
+        //render view with pegawais
         return view('pegawai.index', compact('pegawais'));
     }
 
-     public function create(): View
+    public function create(): View
     {
         return view('pegawai.create');
     }
@@ -43,14 +43,15 @@ class PegawaiController extends Controller
             'status'          => 'required|string|max:50',
             'pendidikan'      => 'required|string|max:100',
             'tempat_lahir'    => 'required|string|max:100',
-            'tanggal_lahir'   => 'required|date'
+            'tanggal_lahir'   => 'required|date',
+            'agama'           => 'required|string|max:50'
         ]);
 
         // //upload image
         // $image = $request->file('image');
-        // $image->storeAs('products', $image->hashName());
+        // $image->storeAs('pegawais', $image->hashName());
 
-        //create product
+        //create pegawai
         Pegawai::create([
             'nama'            => $request->nama,
             'nip'             => $request->nip,
@@ -61,6 +62,7 @@ class PegawaiController extends Controller
             'pendidikan'      => $request->pendidikan,
             'tempat_lahir'    => $request->tempat_lahir,
             'tanggal_lahir'   => $request->tanggal_lahir,
+            'agama'           => $request->agama,
         ]);
 
         //redirect to index
@@ -110,7 +112,8 @@ class PegawaiController extends Controller
             'status'          => 'required|string|max:50',
             'pendidikan'      => 'required|string|max:100',
             'tempat_lahir'    => 'required|string|max:100',
-            'tanggal_lahir'   => 'required|date'
+            'tanggal_lahir'   => 'required|date',
+            'agama'           => 'required|string|max:50'
         ]);
 
         //get pegawai by ID
@@ -126,13 +129,14 @@ class PegawaiController extends Controller
         'pendidikan'    => $request->pendidikan,
         'tempat_lahir'  => $request->tempat_lahir,
         'tanggal_lahir' => $request->tanggal_lahir,
+        'agama'         => $request->agama,
     ]);
 
         //redirect to index
         return redirect()->route('pegawai.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
-     public function destroy($id_pegawai): RedirectResponse
+    public function destroy($id_pegawai): RedirectResponse
     {
         //get pegawai by ID
         $pegawai = Pegawai::findOrFail($id_pegawai);
