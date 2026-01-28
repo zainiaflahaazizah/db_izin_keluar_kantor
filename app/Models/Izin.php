@@ -30,5 +30,9 @@ class Izin extends Model
         return $this->belongsTo(Pegawai::class, 'id_pegawai', 'id_pegawai');
     }
 
-    
+    public function dokumentasi()
+    {
+        return $this->hasOne(Dokumentasi::class, 'id_izin');
+    }
+
 }

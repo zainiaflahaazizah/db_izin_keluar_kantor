@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IzinController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\PersetujuanController;
+use App\Http\Controllers\DokumentasiController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -62,9 +64,9 @@ Route::get('/formizin', function () {
 //     return view('anggota.form-doc');
 // });
 
-Route::get('/form-dokumentasi-index', function () {
-        return view('form-dokumentasi.index');
-});
+// Route::get('/form-dokumentasi-index', function () {
+//         return view('form-dokumentasi.index');
+// });
 
 
 //APPROVAL//
@@ -98,7 +100,17 @@ Route::resource('pegawai', PegawaiController::class);
 
 Route::resource('izin', IzinController::class);
 
-use App\Http\Controllers\PersetujuanController;
+Route::resource('dokumentasi', DokumentasiController::class);
+// Route::get(
+//     '/izin/{izin}/dokumentasi/create',
+//     [DokumentasiController::class, 'createFromIzin']
+// )->name('izin.dokumentasi.create');
+// Route::get('/izin/{izin}/dokumentasi/create', [DokumentasiController::class, 'create'])
+//     ->name('dokumentasi.create');
+// Route::post('/dokumentasi', [DokumentasiController::class, 'store'])
+//     ->name('dokumentasi.store');
+// Route::get('/dokumentasi', [DokumentasiController::class, 'index'])
+//     ->name('dokumentasi.index');
 
 Route::get('/approval', [PersetujuanController::class, 'index'])
     ->name('approval.index');

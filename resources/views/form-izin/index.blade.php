@@ -118,7 +118,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="{{url('form-dokumentasi-index')}}">
+                      <a href="{{route('dokumentasi.index')}}">
                         <span class="sub-item">Form Dokumentasi</span>
                       </a>
                     </li>
@@ -710,6 +710,16 @@
                                         title="Edit">
                                             <i class="fa fa-edit"></i>
                                         </a>
+
+                                        {{-- DOKUMENTASI (HANYA JIKA DISETUJUI)
+                                        @if ($izin->status === 'disetujui')
+                                            <a href="{{ route('izin.dokumentasi.create', $izin->id_izin) }}"
+                                            class="btn btn-link btn-success"
+                                            data-bs-toggle="tooltip"
+                                            title="Tambah Dokumentasi">
+                                                <i class="fa fa-camera"></i>
+                                            </a>
+                                        @endif --}}
 
                                         {{-- DELETE --}}
                                         <form action="{{ route('izin.destroy', $izin->id_izin) }}"

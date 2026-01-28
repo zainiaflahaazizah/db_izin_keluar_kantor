@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Datatables - Kaiadmin Bootstrap 5 Admin Dashboard</title>
+    <title>Forms - Kaiadmin Bootstrap 5 Admin Dashboard</title>
     <meta
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       name="viewport"
@@ -42,6 +42,30 @@
     <link rel="stylesheet" href="../assets/css/demo.css" />
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        .input-box {
+            position: relative;
+        }
+
+        .input-box i.bx-chevron-down {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            font-size: 1.2rem;
+            color: #6c757d;
+            pointer-events: none;
+        }
+
+        .input-box select.form-control {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            padding-right: 40px;
+        }
+    </style>
 
   </head>
   <body>
@@ -201,6 +225,57 @@
                   <span class="badge badge-secondary">1</span>
                 </a>
               </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#submenu">
+                  <i class="fas fa-bars"></i>
+                  <p>Menu Levels</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="submenu">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a data-bs-toggle="collapse" href="#subnav1">
+                        <span class="sub-item">Level 1</span>
+                        <span class="caret"></span>
+                      </a>
+                      <div class="collapse" id="subnav1">
+                        <ul class="nav nav-collapse subnav">
+                          <li>
+                            <a href="#">
+                              <span class="sub-item">Level 2</span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <span class="sub-item">Level 2</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                      <a data-bs-toggle="collapse" href="#subnav2">
+                        <span class="sub-item">Level 1</span>
+                        <span class="caret"></span>
+                      </a>
+                      <div class="collapse" id="subnav2">
+                        <ul class="nav nav-collapse subnav">
+                          <li>
+                            <a href="#">
+                              <span class="sub-item">Level 2</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="sub-item">Level 1</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
@@ -217,7 +292,6 @@
                   src="../assets/img/kaiadmin/logo_light.svg"
                   alt="navbar brand"
                   class="navbar-brand"
-                  height="20"
                 />
               </a>
               <div class="nav-toggle">
@@ -590,126 +664,6 @@
           <!-- End Navbar -->
         </div>
 
-        <div class="container">
-          <div class="page-inner">
-            <div class="page-header">
-              <h3 class="fw-bold mb-3">Izin</h3>
-              <ul class="breadcrumbs mb-3">
-                <li class="nav-home">
-                  <a href="#">
-                    <i class="icon-home"></i>
-                  </a>
-                </li>
-                <li class="separator">
-                  <i class="icon-arrow-right"></i>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('izin.index')}}">Forms</a>
-                </li>
-                <li class="separator">
-                  <i class="icon-arrow-right"></i>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('izin.index')}}">Izin</a>
-                </li>
-                <li class="separator">
-                  <i class="icon-arrow-right"></i>
-                </li>
-                <li class="nav-item">
-                  <a href="#">Detail</a>
-                </li>
-              </ul>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="card">
-                  <div class="card-header">
-                    <div class="d-flex align-items-center">
-                        <h4 class="card-title">Tabel Izin</h4>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                        <div class="col-md-10 mx-auto">
-                            <div class="card shadow-lg border-0 rounded-3">
-                                <div class="card-body px-5 py-4">
-
-                                    <h2 class="mb-0 text-primary fw-bold">
-                                        <i class="fa fa-id-card me-2"></i> Detail Izin
-                                    </h2>
-                                    <p class="text-muted">Informasi lengkap pegawai BPS</p>
-                                    <hr class="mt-0 mb-4">
-
-                                    <div class="text-center mb-4">
-                                        <h3 class="fw-bold text-dark">{{ $izin->pegawai->nama }}</h3>
-                                        <span class="badge bg-info text-dark px-3 py-2" style="font-size: 14px;">
-                                            {{ $izin->pegawai->jabatan }}
-                                        </span>
-                                    </div>
-
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-striped">
-                                            <tbody>
-                                                <tr>
-                                                    <th width="30%">NIP</th>
-                                                    <td>{{ $izin->pegawai->nip ?? '-' }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Jabatan</th>
-                                                    <td>{{ $izin->pegawai->jabatan ?? '-' }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Alasan Keluar</th>
-                                                    <td>{{ $izin->alasan }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Jam Keluar</th>
-                                                    <td>{{ $izin->jam_keluar }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Jam Kembali</th>
-                                                    <td>{{ $izin->jam_kembali }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Keterangan</th>
-                                                    <td>{{ $izin->keterangan }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Tujuan Persetujuan</th>
-                                                    <td>{{ $izin->tujuan_persetujuan }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Status</th>
-                                                    <td>
-                                                        <span class="badge
-                                                            @if ($izin->status == 'Aktif') bg-success
-                                                            @elseif ($izin->status == 'Cuti') bg-warning text-dark
-                                                            @else bg-secondary
-                                                            @endif
-                                                        px-3 py-2">
-                                                            {{ $izin->status }}
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <div class="text-end mt-4">
-                                        <a href="{{ route('izin.index') }}" class="btn btn-secondary">
-                                            <i class="fa fa-arrow-left me-1"></i> Kembali
-                                        </a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <footer class="footer">
           <div class="container-fluid d-flex justify-content-between">
             <nav class="pull-left">
@@ -941,69 +895,113 @@
 
     <!-- jQuery Scrollbar -->
     <script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+    <!-- Chart JS -->
+    <script src="../assets/js/plugin/chart.js/chart.min.js"></script>
+
+    <!-- jQuery Sparkline -->
+    <script src="../assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Chart Circle -->
+    <script src="../assets/js/plugin/chart-circle/circles.min.js"></script>
+
     <!-- Datatables -->
     <script src="../assets/js/plugin/datatables/datatables.min.js"></script>
+
+    <!-- Bootstrap Notify -->
+    <script src="../assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+    <!-- jQuery Vector Maps -->
+    <script src="../assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
+    <script src="../assets/js/plugin/jsvectormap/world.js"></script>
+
+    <!-- Google Maps Plugin -->
+    <script src="../assets/js/plugin/gmaps/gmaps.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="../assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+
     <!-- Kaiadmin JS -->
     <script src="../assets/js/kaiadmin.min.js"></script>
+
     <!-- Kaiadmin DEMO methods, don't include it in your project! -->
     <script src="../assets/js/setting-demo2.js"></script>
+
     <script>
-      $(document).ready(function () {
-        $("#basic-datatables").DataTable({});
+    // AMBIL LOKASI USER
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert("Browser tidak mendukung geolocation.");
+            }
+        }
 
-        $("#multi-filter-select").DataTable({
-          pageLength: 5,
-          initComplete: function () {
-            this.api()
-              .columns()
-              .every(function () {
-                var column = this;
-                var select = $(
-                  '<select class="form-select"><option value=""></option></select>'
-                )
-                  .appendTo($(column.footer()).empty())
-                  .on("change", function () {
-                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+        // POSISI DITEMUKAN
+        function showPosition(position) {
+            let lat = position.coords.latitude;
+            let lng = position.coords.longitude;
 
-                    column
-                      .search(val ? "^" + val + "$" : "", true, false)
-                      .draw();
-                  });
+            // Isi input koordinat
+            document.getElementById("lat").value = lat;
+            document.getElementById("lng").value = lng;
 
-                column
-                  .data()
-                  .unique()
-                  .sort()
-                  .each(function (d, j) {
-                    select.append(
-                      '<option value="' + d + '">' + d + "</option>"
-                    );
-                  });
-              });
-          },
-        });
+            // Update map
+            document.getElementById("mapFrame").src =
+                `https://maps.google.com/maps?q=${lat},${lng}&z=15&output=embed`;
+        }
 
-        // Add Row
-        $("#add-row").DataTable({
-          pageLength: 5,
-        });
+        // ERROR LOKASI
+        function showError(error) {
+            alert("Gagal mengambil lokasi. Pastikan izin lokasi diaktifkan.");
+        }
 
-        var action =
-          '<td> <div class="form-button-action"> <button type="button" data-bs-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-bs-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
+        // PREVIEW FILE / FOTO
+        function previewFile(event) {
+            let file = event.target.files[0];
+            let previewImage = document.getElementById("previewImage");
+            let fileName = document.getElementById("fileName");
 
-        $("#addRowButton").click(function () {
-          $("#add-row")
-            .dataTable()
-            .fnAddData([
-              $("#addName").val(),
-              $("#addPosition").val(),
-              $("#addOffice").val(),
-              action,
-            ]);
-          $("#addRowModal").modal("hide");
-        });
-      });
+            if (!file) return;
+
+            // Jika file adalah gambar → tampilkan preview
+            if (file.type.startsWith("image/")) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = "block";
+                    fileName.style.display = "none";
+                }
+                reader.readAsDataURL(file);
+            } else {
+                // Jika file PDF / Word → tampilkan nama file saja
+                previewImage.style.display = "none";
+                fileName.innerText = "File terupload: " + file.name;
+                fileName.style.display = "block";
+            }
+        }
     </script>
+
+    <!-- preview form dokumentasi-->
+    <script>
+    function previewFoto(event) {
+        const input = event.target;
+        const preview = document.getElementById('preview-foto');
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   </body>
 </html>
-

@@ -124,7 +124,7 @@
                 </a>
               </li>
                 <li class="nav-item">
-                    <a  href="{{url('pegawai-index')}}">
+                    <a  href="{{route('pegawai.index')}}">
                     <i class='bx bxs-user-badge'></i>
                     <p>Pegawai</p>
                     </a>
@@ -138,7 +138,7 @@
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{ url('form-izin-index') }}">
+                      <a href="{{ route('izin.index') }}">
                         <span class="sub-item">Form Izin</span>
                       </a>
                     </li>
@@ -617,7 +617,7 @@
         <div class="container">
           <div class="page-inner">
             <div class="page-header">
-              <h3 class="fw-bold mb-3">Forms</h3>
+              <h3 class="fw-bold mb-3">Dokumentasi</h3>
               <ul class="breadcrumbs mb-3">
                 <li class="nav-home">
                   <a href="#">
@@ -634,89 +634,113 @@
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="#">Basic Form</a>
+                  <a href="#">Dokumentasi</a>
                 </li>
               </ul>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-
-                        <!-- Header -->
-                        <div class="card-header">
-                            <h4 class="card-title mb-0">Lokasi & Dokumentasi</h4>
-                        </div>
-
-                        <!-- Body -->
-                        <div class="card-body">
-
-                            <!-- Tombol Lokasi -->
-                            <div class="mb-3">
-                                <button onclick="getLocation()" class="btn btn-primary me-2">
-                                    📍 Ambil Lokasi Saya
-                                </button>
-
-                                <button onclick="getLocation()" type="button" class="btn btn-secondary">
-                                    🔍 Cari Lokasi
-                                </button>
-                            </div>
-
-                            <!-- Input Lokasi Text -->
-                            <div class="mb-3">
-                                <label for="lokasi" class="form-label">Tagging Lokasi</label>
-                                <input type="text" id="lokasi" name="lokasi" readonly
-                                    class="form-control" placeholder="Koordinat akan muncul otomatis...">
-                            </div>
-
-                            <!-- Input Koordinat -->
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label class="form-label">Latitude</label>
-                                    <input type="text" id="lat" name="latitude" class="form-control" readonly>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label class="form-label">Longitude</label>
-                                    <input type="text" id="lng" name="longitude" class="form-control" readonly>
-                                </div>
-                            </div>
-
-                            <!-- MAPS -->
-                            <div class="mb-4">
-                                <label class="form-label">Preview Lokasi</label>
-                                <div style="width: 100%; height: 350px;">
-                                    <iframe id="mapFrame"
-                                            width="100%" height="100%"
-                                            style="border: 0; border-radius: 10px;"
-                                            src="https://maps.google.com/maps?q=martapura&z=15&output=embed">
-                                    </iframe>
-                                </div>
-                            </div>
-
-                            <!-- Upload Dokumen -->
-                            <div class="mb-3">
-                                <label for="foto" class="form-label">Upload Dokumentasi (Foto / Dokumen)</label>
-                                <input type="file" id="foto" name="foto" class="form-control"
-                                    accept="image/*,.pdf,.doc,.docx" onchange="previewFile(event)">
-                            </div>
-
-                            <!-- Preview Gambar / Nama File -->
-                            <div class="mt-3">
-                                <img id="previewImage" src=""
-                                    style="max-width: 250px; display: none; border-radius: 10px;">
-
-                                <p id="fileName"
-                                style="display:none; font-weight: bold; margin-top: 10px;">
-                                </p>
-                            </div>
-
-                        </div>
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="d-flex align-items-center">
+                        <h4 class="card-title">Tabel Dokumentasi</h4>
+                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('dokumentasi.create') }}">
+                            <i class="fa fa-plus"></i>
+                            Tambah Dokumentasi
+                        </a>
                     </div>
+                  </div>
+                  <div class="card-body">
+
+                    @if(session('success'))
+                    <script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Berhasil!',
+                            text: '{{ session("success") }}',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    </script>
+                    @endif
+
+                    <div class="table-responsive">
+                      <table
+                        id="basic-datatables"
+                        class="display table table-striped table-hover">
+                        <thead class="text-center align-middle">
+                          <tr>
+                            <th>Foto</th>
+                            <th>Lokasi</th>
+                            <th style="width: 10%">Action</th>
+                          </tr>
+                        </thead>
+                        <tfoot class="text-center align-middle">
+                          <tr>
+                            <th>Foto</th>
+                            <th>Lokasi</th>
+                            <th style="width: 10%">Action</th>
+                          </tr>
+                        </tfoot>
+                        <tbody class="text-center align-middle">
+                            @forelse ($dokumentasis as $dokumentasi)
+                                <tr>
+                                    <td>
+                                        <img src="{{ Storage::url($dokumentasi->foto) }}" width="100">
+                                    </td>
+                                    <td>
+                                        {{ $dokumentasi->latitude }}, {{ $dokumentasi->longitude }}
+                                    </td>
+                                    <td>
+                                    <div class="form-button-action d-flex gap-2">
+
+                                        {{-- SHOW / DETAIL --}}
+                                        <a href="{{ route('dokumentasi.show', $dokumentasi->id_dokumentasi) }}"
+                                        class="btn btn-link btn-info"
+                                        data-bs-toggle="tooltip"
+                                        title="Lihat Detail">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+
+                                        {{-- EDIT --}}
+                                        <a href="{{ route('dokumentasi.edit', $dokumentasi->id_dokumentasi) }}"
+                                        class="btn btn-link btn-primary"
+                                        data-bs-toggle="tooltip"
+                                        title="Edit">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+
+                                        {{-- DELETE --}}
+                                        <form action="{{ route('dokumentasi.destroy', $dokumentasi->id_dokumentasi) }}"
+                                            method="POST"
+                                            onsubmit="return confirm('Yakin hapus data ini?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                    class="btn btn-link btn-danger"
+                                                    data-bs-toggle="tooltip"
+                                                    title="Hapus">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </form>
+
+                                    </div>
+                                    </td>
+                                </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="10" class="text-center">Tidak ada data dokumentasi</td>
+                                    </tr>
+                            @endforelse
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
+              </div>
+
+
             </div>
-
-
-
           </div>
         </div>
 
@@ -1038,6 +1062,7 @@
         }
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
   </body>

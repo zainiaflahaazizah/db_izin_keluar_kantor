@@ -118,7 +118,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="{{url('form-dokumentasi-index')}}">
+                      <a href="{{route('dokumentasi.index')}}">
                         <span class="sub-item">Form Dokumentasi</span>
                       </a>
                     </li>
