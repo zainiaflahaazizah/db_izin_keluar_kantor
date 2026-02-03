@@ -104,13 +104,13 @@
                 <h4 class="text-section">Components</h4>
               </li>
               <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#base">
+                <a href="{{ route('akun.index') }}">
                   <i class='bx bxs-user-circle'></i>
-                  <p>User</p>
+                  <p>Akun</p>
                 </a>
               </li>
                 <li class="nav-item">
-                    <a  href="{{url('pegawai-index')}}">
+                    <a  href="{{route('pegawai.index')}}">
                     <i class='bx bxs-user-badge'></i>
                     <p>Pegawai</p>
                     </a>
@@ -124,12 +124,12 @@
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{ url('form-izin-index') }}">
+                      <a href="{{ route('izin.index') }}">
                         <span class="sub-item">Form Izin</span>
                       </a>
                     </li>
                     <li>
-                      <a href="{{url('form-dokumentasi-index')}}">
+                      <a href="{{route('dokumentasi.index')}}">
                         <span class="sub-item">Form Dokumentasi</span>
                       </a>
                     </li>
@@ -139,7 +139,7 @@
               <li class="nav-item">
                 <a href="{{url('approval')}}">
                   <i class="fas fa-table"></i>
-                  <p>Approval</p>
+                  <p>Persetujuan</p>
                 </a>
                 <div class="collapse" id="tables">
                   <ul class="nav nav-collapse">

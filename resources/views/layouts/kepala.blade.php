@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Datatables - Kaiadmin Bootstrap 5 Admin Dashboard</title>
+    <title>Forms - Kaiadmin Bootstrap 5 Admin Dashboard</title>
     <meta
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       name="viewport"
@@ -40,6 +40,33 @@
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        .input-box {
+            position: relative;
+        }
+
+        .input-box i.bx-chevron-down {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            font-size: 1.2rem;
+            color: #6c757d;
+            pointer-events: none;
+        }
+
+        .input-box select.form-control {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            padding-right: 40px;
+        }
+    </style>
+
   </head>
   <body>
     <div class="wrapper">
@@ -75,24 +102,13 @@
             <ul class="nav nav-secondary">
               <li class="nav-item">
                 <a
-                  data-bs-toggle="collapse"
-                  href="#dashboard"
+                  href="{{url('dashboard')}}"
                   class="collapsed"
                   aria-expanded="false"
                 >
                   <i class="fas fa-home"></i>
                   <p>Dashboard</p>
-                  <span class="caret"></span>
                 </a>
-                <div class="collapse" id="dashboard">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="../../demo1/index.html">
-                        <span class="sub-item">Dashboard 1</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
               </li>
               <li class="nav-section">
                 <span class="sidebar-mini-icon">
@@ -100,83 +116,12 @@
                 </span>
                 <h4 class="text-section">Components</h4>
               </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#base">
-                  <i class="fas fa-layer-group"></i>
-                  <p>Base</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="base">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="../components/avatars.html">
-                        <span class="sub-item">Avatars</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="../components/buttons.html">
-                        <span class="sub-item">Buttons</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="../components/gridsystem.html">
-                        <span class="sub-item">Grid System</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="../components/panels.html">
-                        <span class="sub-item">Panels</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="../components/notifications.html">
-                        <span class="sub-item">Notifications</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="../components/sweetalert.html">
-                        <span class="sub-item">Sweet Alert</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="../components/font-awesome-icons.html">
-                        <span class="sub-item">Font Awesome Icons</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="../components/simple-line-icons.html">
-                        <span class="sub-item">Simple Line Icons</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="../components/typography.html">
-                        <span class="sub-item">Typography</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarLayouts">
-                  <i class="fas fa-th-list"></i>
-                  <p>Sidebar Layouts</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="sidebarLayouts">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="../sidebar-style-2.html">
-                        <span class="sub-item">Sidebar Style 2</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="../icon-menu.html">
-                        <span class="sub-item">Icon Menu</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
+                <li class="nav-item">
+                    <a  href="{{url('pegawai-index')}}">
+                    <i class='bx bxs-user-badge'></i>
+                    <p>Pegawai</p>
+                    </a>
+                </li>
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#forms">
                   <i class="fas fa-pen-square"></i>
@@ -186,28 +131,32 @@
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="../forms/forms.html">
-                        <span class="sub-item">Basic Form</span>
+                      <a href="{{ route('izin.index') }}">
+                        <span class="sub-item">Form Izin</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{route('dokumentasi.index')}}">
+                        <span class="sub-item">Form Dokumentasi</span>
                       </a>
                     </li>
                   </ul>
                 </div>
               </li>
-              <li class="nav-item active submenu">
-                <a data-bs-toggle="collapse" href="#tables">
+              <li class="nav-item">
+                <a href="{{url('approval')}}">
                   <i class="fas fa-table"></i>
-                  <p>Tables</p>
-                  <span class="caret"></span>
+                  <p>Approval</p>
                 </a>
-                <div class="collapse show" id="tables">
+                <div class="collapse" id="tables">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="../tables/tables.html">
+                      <a href="tables/tables.html">
                         <span class="sub-item">Basic Table</span>
                       </a>
                     </li>
-                    <li class="active">
-                      <a href="../tables/datatables.html">
+                    <li>
+                      <a href="tables/datatables.html">
                         <span class="sub-item">Datatables</span>
                       </a>
                     </li>
@@ -234,41 +183,6 @@
                     </li>
                   </ul>
                 </div>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#charts">
-                  <i class="far fa-chart-bar"></i>
-                  <p>Charts</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="charts">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="../charts/charts.html">
-                        <span class="sub-item">Chart Js</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="../charts/sparkline.html">
-                        <span class="sub-item">Sparkline</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a href="../widgets.html">
-                  <i class="fas fa-desktop"></i>
-                  <p>Widgets</p>
-                  <span class="badge badge-success">4</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../../documentation/index.html">
-                  <i class="fas fa-file"></i>
-                  <p>Documentation</p>
-                  <span class="badge badge-secondary">1</span>
-                </a>
               </li>
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#submenu">
@@ -337,7 +251,6 @@
                   src="../assets/img/kaiadmin/logo_light.svg"
                   alt="navbar brand"
                   class="navbar-brand"
-                  height="20"
                 />
               </a>
               <div class="nav-toggle">
@@ -710,132 +623,6 @@
           <!-- End Navbar -->
         </div>
 
-        <div class="container">
-          <div class="page-inner">
-            <div class="page-header">
-              <h3 class="fw-bold mb-3">Tabel Izin Anggota</h3>
-              <ul class="breadcrumbs mb-3">
-                <li class="nav-home">
-                  <a href="#">
-                    <i class="icon-home"></i>
-                  </a>
-                </li>
-                <li class="separator">
-                  <i class="icon-arrow-right"></i>
-                </li>
-                <li class="nav-item">
-                  <a href="#">Tables</a>
-                </li>
-                <li class="separator">
-                  <i class="icon-arrow-right"></i>
-                </li>
-                <li class="nav-item">
-                  <a href="#">Datatables</a>
-                </li>
-              </ul>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="card">
-                  <div class="card-header">
-                    <div class="d-flex align-items-center">
-                        <h4 class="card-title">Tabel Izin</h4>
-                        <button class="btn btn-primary btn-round ms-auto"
-                        data-bs-toggle="modal"
-                        data-bs-target="#addRowModal">
-                        <i class="fa fa-plus"></i>
-                        Tambah Izin
-                        </button>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <div class="table-responsive">
-                      <table
-                        id="basic-datatables"
-                        class="display table table-striped table-hover">
-                        <thead>
-                          <tr>
-                            <th>Nama</th>
-                            <th>NIP</th>
-                            <th>Jabatan</th>
-                            <th>Alasan</th>
-                            <th>Jam Keluar</th>
-                            <th>Jam Kembali</th>
-                            <th>Keterangan</th>
-                            <th>Tujuan Persetujuan</th>
-                            <th>Status</th>
-                          </tr>
-                        </thead>
-                        <tfoot>
-                          <tr>
-                            <th>Nama</th>
-                            <th>NIP</th>
-                            <th>Jabatan</th>
-                            <th>Alasan</th>
-                            <th>Jam Keluar</th>
-                            <th>Jam Kembali</th>
-                            <th>Keterangan</th>
-                            <th>Tujuan Persetujuan</th>
-                            <th>Status</th>
-                          </tr>
-                        </tfoot>
-                        <tbody>
-                          <tr>
-                            <td>Nama</td>
-                            <td>NIP</td>
-                            <td>Jabatan</td>
-                            <td>Alasan</td>
-                            <td>Jam Keluar</td>
-                            <td>Jam Kembali</td>
-                            <td>Keterangan</td>
-                            <td>Tujuan Persetujuan</td>
-                            <td>Status</td>
-                          </tr>
-                          <tr>
-                            <td>Nama</td>
-                            <td>NIP</td>
-                            <td>Jabatan</td>
-                            <td>Alasan</td>
-                            <td>Jam Keluar</td>
-                            <td>Jam Kembali</td>
-                            <td>Keterangan</td>
-                            <td>Tujuan Persetujuan</td>
-                            <td>Status</td>
-                          </tr>
-                          <tr>
-                            <td>Nama</td>
-                            <td>NIP</td>
-                            <td>Jabatan</td>
-                            <td>Alasan</td>
-                            <td>Jam Keluar</td>
-                            <td>Jam Kembali</td>
-                            <td>Keterangan</td>
-                            <td>Tujuan Persetujuan</td>
-                            <td>Status</td>
-                          </tr>
-                          <tr>
-                            <td>Nama</td>
-                            <td>NIP</td>
-                            <td>Jabatan</td>
-                            <td>Alasan</td>
-                            <td>Jam Keluar</td>
-                            <td>Jam Kembali</td>
-                            <td>Keterangan</td>
-                            <td>Tujuan Persetujuan</td>
-                            <td>Status</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-            </div>
-          </div>
-        </div>
-
         <footer class="footer">
           <div class="container-fluid d-flex justify-content-between">
             <nav class="pull-left">
@@ -1067,69 +854,113 @@
 
     <!-- jQuery Scrollbar -->
     <script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+    <!-- Chart JS -->
+    <script src="../assets/js/plugin/chart.js/chart.min.js"></script>
+
+    <!-- jQuery Sparkline -->
+    <script src="../assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Chart Circle -->
+    <script src="../assets/js/plugin/chart-circle/circles.min.js"></script>
+
     <!-- Datatables -->
     <script src="../assets/js/plugin/datatables/datatables.min.js"></script>
+
+    <!-- Bootstrap Notify -->
+    <script src="../assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+    <!-- jQuery Vector Maps -->
+    <script src="../assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
+    <script src="../assets/js/plugin/jsvectormap/world.js"></script>
+
+    <!-- Google Maps Plugin -->
+    <script src="../assets/js/plugin/gmaps/gmaps.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="../assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+
     <!-- Kaiadmin JS -->
     <script src="../assets/js/kaiadmin.min.js"></script>
+
     <!-- Kaiadmin DEMO methods, don't include it in your project! -->
     <script src="../assets/js/setting-demo2.js"></script>
+
     <script>
-      $(document).ready(function () {
-        $("#basic-datatables").DataTable({});
+    // AMBIL LOKASI USER
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert("Browser tidak mendukung geolocation.");
+            }
+        }
 
-        $("#multi-filter-select").DataTable({
-          pageLength: 5,
-          initComplete: function () {
-            this.api()
-              .columns()
-              .every(function () {
-                var column = this;
-                var select = $(
-                  '<select class="form-select"><option value=""></option></select>'
-                )
-                  .appendTo($(column.footer()).empty())
-                  .on("change", function () {
-                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+        // POSISI DITEMUKAN
+        function showPosition(position) {
+            let lat = position.coords.latitude;
+            let lng = position.coords.longitude;
 
-                    column
-                      .search(val ? "^" + val + "$" : "", true, false)
-                      .draw();
-                  });
+            // Isi input koordinat
+            document.getElementById("lat").value = lat;
+            document.getElementById("lng").value = lng;
 
-                column
-                  .data()
-                  .unique()
-                  .sort()
-                  .each(function (d, j) {
-                    select.append(
-                      '<option value="' + d + '">' + d + "</option>"
-                    );
-                  });
-              });
-          },
-        });
+            // Update map
+            document.getElementById("mapFrame").src =
+                `https://maps.google.com/maps?q=${lat},${lng}&z=15&output=embed`;
+        }
 
-        // Add Row
-        $("#add-row").DataTable({
-          pageLength: 5,
-        });
+        // ERROR LOKASI
+        function showError(error) {
+            alert("Gagal mengambil lokasi. Pastikan izin lokasi diaktifkan.");
+        }
 
-        var action =
-          '<td> <div class="form-button-action"> <button type="button" data-bs-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-bs-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
+        // PREVIEW FILE / FOTO
+        function previewFile(event) {
+            let file = event.target.files[0];
+            let previewImage = document.getElementById("previewImage");
+            let fileName = document.getElementById("fileName");
 
-        $("#addRowButton").click(function () {
-          $("#add-row")
-            .dataTable()
-            .fnAddData([
-              $("#addName").val(),
-              $("#addPosition").val(),
-              $("#addOffice").val(),
-              action,
-            ]);
-          $("#addRowModal").modal("hide");
-        });
-      });
+            if (!file) return;
+
+            // Jika file adalah gambar → tampilkan preview
+            if (file.type.startsWith("image/")) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = "block";
+                    fileName.style.display = "none";
+                }
+                reader.readAsDataURL(file);
+            } else {
+                // Jika file PDF / Word → tampilkan nama file saja
+                previewImage.style.display = "none";
+                fileName.innerText = "File terupload: " + file.name;
+                fileName.style.display = "block";
+            }
+        }
     </script>
+
+    <!-- preview form dokumentasi-->
+    <script>
+    function previewFoto(event) {
+        const input = event.target;
+        const preview = document.getElementById('preview-foto');
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   </body>
 </html>
-

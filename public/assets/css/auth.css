@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('../img/flower1 (1).jpeg') no-repeat;
+    background: url('../img/bps.jpeg') no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -75,10 +75,10 @@ body {
 
 .input-box input:focus + label,
 .input-box input:not(:placeholder-shown) + label {
-    top: -3px; /* Pindahkan ke atas, sejajar dengan border */
+    top: -15px; /* Pindahkan ke atas, sejajar dengan border */
     font-size: 0.8em; /* Kecilkan sedikit */
     color: #9933FF; /* Ubah warna menjadi ungu */
-    background: black; /* Warna latar belakang body Anda */
+    /*background: black; /* Warna latar belakang body Anda */
     padding: 0 8px; /* Tambahkan padding agar 'memotong' border dengan rapi */
     left: 15px; /* Sesuaikan posisi horizontal sedikit */
 }

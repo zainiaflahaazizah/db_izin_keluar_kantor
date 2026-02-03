@@ -4,10 +4,11 @@
 
 @section('content')
 
-        <div class="container">
+
+<div class="container">
           <div class="page-inner">
             <div class="page-header">
-              <h3 class="fw-bold mb-3">Tabel Pegawai</h3>
+              <h3 class="fw-bold mb-3">Akun</h3>
               <ul class="breadcrumbs mb-3">
                 <li class="nav-home">
                   <a href="#">
@@ -18,7 +19,13 @@
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('pegawai.index') }}">Pegawai</a>
+                  <a href="#">Forms</a>
+                </li>
+                <li class="separator">
+                  <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                  <a href="#">Akun</a>
                 </li>
               </ul>
             </div>
@@ -27,10 +34,10 @@
                 <div class="card">
                   <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title">Tabel Pegawai</h4>
-                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('pegawai.create') }}">
-                        <i class="fa fa-plus"></i>
-                        Tambah Pegawai
+                        <h4 class="card-title">Tabel Akun</h4>
+                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('akun.create') }}">
+                            <i class="fa fa-plus"></i>
+                            Tambah Akun
                         </a>
                     </div>
                   </div>
@@ -54,54 +61,31 @@
                         class="display table table-striped table-hover">
                         <thead class="text-center align-middle">
                           <tr>
-                            <th>Nama</th>
-                            <th>NIP</th>
-                            <th>NIP BPS</th>
-                            <th>Jabatan</th>
-                            <th>Wilayah</th>
-                            <th>Status</th>
-                            <th>Pendidikan</th>
-                            <th>Tempat Lahir</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Agama</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Role</th>
                             <th style="width: 10%">Action</th>
                           </tr>
                         </thead>
-
                         <tfoot class="text-center align-middle">
                           <tr>
-                            <th>Nama</th>
-                            <th>NIP</th>
-                            <th>NIP BPS</th>
-                            <th>Jabatan</th>
-                            <th>Wilayah</th>
-                            <th>Status</th>
-                            <th>Pendidikan</th>
-                            <th>Tempat Lahir</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Agama</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Role</th>
                             <th style="width: 10%">Action</th>
                           </tr>
                         </tfoot>
-
                         <tbody>
-                            @forelse ($pegawais as $pegawai)
+                            @forelse ($akuns as $akun)
                                 <tr>
-                                    <td>{{ $pegawai->nama }}</td>
-                                    <td>{{ $pegawai->nip }}</td>
-                                    <td>{{ $pegawai->nip_bps }}</td>
-                                    <td>{{ $pegawai->jabatan }}</td>
-                                    <td>{{ $pegawai->wilayah }}</td>
-                                    <td>{{ $pegawai->status }}</td>
-                                    <td>{{ $pegawai->pendidikan }}</td>
-                                    <td>{{ $pegawai->tempat_lahir }}</td>
-                                    <td>{{ $pegawai->tanggal_lahir }}</td>
-                                    <td>{{ $pegawai->agama }}</td>
+                                    <td>{{ $akun->username }}</td>
+                                    <td>{{ $akun->password }}</td>
+                                    <td>{{ $akun->role }}</td>
                                     <td>
                                     <div class="form-button-action d-flex gap-2">
 
                                         {{-- SHOW / DETAIL --}}
-                                        <a href="{{ route('pegawai.show', $pegawai->id_pegawai) }}"
+                                        <a href="{{ route('akun.show', $akun->id_akun) }}"
                                         class="btn btn-link btn-info"
                                         data-bs-toggle="tooltip"
                                         title="Lihat Detail">
@@ -109,15 +93,15 @@
                                         </a>
 
                                         {{-- EDIT --}}
-                                        <a href="{{ route('pegawai.edit', $pegawai->id_pegawai) }}"
+                                        <a href="{{ route('akun.edit', $akun->id_akun) }}"
                                         class="btn btn-link btn-primary"
                                         data-bs-toggle="tooltip"
                                         title="Edit">
                                             <i class="fa fa-edit"></i>
                                         </a>
 
-                                        {{-- DELETE --}}
-                                        <form action="{{ route('pegawai.destroy', $pegawai->id_pegawai) }}"
+
+                                        <form action="{{ route('akun.destroy', $akun->id_akun) }}"
                                             method="POST"
                                             onsubmit="return confirm('Yakin hapus data ini?');">
                                             @csrf
@@ -135,20 +119,18 @@
                                 </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="10" class="text-center">Tidak ada data pegawai</td>
+                                        <td colspan="10" class="text-center">Tidak ada data akun</td>
                                     </tr>
                             @endforelse
                         </tbody>
                       </table>
                     </div>
-                        {{-- <div class="d-flex justify-content-center mt-3">
-                            {{ $pegawais->links() }}
-                        </div> --}}
                   </div>
                 </div>
               </div>
+
+
             </div>
           </div>
         </div>
-
 @endsection

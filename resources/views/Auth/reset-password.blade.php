@@ -42,7 +42,7 @@
       <button type="submit" class="btn">Kirim Tautan Reset</button>
 
       <div class="register-link">
-        <p><a href="#">Kembali ke Login</a></p>
+        <p><a href="{{ url ('') }}">Kembali ke Login</a></p>
       </div>
     </form>
   </div>

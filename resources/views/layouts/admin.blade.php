@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Forms - Kaiadmin Bootstrap 5 Admin Dashboard</title>
+    <title>Datatables - Kaiadmin Bootstrap 5 Admin Dashboard</title>
     <meta
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       name="viewport"
@@ -37,36 +37,11 @@
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/css/plugins.min.css" />
     <link rel="stylesheet" href="../assets/css/kaiadmin.min.css" />
-    <link rel="stylesheet" href="../assets/css/form-dokumentasi.css" />
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="../assets/css/demo.css" />
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-    <style>
-        .input-box {
-            position: relative;
-        }
-
-        .input-box i.bx-chevron-down {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 2;
-            font-size: 1.2rem;
-            color: #6c757d;
-            pointer-events: none;
-        }
-
-        .input-box select.form-control {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            padding-right: 40px;
-        }
-    </style>
 
   </head>
   <body>
@@ -118,7 +93,7 @@
                 <h4 class="text-section">Components</h4>
               </li>
               <li class="nav-item">
-                <a href="{{route('akun.index')}}">
+                <a href="{{ route('akun.index') }}">
                   <i class='bx bxs-user-circle'></i>
                   <p>Akun</p>
                 </a>
@@ -153,7 +128,7 @@
               <li class="nav-item">
                 <a href="{{url('approval')}}">
                   <i class="fas fa-table"></i>
-                  <p>Persetujuan</p>
+                  <p>Approval</p>
                 </a>
                 <div class="collapse" id="tables">
                   <ul class="nav nav-collapse">
@@ -242,6 +217,7 @@
                   src="../assets/img/kaiadmin/logo_light.svg"
                   alt="navbar brand"
                   class="navbar-brand"
+                  height="20"
                 />
               </a>
               <div class="nav-toggle">
@@ -614,149 +590,7 @@
           <!-- End Navbar -->
         </div>
 
-        <div class="container">
-            <div class="page-inner">
-
-                <!-- PAGE HEADER -->
-                <div class="page-header">
-                    <h3 class="fw-bold mb-3">Dokumentasi</h3>
-
-                    <ul class="breadcrumbs mb-3">
-                        <li class="nav-home">
-                            <a href="{{ url('dashboard') }}">
-                                <i class="icon-home"></i>
-                            </a>
-                        </li>
-
-                        <li class="separator">
-                            <i class="icon-arrow-right"></i>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('izin.index') }}">Forms</a>
-                        </li>
-
-                        <li class="separator">
-                            <i class="icon-arrow-right"></i>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('dokumentasi.index') }}">Dokumentasi</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- END PAGE HEADER -->
-
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <!-- FORM -->
-                        <form action="{{ route('dokumentasi.store') }}" method="POST" id="dokumentasiForm" enctype="multipart/form-data">
-                            @csrf
-
-                            <div class="card">
-
-                                <!-- CARD HEADER -->
-                                <div class="card-header">
-                                    <div class="card-title">
-                                        Formulir Pengajuan Dokumentasi Keluar Kantor
-                                    </div>
-                                </div>
-
-                                <!-- CARD BODY -->
-                                <div class="card-body">
-                                    <div class="row">
-
-                                        <!-- KOLOM KIRI -->
-                                        <div class="col-md-6">
-
-                                            <div class="form-group">
-                                                <!-- Upload Dokumen -->
-                                                <div class="mb-3">
-                                                    <label for="foto" class="form-label">Upload Foto</label>
-                                                    <input type="file" id="foto" name="foto" class="form-control"
-                                                        accept="image/jpeg,image/png,image/jpg" onchange="previewFile(event)">
-                                                </div>
-
-                                                @error('foto')
-                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
-                                                @enderror
-
-                                                <!-- Preview Gambar / Nama File -->
-                                                <div class="mt-3">
-                                                    <img id="previewImage" src=""
-                                                        style="max-width: 250px; display: none; border-radius: 10px;">
-
-                                                    <p id="fileName"
-                                                    style="display:none; font-weight: bold; margin-top: 10px;">
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                        {{--<div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="mb-3">
-                                                    <input type="hidden"    name="id_izin" value="{{ $izin->id }}">
-                                                </div>
-                                            </div>
-                                        </div>  --}}
-
-                                        {{-- <div class="col-md-6">
-
-                                            <div class="form-group">
-                                                <label>Lokasi (Otomatis dari Peta)</label>
-
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <input
-                                                            type="text"
-                                                            name="latitude"
-                                                            id="latitude"
-                                                            class="form-control @error('latitude') is-invalid @enderror"
-                                                            placeholder="Latitude"
-                                                            readonly>
-                                                        </div>
-
-                                                    <div class="col-md-6">
-                                                        <input
-                                                            type="text"
-                                                            name="longitude"
-                                                            id="longitude"
-                                                            class="form-control @error('longitude') is-invalid @enderror"
-                                                            placeholder="Longitude"
-                                                            readonly>
-                                                        </div>
-                                                    </div>
-
-                                                    @error('latitude')
-                                                        <div class="alert alert-danger mt-2">{{ $message }}</div>
-                                                    @enderror
-                                                    @error('longitude')
-                                                        <div class="alert alert-danger mt-2">{{ $message }}</div>
-                                                    @enderror
-                                                </div>
-                                            </div> --}}
-                                        </div>
-                                        <!-- END KOLOM KIRI -->
-                                    </div>
-                                </div>
-                                <!-- END CARD BODY -->
-
-                                <!-- CARD ACTION -->
-                                <div class="card-action d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-success">Simpan</button>
-                                    <a href="{{ route('dokumentasi.index') }}" class="btn btn-danger ms-2">Batal</a>
-                                </div>
-
-                            </div>
-                        </form>
-                        <!-- END FORM -->
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
+         @yield('content')
 
         <footer class="footer">
           <div class="container-fluid d-flex justify-content-between">
@@ -989,110 +823,68 @@
 
     <!-- jQuery Scrollbar -->
     <script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-
-    <!-- Chart JS -->
-    <script src="../assets/js/plugin/chart.js/chart.min.js"></script>
-
-    <!-- jQuery Sparkline -->
-    <script src="../assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
-
-    <!-- Chart Circle -->
-    <script src="../assets/js/plugin/chart-circle/circles.min.js"></script>
-
     <!-- Datatables -->
     <script src="../assets/js/plugin/datatables/datatables.min.js"></script>
-
-    <!-- Bootstrap Notify -->
-    <script src="../assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
-
-    <!-- jQuery Vector Maps -->
-    <script src="../assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
-    <script src="../assets/js/plugin/jsvectormap/world.js"></script>
-
-    <!-- Google Maps Plugin -->
-    <script src="../assets/js/plugin/gmaps/gmaps.js"></script>
-
-    <!-- Sweet Alert -->
-    <script src="../assets/js/plugin/sweetalert/sweetalert.min.js"></script>
-
     <!-- Kaiadmin JS -->
     <script src="../assets/js/kaiadmin.min.js"></script>
-
     <!-- Kaiadmin DEMO methods, don't include it in your project! -->
     <script src="../assets/js/setting-demo2.js"></script>
-
     <script>
-    // AMBIL LOKASI USER
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition, showError);
-            } else {
-                alert("Browser tidak mendukung geolocation.");
-            }
-        }
+      $(document).ready(function () {
+        $("#basic-datatables").DataTable({});
 
-        // POSISI DITEMUKAN
-        function showPosition(position) {
-            let lat = position.coords.latitude;
-            let lng = position.coords.longitude;
+        $("#multi-filter-select").DataTable({
+          pageLength: 5,
+          initComplete: function () {
+            this.api()
+              .columns()
+              .every(function () {
+                var column = this;
+                var select = $(
+                  '<select class="form-select"><option value=""></option></select>'
+                )
+                  .appendTo($(column.footer()).empty())
+                  .on("change", function () {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-            // Isi input koordinat
-            document.getElementById("lat").value = lat;
-            document.getElementById("lng").value = lng;
+                    column
+                      .search(val ? "^" + val + "$" : "", true, false)
+                      .draw();
+                  });
 
-            // Update map
-            document.getElementById("mapFrame").src =
-                `https://maps.google.com/maps?q=${lat},${lng}&z=15&output=embed`;
-        }
+                column
+                  .data()
+                  .unique()
+                  .sort()
+                  .each(function (d, j) {
+                    select.append(
+                      '<option value="' + d + '">' + d + "</option>"
+                    );
+                  });
+              });
+          },
+        });
 
-        // ERROR LOKASI
-        function showError(error) {
-            alert("Gagal mengambil lokasi. Pastikan izin lokasi diaktifkan.");
-        }
+        // Add Row
+        $("#add-row").DataTable({
+          pageLength: 5,
+        });
 
-        // PREVIEW FILE / FOTO
-        function previewFile(event) {
-            let file = event.target.files[0];
-            let previewImage = document.getElementById("previewImage");
-            let fileName = document.getElementById("fileName");
+        var action =
+          '<td> <div class="form-button-action"> <button type="button" data-bs-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-bs-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
 
-            if (!file) return;
-
-            // Jika file adalah gambar → tampilkan preview
-            if (file.type.startsWith("image/")) {
-                let reader = new FileReader();
-                reader.onload = function(e) {
-                    previewImage.src = e.target.result;
-                    previewImage.style.display = "block";
-                    fileName.style.display = "none";
-                }
-                reader.readAsDataURL(file);
-            } else {
-                // Jika file PDF / Word → tampilkan nama file saja
-                previewImage.style.display = "none";
-                fileName.innerText = "File terupload: " + file.name;
-                fileName.style.display = "block";
-            }
-        }
-    </script>
-
-    <!-- preview form dokumentasi-->
-    <script>
-    function previewFoto(event) {
-        const input = event.target;
-        const preview = document.getElementById('preview-foto');
-
-        if (input.files && input.files[0]) {
-            const reader = new FileReader();
-
-            reader.onload = function(e) {
-                preview.src = e.target.result;
-                preview.style.display = 'block';
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
+        $("#addRowButton").click(function () {
+          $("#add-row")
+            .dataTable()
+            .fnAddData([
+              $("#addName").val(),
+              $("#addPosition").val(),
+              $("#addOffice").val(),
+              action,
+            ]);
+          $("#addRowModal").modal("hide");
+        });
+      });
     </script>
   </body>
 </html>

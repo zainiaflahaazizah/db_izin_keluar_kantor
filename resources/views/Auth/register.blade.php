@@ -18,11 +18,11 @@
                 <label>Username</label>
                 <i class='bx bxs-user'></i>
             </div>
-            <div class="input-box">
+            {{-- <div class="input-box">
                 <input type="email" name="email" placeholder=" " required>
                 <label>Email</label>
                 <i class='bx bxs-user'></i>
-            </div>
+            </div> --}}
             <div class="input-box">
                 <input type="Password" name="password" placeholder=" " required>
                 <label>Password</label>

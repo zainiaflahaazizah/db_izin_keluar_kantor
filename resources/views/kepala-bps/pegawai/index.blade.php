@@ -1,10 +1,12 @@
-@extends('layouts.admin')
+@extends('layouts.kepala')
 
-@section('title', 'Data Akun')
+@section('title', 'Pegawai')
+@section('page-title', 'Daftar Pegawai')
+
 
 @section('content')
 
-        <div class="container">
+<div class="container">
           <div class="page-inner">
             <div class="page-header">
               <h3 class="fw-bold mb-3">Tabel Pegawai</h3>

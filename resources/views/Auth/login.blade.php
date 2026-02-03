@@ -14,8 +14,8 @@
         <form action="">
             <h1>Login</h1>
             <div class="input-box">
-                <input type="text" name="email_username" placeholder=" " required>
-                <label>Email atau Username</label>
+                <input type="text" name="username" placeholder=" " required>
+                <label>Username</label>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
@@ -30,9 +30,9 @@
             </div>
 
             <button type="submit" class="btn">Masuk</button>
-            <div class="register-link">
+            {{-- <div class="register-link">
                 <p>Belum punya akun? <a href="#">register</a></p>
-            </div>
+            </div> --}}
         </form>
     </div>
 
