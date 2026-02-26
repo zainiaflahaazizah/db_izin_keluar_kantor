@@ -93,7 +93,7 @@
                 <h4 class="text-section">Components</h4>
               </li>
               <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#base">
+                <a href="{{route('akun.index')}}">
                   <i class='bx bxs-user-circle'></i>
                   <p>Akun</p>
                 </a>
@@ -595,11 +595,11 @@
             <div class="page-header">
               <h3 class="fw-bold mb-3">Izin</h3>
               <ul class="breadcrumbs mb-3">
-                <li class="nav-home">
+                {{-- <li class="nav-home">
                   <a href="#">
                     <i class="icon-home"></i>
                   </a>
-                </li>
+                </li> --}}
                 <li class="separator">
                   <i class="icon-arrow-right"></i>
                 </li>
@@ -611,7 +611,7 @@
                 </li>
                 <li class="nav-item">
                   <a href="#">Izin</a>
-                </li>
+                </li>3
               </ul>
             </div>
             <div class="row">
@@ -734,6 +734,18 @@
                                                 <i class="fa fa-times"></i>
                                             </button>
                                         </form>
+
+
+                                        {{-- CETAK PDF (hanya jika disetujui, opsional) --}}
+                                        @if ($izin->status == 'disetujui')
+                                            <a href="{{ route('surat-keluar.pdf', $izin->id_izin) }}"
+                                            class="btn btn-link btn-danger"
+                                            data-bs-toggle="tooltip"
+                                            title="Cetak Surat PDF"
+                                            target="_blank">
+                                                <i class="fa fa-file-pdf"></i>
+                                            </a>
+                                        @endif
 
                                     </div>
                                     </td>

@@ -10,11 +10,25 @@ use Illuminate\View\View;
 
 class IzinController extends Controller
 {
-    public function index(): View
+    // public function index(): View
+    // {
+    //     $izins = Izin::with('pegawai')->latest()->paginate(10);
+    //     return view('form-izin.index', compact('izins'));
+
+    //     if (request()->is('kepala-bps/*')) {
+    //     return view('kepala-bps.form-izin.index', compact('izins'));
+    // }
+    // }
+
+    public function index() : View
     {
-        $izins = Izin::with('pegawai')->latest()->paginate(10);
+        //get all izins
+        $izins = Izin::latest()->paginate(10);
+
+        //render view with izins
         return view('form-izin.index', compact('izins'));
     }
+
 
     public function create(): View
     {
@@ -93,5 +107,14 @@ class IzinController extends Controller
 
         return redirect()->route('izin.index')
             ->with('success', 'Data berhasil dihapus');
+    }
+
+
+
+
+
+    public function kepalaBpsIndex()
+    {
+        return view('kepala-bps.form-izin.index');
     }
 }

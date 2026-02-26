@@ -14,7 +14,7 @@
     />
 
     <!-- Fonts and icons -->
-    <script src="../assets/js/plugin/webfont/webfont.min.js"></script>
+    <script src="{{ asset ('assets/js/plugin/webfont/webfont.min.js')}}"></script>
     <script>
       WebFont.load({
         google: { families: ["Public Sans:300,400,500,600,700"] },
@@ -25,7 +25,7 @@
             "Font Awesome 5 Brands",
             "simple-line-icons",
           ],
-          urls: ["../assets/css/fonts.min.css"],
+          urls: ["{{ asset ('assets/css/fonts.min.css')}}"],
         },
         active: function () {
           sessionStorage.fonts = true;
@@ -34,12 +34,12 @@
     </script>
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../assets/css/plugins.min.css" />
-    <link rel="stylesheet" href="../assets/css/kaiadmin.min.css" />
+    <link rel="stylesheet" href="{{ asset ('assets/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset ('assets/css/plugins.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset ('assets/css/kaiadmin.min.css')}}" />
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="../assets/css/demo.css" />
+    <link rel="stylesheet" href="{{ asset ('assets/css/demo.css')}}" />
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -77,7 +77,7 @@
           <div class="logo-header" data-background-color="dark">
             <a href="../index.html" class="logo">
               <img
-                src="../assets/img/kaiadmin/logo_light.svg"
+                src="{{ asset ('assets/img/kaiadmin/logo_light.svg')}}"
                 alt="navbar brand"
                 class="navbar-brand"
                 height="20"
@@ -100,24 +100,8 @@
         <div class="sidebar-wrapper scrollbar scrollbar-inner">
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
-              <li class="nav-item">
-                <a
-                  href="{{url('dashboard')}}"
-                  class="collapsed"
-                  aria-expanded="false"
-                >
-                  <i class="fas fa-home"></i>
-                  <p>Dashboard</p>
-                </a>
-              </li>
-              <li class="nav-section">
-                <span class="sidebar-mini-icon">
-                  <i class="fa fa-ellipsis-h"></i>
-                </span>
-                <h4 class="text-section">Components</h4>
-              </li>
                 <li class="nav-item">
-                    <a  href="{{url('pegawai-index')}}">
+                    <a  href="{{route('kasubbag-umum.pegawai.index')}}">
                     <i class='bx bxs-user-badge'></i>
                     <p>Pegawai</p>
                     </a>
@@ -131,12 +115,12 @@
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{ route('izin.index') }}">
+                      <a href="{{route ('kasubbag-umum.izin.index')}}">
                         <span class="sub-item">Form Izin</span>
                       </a>
                     </li>
                     <li>
-                      <a href="{{route('dokumentasi.index')}}">
+                      <a href="{{route('kasubbag-umum.dokumentasi.index')}}">
                         <span class="sub-item">Form Dokumentasi</span>
                       </a>
                     </li>
@@ -144,7 +128,7 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a href="{{url('approval')}}">
+                <a href="{{route ('kasubbag-umum.persetujuan.index')}}">
                   <i class="fas fa-table"></i>
                   <p>Approval</p>
                 </a>
@@ -184,57 +168,6 @@
                   </ul>
                 </div>
               </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#submenu">
-                  <i class="fas fa-bars"></i>
-                  <p>Menu Levels</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="submenu">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a data-bs-toggle="collapse" href="#subnav1">
-                        <span class="sub-item">Level 1</span>
-                        <span class="caret"></span>
-                      </a>
-                      <div class="collapse" id="subnav1">
-                        <ul class="nav nav-collapse subnav">
-                          <li>
-                            <a href="#">
-                              <span class="sub-item">Level 2</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="sub-item">Level 2</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li>
-                      <a data-bs-toggle="collapse" href="#subnav2">
-                        <span class="sub-item">Level 1</span>
-                        <span class="caret"></span>
-                      </a>
-                      <div class="collapse" id="subnav2">
-                        <ul class="nav nav-collapse subnav">
-                          <li>
-                            <a href="#">
-                              <span class="sub-item">Level 2</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <span class="sub-item">Level 1</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
             </ul>
           </div>
         </div>
@@ -248,7 +181,7 @@
             <div class="logo-header" data-background-color="dark">
               <a href="../index.html" class="logo">
                 <img
-                  src="../assets/img/kaiadmin/logo_light.svg"
+                  src="{{ asset ('assets/img/kaiadmin/logo_light.svg')}}"
                   alt="navbar brand"
                   class="navbar-brand"
                 />
@@ -345,7 +278,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="../assets/img/jm_denis.jpg"
+                                src="{{ asset ('assets/img/jm_denis.jpg')}}"
                                 alt="Img Profile"
                               />
                             </div>
@@ -358,7 +291,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="../assets/img/chadengle.jpg"
+                                src="{{ asset ('assets/img/chadengle.jpg')}}"
                                 alt="Img Profile"
                               />
                             </div>
@@ -371,7 +304,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="../assets/img/mlane.jpg"
+                                src="{{asset ('assets/img/mlane.jpg')}}"
                                 alt="Img Profile"
                               />
                             </div>
@@ -386,7 +319,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="../assets/img/talha.jpg"
+                                src="{{asset ('assets/img/talha.jpg')}}"
                                 alt="Img Profile"
                               />
                             </div>
@@ -572,7 +505,7 @@
                   >
                     <div class="avatar-sm">
                       <img
-                        src="../assets/img/profile.jpg"
+                        src="{{asset ('assets/img/profile.jpg')}}"
                         alt="..."
                         class="avatar-img rounded-circle"
                       />
@@ -622,6 +555,8 @@
           </nav>
           <!-- End Navbar -->
         </div>
+
+         @yield('content')
 
         <footer class="footer">
           <div class="container-fluid d-flex justify-content-between">
@@ -848,43 +783,43 @@
       <!-- End Custom template -->
     </div>
     <!--   Core JS Files   -->
-    <script src="../assets/js/core/jquery-3.7.1.min.js"></script>
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap.min.js"></script>
+    <script src="{{asset ('assets/js/core/jquery-3.7.1.min.js')}}"></script>
+    <script src="{{asset ('assets/js/core/popper.min.js')}}"></script>
+    <script src="{{asset ('assets/js/core/bootstrap.min.js')}}"></script>
 
     <!-- jQuery Scrollbar -->
-    <script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="{{asset ('assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js')}}"></script>
 
     <!-- Chart JS -->
-    <script src="../assets/js/plugin/chart.js/chart.min.js"></script>
+    <script src="{{asset ('assets/js/plugin/chart.js/chart.min.js')}}"></script>
 
     <!-- jQuery Sparkline -->
-    <script src="../assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+    <script src="{{asset ('assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js')}}"></script>
 
     <!-- Chart Circle -->
-    <script src="../assets/js/plugin/chart-circle/circles.min.js"></script>
+    <script src="{{asset ('assets/js/plugin/chart-circle/circles.min.js')}}"></script>
 
     <!-- Datatables -->
-    <script src="../assets/js/plugin/datatables/datatables.min.js"></script>
+    <script src="{{asset ('assets/js/plugin/datatables/datatables.min.js')}}"></script>
 
     <!-- Bootstrap Notify -->
-    <script src="../assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <script src="{{asset ('assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js')}}"></script>
 
     <!-- jQuery Vector Maps -->
-    <script src="../assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
-    <script src="../assets/js/plugin/jsvectormap/world.js"></script>
+    <script src="{{asset ('assets/js/plugin/jsvectormap/jsvectormap.min.js')}}"></script>
+    <script src="{{asset ('assets/js/plugin/jsvectormap/world.js')}}"></script>
 
     <!-- Google Maps Plugin -->
-    <script src="../assets/js/plugin/gmaps/gmaps.js"></script>
+    <script src="{{asset ('assets/js/plugin/gmaps/gmaps.js')}}"></script>
 
     <!-- Sweet Alert -->
-    <script src="../assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+    <script src="{{asset ('assets/js/plugin/sweetalert/sweetalert.min.js')}}"></script>
 
     <!-- Kaiadmin JS -->
-    <script src="../assets/js/kaiadmin.min.js"></script>
+    <script src="{{asset ('assets/js/kaiadmin.min.js')}}"></script>
 
     <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="../assets/js/setting-demo2.js"></script>
+    <script src="{{asset ('assets/js/setting-demo2.js')}}"></script>
 
     <script>
     // AMBIL LOKASI USER

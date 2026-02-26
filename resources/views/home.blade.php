@@ -1,681 +1,701 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-    <meta charset="utf-8">
-    <title>iSTUDIO - Interior Design Website Template Free</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+        <title>SiPintu</title>
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Grotesk&display=swap" rel="stylesheet">
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Libraries Stylesheet -->
-    <link href="{{ asset('assets/lib/animate/animate.min.css') }}" rel="Stylesheet">
-    <link href="{{ asset('assets/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
 
+        <link href="{{ asset('assets/css/bootstrap-icons.css')}}" rel="stylesheet">
 
-    <!-- Template Stylesheet -->
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-</head>
+        <link href="{{ asset('assets/css/templatemo-tiya-golf-club.css')}}" rel="stylesheet">
 
-<body>
-    <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    <!-- Spinner End -->
+<!--
 
+TemplateMo 587 Tiya Golf Club
 
-    <!-- Navbar Start -->
-    <div class="container-fluid sticky-top">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light border-bottom border-2 border-white">
-                <a href="index.html" class="navbar-brand">
-                    <h1>BADAN PUSAT STATISTIK</h1>
-                </a>
-                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
-                    data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Services</a>
-                        <a href="project.html" class="nav-item nav-link">Projects</a>
-                        <div class="nav-item dropdown">
-                            <a href="#!" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu bg-light mt-2">
-                                <a href="feature.html" class="dropdown-item">Features</a>
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
-                            </div>
+https://templatemo.com/tm-587-tiya-golf-club
+
+-->
+    </head>
+
+    <body>
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img src="{{ asset('assets/img/logo-bps.png')}}" class="navbar-brand-image img-fluid" alt="Tiya Golf Club">
+                        <span class="navbar-brand-text">
+                            Tiya
+                            <small>Golf Club</small>
+                        </span>
+                    </a>
+
+                    <div class="d-lg-none ms-auto me-3">
+                        <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Member Login</a>
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_1">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_2">About</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_3">Membership</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_4">Events</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_5">Contact Us</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="event-listing.html">Event Listing</a></li>
+
+                                    <li><a class="dropdown-item" href="event-detail.html">Event Detail</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <div class="d-none d-lg-block ms-lg-3">
+                            <a class="btn custom-btn custom-border-btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Member Login</a>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>
             </nav>
-        </div>
-    </div>
-    <!-- Navbar End -->
 
+            <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Member Login</h5>
 
-    <!-- Hero Start -->
-    <div class="container-fluid pb-5 hero-header bg-light mb-5">
-        <div class="container py-5">
-            <div class="row g-5 align-items-center mb-5">
-                <div class="col-lg-6">
-                    <h1 class="display-1 mb-4 animated slideInRight">We Make Your <span class="text-primary">Home</span>
-                        Better</h1>
-                    <h5 class="d-inline-block border border-2 border-white py-3 px-5 mb-0 animated slideInRight">
-                        An Award Winning Studio Since 1990</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div class="col-lg-6">
-                    <div class="owl-carousel header-carousel animated fadeIn">
-                        <img class="img-fluid" src="{{ asset('assets/img/hero-slider-1.jpg') }}" alt="">
-                        <img class="img-fluid" src="{{ asset('assets/img/hero-slider-2.jpg') }}" alt="">
-                        <img class="img-fluid" src="{{ asset('assets/img/hero-slider-3.jpg') }}" alt="">
+
+                <div class="offcanvas-body d-flex flex-column">
+                    <form class="custom-form member-login-form" action="#" method="post" role="form">
+
+                        <div class="member-login-form-body">
+                            <div class="mb-4">
+                                <label class="form-label mb-2" for="member-login-number">Membership No.</label>
+
+                                <input type="text" name="member-login-number" id="member-login-number" class="form-control" placeholder="11002560" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label mb-2" for="member-login-password">Password</label>
+
+                                <input type="password" name="member-login-password" id="member-login-password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Password" required="">
+                            </div>
+
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Remember me
+                                </label>
+                            </div>
+
+                            <div class="col-lg-5 col-md-7 col-8 mx-auto">
+                                <button type="submit" class="form-control">Login</button>
+                            </div>
+
+                            <div class="text-center my-4">
+                                <a href="#">Forgotten password?</a>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="mt-auto mb-5">
+                        <p>
+                            <strong class="text-white me-3">Any Questions?</strong>
+
+                            <a href="tel: 010-020-0340" class="contact-link">
+                            	010-020-0340
+                            </a>
+                        </p>
                     </div>
                 </div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3D405B" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
             </div>
-            <div class="row g-5 animated fadeIn">
-                <div class="col-md-6 col-lg-3">
-                    <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
-                            <i class="fa fa-robot text-primary"></i>
-                        </div>
-                        <h5 class="lh-base mb-0">Crafted Furniture</h5>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
-                            <i class="fa fa-robot text-primary"></i>
-                        </div>
-                        <h5 class="lh-base mb-0">Sustainable Material</h5>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
-                            <i class="fa fa-robot text-primary"></i>
-                        </div>
-                        <h5 class="lh-base mb-0">Innovative Architects</h5>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
-                            <i class="fa fa-robot text-primary"></i>
-                        </div>
-                        <h5 class="lh-base mb-0">Budget Friendly</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Hero End -->
 
 
-    <!-- About Start -->
-    <div class="container-fluid py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6">
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+
+                <div class="section-overlay"></div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3D405B" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path></svg>
+
+                <div class="container">
                     <div class="row">
-                        <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
-                            <img class="img-fluid" src="{{ asset('assets/img/about-1.jpg') }}" alt="">
-                        </div>
-                        <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
-                            <img class="img-fluid h-75" src="{{ asset('assets/img/about-2.jpg') }}" alt="">
-                            <div class="h-25 d-flex align-items-center text-center bg-primary px-4">
-                                <h4 class="text-white lh-base mb-0">Award Winning Studio Since 1990</h4>
+
+                        <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+                            <h2 class="text-white">Welcome to the club</h2>
+
+                            <h1 class="cd-headline rotate-1 text-white mb-4 pb-2">
+                                <span>Tiya is</span>
+                                <span class="cd-words-wrapper">
+                                    <b class="is-visible">Modern</b>
+                                    <b>Creative</b>
+                                    <b>Lifestyle</b>
+                                </span>
+                            </h1>
+
+                            <div class="custom-btn-group">
+                                <a href="#section_2" class="btn custom-btn smoothscroll me-3">Our Story</a>
+
+                                <a href="#section_3" class="link smoothscroll">Become a member</a>
                             </div>
                         </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="ratio ratio-16x9">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/MGNgbNGOzh8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="mb-5"><span class="text-uppercase text-primary bg-light px-2">History</span> of Our
-                        Creation</h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
-                        amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                        clita duo justo et tempor eirmod magna dolore erat amet</p>
-                    <p class="mb-5">Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no
-                        labore lorem sit. Sanctus clita duo justo et tempor.</p>
-                    <div class="row g-3">
-                        <div class="col-sm-6">
-                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Award Winning</h6>
-                            <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Professional Staff</h6>
-                        </div>
-                        <div class="col-sm-6">
-                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>24/7 Support</h6>
-                            <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Fair Prices</h6>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center mt-5">
-                        <a class="btn btn-primary px-4 me-2" href="#!">Read More</a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="fab fa-instagram"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2" href="#!"><i
-                                class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+            </section>
 
 
-    <!-- Feature Start -->
-    <div class="container-fluid py-5">
-        <div class="container">
-            <div class="text-center wow fadeIn" data-wow-delay="0.1s">
-                <h1 class="mb-5">Why People <span class="text-uppercase text-primary bg-light px-2">Choose Us</span>
-                </h1>
-            </div>
-            <div class="row g-5 align-items-center text-center">
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
-                    <i class="fa fa-calendar-alt fa-5x text-primary mb-4"></i>
-                    <h4>25+ Years Experience</h4>
-                    <p class="mb-0">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo
-                        justo et tempor eirmod magna dolore erat amet</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <i class="fa fa-tasks fa-5x text-primary mb-4"></i>
-                    <h4>Best Interior Design</h4>
-                    <p class="mb-0">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo
-                        justo et tempor eirmod magna dolore erat amet</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <i class="fa fa-pencil-ruler fa-5x text-primary mb-4"></i>
-                    <h4>Innovative Architects</h4>
-                    <p class="mb-0">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo
-                        justo et tempor eirmod magna dolore erat amet</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
-                    <i class="fa fa-user fa-5x text-primary mb-4"></i>
-                    <h4>Customer Satisfaction</h4>
-                    <p class="mb-0">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo
-                        justo et tempor eirmod magna dolore erat amet</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <i class="fa fa-hand-holding-usd fa-5x text-primary mb-4"></i>
-                    <h4>Budget Friendly</h4>
-                    <p class="mb-0">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo
-                        justo et tempor eirmod magna dolore erat amet</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <i class="fa fa-check fa-5x text-primary mb-4"></i>
-                    <h4>Sustainable Material</h4>
-                    <p class="mb-0">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo
-                        justo et tempor eirmod magna dolore erat amet</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Feature End -->
+            <section class="about-section section-padding" id="section_2">
+                <div class="container">
+                    <div class="row">
 
+                        <div class="col-lg-12 col-12 text-center">
+                            <h2 class="mb-lg-5 mb-4">About Tiya</h2>
+                        </div>
 
-    <!-- Project Start -->
-    <div class="container-fluid mt-5">
-        <div class="container mt-5">
-            <div class="row g-0">
-                <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="d-flex flex-column justify-content-center bg-primary h-100 p-5">
-                        <h1 class="text-white mb-5">Our Latest <span
-                                class="text-uppercase text-primary bg-light px-2">Projects</span></h1>
-                        <h4 class="text-white mb-0"><span class="display-1">6</span> of our latest projects</h4>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="row g-0">
-                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.2s">
-                            <div class="project-item position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/project-1.jpg" alt="">
-                                <a class="project-overlay text-decoration-none" href="#!">
-                                    <h4 class="text-white">Kitchen</h4>
-                                    <small class="text-white">72 Projects</small>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                            <div class="project-item position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/project-2.jpg" alt="">
-                                <a class="project-overlay text-decoration-none" href="#!">
-                                    <h4 class="text-white">Bathroom</h4>
-                                    <small class="text-white">67 Projects</small>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.4s">
-                            <div class="project-item position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/project-3.jpg" alt="">
-                                <a class="project-overlay text-decoration-none" href="#!">
-                                    <h4 class="text-white">Bedroom</h4>
-                                    <small class="text-white">53 Projects</small>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                            <div class="project-item position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/project-4.jpg" alt="">
-                                <a class="project-overlay text-decoration-none" href="#!">
-                                    <h4 class="text-white">Living Room</h4>
-                                    <small class="text-white">33 Projects</small>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.6s">
-                            <div class="project-item position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/project-5.jpg" alt="">
-                                <a class="project-overlay text-decoration-none" href="#!">
-                                    <h4 class="text-white">Furniture</h4>
-                                    <small class="text-white">87 Projects</small>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.7s">
-                            <div class="project-item position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/project-6.jpg" alt="">
-                                <a class="project-overlay text-decoration-none" href="#!">
-                                    <h4 class="text-white">Rennovation</h4>
-                                    <small class="text-white">69 Projects</small>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Project End -->
+                        <div class="col-lg-5 col-12 me-auto mb-4 mb-lg-0">
+                            <h3 class="mb-3">Tiya Club History</h3>
 
+                            <p><strong>Since 1984</strong>, Tiya is ranked #8 in the top 10 golf courses in the world. Tiya is Bootstrap 5 HTML CSS template for golf clubs. Anyone can modify and use this layout for commercial purposes.</p>
 
-    <!-- Service Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
-                    <h1 class="mb-5">Our Creative <span
-                            class="text-uppercase text-primary bg-light px-2">Services</span></h1>
-                    <p>Aliqu diam
-                        amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                        clita duo justo et tempor eirmod magna dolore erat amet</p>
-                    <p class="mb-5">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
-                        amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                        clita duo justo et tempor eirmod magna dolore erat amet</p>
-                    <div class="d-flex align-items-center bg-light">
-                        <div class="btn-square flex-shrink-0 bg-primary" style="width: 100px; height: 100px;">
-                            <i class="fa fa-phone fa-2x text-white"></i>
+                            <p>Tiya Golf Club is 100% free CSS template provided by TemplateMo website. Please tell your friends about our website. Thank you for visiting.</p>
                         </div>
-                        <div class="px-3">
-                            <h3>+0123456789</h3>
-                            <span>Call us direct 24/7 for get a free consultation</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="row g-0">
-                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.2s">
-                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
-                                <a href="#!" class="service-img position-relative mb-4">
-                                    <img class="img-fluid w-100" src="img/service-1.jpg" alt="">
-                                    <h3>Interior Design</h3>
-                                </a>
-                                <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
-                                    stet diam sed stet lorem.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.4s">
-                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-light">
-                                <a href="#!" class="service-img position-relative mb-4">
-                                    <img class="img-fluid w-100" src="img/service-2.jpg" alt="">
-                                    <h3>Implement</h3>
-                                </a>
-                                <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
-                                    stet diam sed stet lorem.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.6s">
-                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-light">
-                                <a href="#!" class="service-img position-relative mb-4">
-                                    <img class="img-fluid w-100" src="img/service-3.jpg" alt="">
-                                    <h3>Renovation</h3>
-                                </a>
-                                <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
-                                    stet diam sed stet lorem.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.8s">
-                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
-                                <a href="#!" class="service-img position-relative mb-4">
-                                    <img class="img-fluid w-100" src="img/service-4.jpg" alt="">
-                                    <h3>Commercial</h3>
-                                </a>
-                                <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
-                                    stet diam sed stet lorem.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Service End -->
 
+                        <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-0">
+                            <div class="member-block">
+                                <div class="member-block-image-wrap">
+                                    <img src="images/members/portrait-young-handsome-businessman-wearing-suit-standing-with-crossed-arms-with-isolated-studio-white-background.jpg" class="member-block-image img-fluid" alt="">
 
-    <!-- Team Start -->
-    <div class="container-fluid bg-light py-5">
-        <div class="container py-5">
-            <h1 class="mb-5">Our Professional <span class="text-uppercase text-primary bg-light px-2">Designers</span>
-            </h1>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="team-item position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
-                        <div class="team-overlay">
-                            <small class="mb-2">Architect</small>
-                            <h4 class="lh-base text-light">Boris Johnson</h4>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="team-item position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
-                        <div class="team-overlay">
-                            <small class="mb-2">Architect</small>
-                            <h4 class="lh-base text-light">Donald Pakura</h4>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="team-item position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
-                        <div class="team-overlay">
-                            <small class="mb-2">Architect</small>
-                            <h4 class="lh-base text-light">Bradley Gordon</h4>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="team-item position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
-                        <div class="team-overlay">
-                            <small class="mb-2">Architect</small>
-                            <h4 class="lh-base text-light">Alexander Bell</h4>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="#!">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Team End -->
+                                    <ul class="social-icon">
+                                        <li class="social-icon-item">
+                                            <a href="#" class="social-icon-link bi-twitter"></a>
+                                        </li>
 
-
-    <!-- Testimonial Start -->
-    <div class="container-xxl py-5">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-md-12 col-lg-9">
-                    <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay="0.2s">
-                        <div class="testimonial-item">
-                            <div class="row g-5 align-items-center">
-                                <div class="col-md-6">
-                                    <div class="testimonial-img">
-                                        <img class="img-fluid" src="img/testimonial-1.jpg" alt="">
-                                    </div>
+                                        <li class="social-icon-item">
+                                            <a href="#" class="social-icon-link bi-whatsapp"></a>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="testimonial-text pb-5 pb-md-0">
-                                        <h3>Sustainable Material</h3>
-                                        <p>Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed
-                                            stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna
-                                            dolore erat
-                                            amet</p>
-                                        <h5 class="mb-0">Boris Johnson</h5>
+
+                                <div class="member-block-info d-flex align-items-center">
+                                    <h4>Michael</h4>
+
+                                    <p class="ms-auto">Founder</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="member-block">
+                                <div class="member-block-image-wrap">
+                                    <img src="images/members/successful-asian-lady-boss-red-blazer-holding-clipboard-with-documens-pen-working-looking-happy-white-background.jpg" class="member-block-image img-fluid" alt="">
+
+                                    <ul class="social-icon">
+                                        <li class="social-icon-item">
+                                            <a href="#" class="social-icon-link bi-linkedin"></a>
+                                        </li>
+                                        <li class="social-icon-item">
+                                            <a href="#" class="social-icon-link bi-twitter"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="member-block-info d-flex align-items-center">
+                                    <h4>Sandy</h4>
+
+                                    <p class="ms-auto">Co-Founder</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section-bg-image">
+                <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12">
+                            <div class="section-bg-image-block">
+                                <h2 class="mb-lg-3">Get our newsletter</h2>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore et dolore.</p>
+
+                                <form action="#" method="get" class="custom-form mt-lg-4 mt-2" role="form">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text bi-envelope" id="basic-addon1"></span>
+
+                                        <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
+
+                                        <button type="submit" class="form-control">Subscribe</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path><path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path></svg>
+            </section>
+
+
+            <section class="membership-section section-padding" id="section_3">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12 text-center mx-auto mb-lg-5 mb-4">
+                            <h2><span>Membership</span> at Tiya</h2>
+                        </div>
+
+                        <div class="col-lg-6 col-12 mb-3 mb-lg-0">
+                            <h4 class="mb-4 pb-lg-2">Membership Fees</h4>
+
+                            <div class="table-responsive">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 34%;">Yearly Access</th>
+
+                                            <th style="width: 22%;">T1 $420</th>
+
+                                            <th style="width: 22%;">T2 $640</th>
+
+                                            <th style="width: 22%;">T3 $860</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" class="text-start">Golf Insurance</th>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row" class="text-start">Club Facilities</th>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row" class="text-start">Country Club</th>
+
+                                            <td>
+                                                <i class="bi-x-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row" class="text-start">Weekend Seasonal</th>
+
+                                            <td>
+                                                <i class="bi-x-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row" class="text-start">Premium Courses</th>
+
+                                            <td>
+                                                <i class="bi-x-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-x-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row" class="text-start">Pro's Networking</th>
+
+                                            <td>
+                                                <i class="bi-x-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-x-circle-fill"></i>
+                                            </td>
+
+                                            <td>
+                                                <i class="bi-check-circle-fill"></i>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5 col-12 mx-auto">
+                        <h4 class="mb-4 pb-lg-2">Please join us!</h4>
+                            <form action="#" method="post" class="custom-form membership-form shadow-lg" role="form">
+                                <h4 class="text-white mb-4">Become a member</h4>
+
+                                    <div class="form-floating">
+                                        <input type="text" name="full-name" id="full-name" class="form-control" placeholder="Full Name" required="">
+
+                                        <label for="floatingInput">Full Name</label>
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
+
+                                        <label for="floatingInput">Email address</label>
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="message" name="message" placeholder="Describe message here"></textarea>
+
+                                        <label for="floatingTextarea"> Comments</label>
+                                    </div>
+
+                                    <button type="submit" class="form-control">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="events-section section-bg section-padding" id="section_4">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12">
+                            <h2 class="mb-lg-3">Upcoming Events</h2>
+                        </div>
+
+                        <div class="row custom-block mb-3">
+                            <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
+                                <div class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
+                                    <h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">24</h6>
+
+                                    <strong class="text-white">Feb 2048</strong>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
+                                <div class="custom-block-image-wrap">
+                                    <a href="event-detail.html">
+                                        <img src="images/professional-golf-player.jpg" class="custom-block-image img-fluid" alt="">
+
+                                        <i class="custom-block-icon bi-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-12 order-3 order-lg-0">
+                                <div class="custom-block-info mt-2 mt-lg-0">
+                                    <a href="event-detail.html" class="events-title mb-3">Private activities</a>
+
+                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                                    <div class="d-flex flex-wrap border-top mt-4 pt-3">
+
+                                        <div class="mb-4 mb-lg-0">
+                                            <div class="d-flex flex-wrap align-items-center mb-1">
+                                                <span class="custom-block-span">Location:</span>
+
+                                                <p class="mb-0">National Center, NYC</p>
+                                            </div>
+
+                                            <div class="d-flex flex-wrap align-items-center">
+                                                <span class="custom-block-span">Ticket:</span>
+
+                                                <p class="mb-0">$250</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex align-items-center ms-lg-auto">
+                                            <a href="event-detail.html" class="btn custom-btn">Buy Ticket</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="testimonial-item">
-                            <div class="row g-5 align-items-center">
-                                <div class="col-md-6">
-                                    <div class="testimonial-img">
-                                        <img class="img-fluid" src="img/testimonial-2.jpg" alt="">
-                                    </div>
+
+                        <div class="row custom-block custom-block-bg">
+                            <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
+                                <div class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
+                                    <h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">28</h6>
+
+                                    <strong class="text-white">Feb 2048</strong>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="testimonial-text pb-5 pb-md-0">
-                                        <h3>Customer Satisfaction</h3>
-                                        <p>Clita erat ipsum et lorem et sit, sed
-                                            stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna
-                                            dolore erat
-                                            amet</p>
-                                        <h5 class="mb-0">Alexander Bell</h5>
+                            </div>
+
+                            <div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
+                                <div class="custom-block-image-wrap">
+                                    <a href="event-detail.html">
+                                        <img src="images/girl-taking-selfie-with-friends-golf-field.jpg" class="custom-block-image img-fluid" alt="">
+
+                                        <i class="custom-block-icon bi-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-12 order-3 order-lg-0">
+                                <div class="custom-block-info mt-2 mt-lg-0">
+                                    <a href="event-detail.html" class="events-title mb-3">Group tournament activities</a>
+
+                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                                    <div class="d-flex flex-wrap border-top mt-4 pt-3">
+
+                                        <div class="mb-4 mb-lg-0">
+                                            <div class="d-flex flex-wrap align-items-center mb-1">
+                                                <span class="custom-block-span">Location:</span>
+
+                                                <p class="mb-0">National Center, NYC</p>
+                                            </div>
+
+                                            <div class="d-flex flex-wrap align-items-center">
+                                                <span class="custom-block-span">Ticket:</span>
+
+                                                <p class="mb-0">$350</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex align-items-center ms-lg-auto">
+                                            <a href="event-detail.html" class="btn custom-btn">Buy Ticket</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="testimonial-item">
-                            <div class="row g-5 align-items-center">
-                                <div class="col-md-6">
-                                    <div class="testimonial-img">
-                                        <img class="img-fluid" src="img/testimonial-3.jpg" alt="">
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="contact-section section-padding" id="section_5">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-5 col-12">
+                            <form action="#" method="post" class="custom-form contact-form" role="form">
+                                <h2 class="mb-4 pb-2">Contact Tiya</h2>
+
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="form-floating">
+                                            <input type="text" name="full-name" id="full-name" class="form-control" placeholder="Full Name" required="">
+
+                                            <label for="floatingInput">Full Name</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="form-floating">
+                                            <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
+
+                                            <label for="floatingInput">Email address</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" id="message" name="message" placeholder="Describe message here"></textarea>
+
+                                            <label for="floatingTextarea">Message</label>
+                                        </div>
+
+                                        <button type="submit" class="form-control">Submit Form</button>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="testimonial-text pb-5 pb-md-0">
-                                        <h3>Budget Friendly</h3>
-                                        <p>Diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed
-                                            stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna
-                                            dolore erat
-                                            amet</p>
-                                        <h5 class="mb-0">Bradley Gordon</h5>
+                            </form>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="contact-info mt-5">
+                                <div class="contact-info-item">
+                                    <div class="contact-info-body">
+                                        <strong>London, United Kingdom</strong>
+
+                                        <p class="mt-2 mb-1">
+                                            <a href="tel: 010-020-0340" class="contact-link">
+                                                (020)
+                                                010-020-0340
+                                            </a>
+                                        </p>
+
+                                        <p class="mb-0">
+                                            <a href="mailto:info@company.com" class="contact-link">
+                                                info@company.com
+                                            </a>
+                                        </p>
+                                    </div>
+
+                                    <div class="contact-info-footer">
+                                        <a href="#">Directions</a>
                                     </div>
                                 </div>
+
+                                <img src="images/WorldMap.svg" class="img-fluid" alt="">
                             </div>
                         </div>
+
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End -->
+            </section>
+        </main>
 
-
-    <!-- Newsletter Start -->
-    <div class="container-fluid bg-primary newsletter p-0">
-        <div class="container p-0">
-            <div class="row g-0 align-items-center">
-                <div class="col-md-5 ps-lg-0 text-start wow fadeIn" data-wow-delay="0.2s">
-                    <img class="img-fluid w-100" src="img/newsletter.jpg" alt="">
-                </div>
-                <div class="col-md-7 py-5 newsletter-text wow fadeIn" data-wow-delay="0.5s">
-                    <div class="p-5">
-                        <h1 class="mb-5">Subscribe the <span
-                                class="text-uppercase text-primary bg-white px-2">Newsletter</span></h1>
-                        <div class="position-relative w-100 mb-2">
-                            <input class="form-control border-0 w-100 ps-4 pe-5" type="text"
-                                placeholder="Enter Your Email" style="height: 60px;">
-                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-2 me-2"><i
-                                    class="fa fa-paper-plane text-primary fs-4"></i></button>
-                        </div>
-                        <p class="mb-0">Diam sed sed dolor stet amet eirmod</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Newsletter End -->
-
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-white-50 footer pt-5">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                    <a href="index.html" class="d-inline-block mb-3">
-                        <h1 class="text-white">iSTUDIO</h1>
-                    </a>
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
-                        amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                        clita duo justo et tempor</p>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
-                    <h5 class="text-white mb-4">Get In Touch</h5>
-                    <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="fab fa-instagram"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href="#!"><i
-                                class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                    <h5 class="text-white mb-4">Popular Link</h5>
-                    <a class="btn btn-link" href="#!">About Us</a>
-                    <a class="btn btn-link" href="#!">Contact Us</a>
-                    <a class="btn btn-link" href="#!">Privacy Policy</a>
-                    <a class="btn btn-link" href="#!">Terms & Condition</a>
-                    <a class="btn btn-link" href="#!">Career</a>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
-                    <h5 class="text-white mb-4">Our Services</h5>
-                    <a class="btn btn-link" href="#!">Interior Design</a>
-                    <a class="btn btn-link" href="#!">Project Planning</a>
-                    <a class="btn btn-link" href="#!">Renovation</a>
-                    <a class="btn btn-link" href="#!">Implement</a>
-                    <a class="btn btn-link" href="#!">Landscape Design</a>
-                </div>
-            </div>
-        </div>
-        <div class="container wow fadeIn" data-wow-delay="0.1s">
-            <div class="copyright">
+        <footer class="site-footer">
+            <div class="container">
                 <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#!">Your Site Name</a>, All Right Reserved.
 
-                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>. Distributed by
-                        <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    <div class="col-lg-6 col-12 me-auto mb-5 mb-lg-0">
+                        <a class="navbar-brand d-flex align-items-center" href="index.html">
+                            <img src="images/logo.png" class="navbar-brand-image img-fluid" alt="">
+                            <span class="navbar-brand-text">
+                                Tiya
+                                <small>Golf Club</small>
+                            </span>
+                        </a>
                     </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="#!">Home</a>
-                            <a href="#!">Cookies</a>
-                            <a href="#!">Help</a>
-                            <a href="#!">FAQs</a>
+
+                    <div class="col-lg-3 col-12">
+                        <h5 class="site-footer-title mb-4">Join Us</h5>
+
+                        <p class="d-flex border-bottom pb-3 mb-3 me-lg-3">
+                            <span>Mon-Fri</span>
+                            6:00 AM - 6:00 PM
+                        </p>
+
+                        <p class="d-flex me-lg-3">
+                            <span>Sat-Sun</span>
+                            6:30 AM - 8:30 PM
+                        </p>
+                        <br>
+                        <p class="copyright-text">Copyright © 2048 Tiya Golf Club</p>
+                    </div>
+
+                        <div class="col-lg-2 col-12 ms-auto">
+                            <ul class="social-icon mt-lg-5 mt-3 mb-4">
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link bi-instagram"></a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link bi-twitter"></a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link bi-whatsapp"></a>
+                                </li>
+                            </ul>
+                            <p class="copyright-text">Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a>. Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a></p>
+
                         </div>
-                    </div>
+
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- Footer End -->
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#81B29A" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+        </footer>
 
 
-    <!-- Back to Top -->
-    <a href="#!" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <!-- JAVASCRIPT FILES -->
+        <script src="{{ asset('assets/js/jquery.min.js')}}"></script>
+        <script src="{{ asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{ asset('assets/js/jquery.sticky.js')}}"></script>
+        <script src="{{ asset('assets/js/click-scroll.js')}}"></script>
+        <script src="{{ asset('assets/js/animated-headline.js')}}"></script>
+        <script src="{{ asset('assets/js/modernizr.js')}}"></script>
+        <script src="{{ asset('assets/js/custom.js') }}"></script>
 
 
-    <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('assets/lib/wow/wow.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/easing/easing.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-
-    <!-- Template Javascript -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
-</body>
-
+    </body>
 </html>

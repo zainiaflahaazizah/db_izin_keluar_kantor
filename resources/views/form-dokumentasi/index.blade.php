@@ -702,13 +702,13 @@
                                             <i class="fa fa-eye"></i>
                                         </a>
 
-                                        {{-- EDIT --}}
+                                        {{-- EDIT 
                                         <a href="{{ route('dokumentasi.edit', $dokumentasi->id_dokumentasi) }}"
                                         class="btn btn-link btn-primary"
                                         data-bs-toggle="tooltip"
                                         title="Edit">
                                             <i class="fa fa-edit"></i>
-                                        </a>
+                                        </a> --}}
 
                                         {{-- DELETE --}}
                                         <form action="{{ route('dokumentasi.destroy', $dokumentasi->id_dokumentasi) }}"
