@@ -104,7 +104,7 @@
         </thead>
         <tbody>
             <tr class="center">
-                <td>{{ $izin->nama_kegiatan }}</td>
+                <td>{{ $izin->keterangan }}</td>
                 <td>{{ $izin->lokasi_kegiatan }}</td>
                 <td>{{ $izin->jam_keluar }}</td>
                 <td>{{ $izin->jam_kembali }}</td>

@@ -124,7 +124,7 @@
                 </a>
               </li>
                 <li class="nav-item">
-                    <a  href="{{route('pegawai.index')}}">
+                    <a  href="{{route('admin.pegawai.index')}}">
                     <i class='bx bxs-user-badge'></i>
                     <p>Pegawai</p>
                     </a>
@@ -138,12 +138,12 @@
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{ route('izin.index') }}">
+                      <a href="{{ route('admin.izin.index') }}">
                         <span class="sub-item">Form Izin</span>
                       </a>
                     </li>
                     <li>
-                      <a href="{{url('form-dokumentasi-index')}}">
+                      <a href="{{route('admin.dokumentasi.index')}}">
                         <span class="sub-item">Form Dokumentasi</span>
                       </a>
                     </li>
@@ -190,42 +190,6 @@
                     </li>
                   </ul>
                 </div>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#charts">
-                  <i class="far fa-chart-bar"></i>
-                  <p>Charts</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="charts">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="../charts/charts.html">
-                        <span class="sub-item">Chart Js</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="../charts/sparkline.html">
-                        <span class="sub-item">Sparkline</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a href="../widgets.html">
-                  <i class="fas fa-desktop"></i>
-                  <p>Widgets</p>
-                  <span class="badge badge-success">4</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../../documentation/index.html">
-                  <i class="fas fa-file"></i>
-                  <p>Documentation</p>
-                  <span class="badge badge-secondary">1</span>
-                </a>
-              </li>
             </ul>
           </div>
         </div>
@@ -603,7 +567,14 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Account Setting</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                       </li>
                     </div>
                   </ul>
@@ -644,7 +615,7 @@
                   <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Tabel Dokumentasi</h4>
-                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('dokumentasi.create') }}">
+                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('admin.dokumentasi.create') }}">
                             <i class="fa fa-plus"></i>
                             Tambah Dokumentasi
                         </a>
@@ -695,14 +666,14 @@
                                     <div class="form-button-action d-flex gap-2">
 
                                         {{-- SHOW / DETAIL --}}
-                                        <a href="{{ route('dokumentasi.show', $dokumentasi->id_dokumentasi) }}"
+                                        <a href="{{ route('admin.dokumentasi.show', $dokumentasi->id_dokumentasi) }}"
                                         class="btn btn-link btn-info"
                                         data-bs-toggle="tooltip"
                                         title="Lihat Detail">
                                             <i class="fa fa-eye"></i>
                                         </a>
 
-                                        {{-- EDIT 
+                                        {{-- EDIT
                                         <a href="{{ route('dokumentasi.edit', $dokumentasi->id_dokumentasi) }}"
                                         class="btn btn-link btn-primary"
                                         data-bs-toggle="tooltip"
@@ -711,7 +682,7 @@
                                         </a> --}}
 
                                         {{-- DELETE --}}
-                                        <form action="{{ route('dokumentasi.destroy', $dokumentasi->id_dokumentasi) }}"
+                                        <form action="{{ route('admin.dokumentasi.destroy', $dokumentasi->id_dokumentasi) }}"
                                             method="POST"
                                             onsubmit="return confirm('Yakin hapus data ini?');">
                                             @csrf

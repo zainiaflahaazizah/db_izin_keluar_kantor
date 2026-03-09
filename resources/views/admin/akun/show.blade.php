@@ -18,7 +18,7 @@
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href={{ route('akun.index') }}>Akun</a>
+                  <a href={{ route('admin.akun.index') }}>Akun</a>
                 </li>
                 <li class="separator">
                   <i class="icon-arrow-right"></i>
@@ -67,14 +67,18 @@
                                                 </tr>
                                                 <tr>
                                                     <th>Role</th>
-                                                    <td>{{ $akun->Role }}</td>
+                                                    <td>{{ $akun->role }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Pegawai</th>
+                                                    <td>{{ $akun->pegawai->nama }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
 
                                     <div class="text-end mt-4">
-                                        <a href="{{ route('akun.index') }}" class="btn btn-secondary">
+                                        <a href="{{ route('admin.akun.index') }}" class="btn btn-secondary">
                                             <i class="fa fa-arrow-left me-1"></i> Kembali
                                         </a>
                                     </div>

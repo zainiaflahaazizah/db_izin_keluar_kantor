@@ -9,12 +9,12 @@
     />
     <link
       rel="icon"
-      href="assets/img/kaiadmin/favicon.ico"
+      href="{{ asset ('assets/img/kaiadmin/favicon.ico')}}"
       type="image/x-icon"
     />
 
     <!-- Fonts and icons -->
-    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script src="{{ asset ('assets/js/plugin/webfont/webfont.min.js')}}"></script>
     <script>
       WebFont.load({
         google: { families: ["Public Sans:300,400,500,600,700"] },
@@ -34,14 +34,15 @@
     </script>
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/plugins.min.css" />
-    <link rel="stylesheet" href="assets/css/kaiadmin.min.css" />
+    <link rel="stylesheet" href="{{ asset ('assets/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset ('assets/css/plugins.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset ('assets/css/kaiadmin.min.css')}}" />
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="assets/css/demo.css" />
+    <link rel="stylesheet" href="{{ asset ('assets/css/demo.css')}}" />
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   </head>
   <body>
@@ -53,7 +54,7 @@
           <div class="logo-header" data-background-color="dark">
             <a href="index.html" class="logo">
               <img
-                src="assets/img/kaiadmin/logo_light.svg"
+                src="{{ asset ('assets/img/kaiadmin/logo_light.svg')}}"
                 alt="navbar brand"
                 class="navbar-brand"
                 height="20"
@@ -85,9 +86,9 @@
                 >
                   <i class="fas fa-home"></i>
                   <p>Dashboard</p>
-                  <span class="caret"></span>
+                  {{-- <span class="caret"></span> --}}
                 </a>
-                <div class="collapse" id="dashboard">
+                {{-- <div class="collapse" id="dashboard">
                   <ul class="nav nav-collapse">
                     <li>
                       <a href="../demo1/index.html">
@@ -95,7 +96,7 @@
                       </a>
                     </li>
                   </ul>
-                </div>
+                </div> --}}
               </li>
               <li class="nav-section">
                 <span class="sidebar-mini-icon">
@@ -104,13 +105,13 @@
                 <h4 class="text-section">Components</h4>
               </li>
               <li class="nav-item">
-                <a href="{{ route('akun.index') }}">
+                <a href="{{ route('admin.akun.index') }}">
                   <i class='bx bxs-user-circle'></i>
                   <p>Akun</p>
                 </a>
               </li>
                 <li class="nav-item">
-                    <a  href="{{route('pegawai.index')}}">
+                    <a  href="{{route('admin.pegawai.index')}}">
                     <i class='bx bxs-user-badge'></i>
                     <p>Pegawai</p>
                     </a>
@@ -124,12 +125,12 @@
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{ route('izin.index') }}">
+                      <a href="{{ route('admin.izin.index') }}">
                         <span class="sub-item">Form Izin</span>
                       </a>
                     </li>
                     <li>
-                      <a href="{{route('dokumentasi.index')}}">
+                      <a href="{{route('admin.dokumentasi.index')}}">
                         <span class="sub-item">Form Dokumentasi</span>
                       </a>
                     </li>
@@ -190,7 +191,7 @@
             <div class="logo-header" data-background-color="dark">
               <a href="index.html" class="logo">
                 <img
-                  src="assets/img/kaiadmin/logo_light.svg"
+                  src="{{ asset ('assets/img/kaiadmin/logo_light.svg')}}"
                   alt="navbar brand"
                   class="navbar-brand"
                   height="20"
@@ -288,7 +289,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="assets/img/jm_denis.jpg"
+                                src="{{ asset ('assets/img/jm_denis.jpg')}}"
                                 alt="Img Profile"
                               />
                             </div>
@@ -301,7 +302,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="assets/img/chadengle.jpg"
+                                src="{{asset ('assets/img/chadengle.jpg')}}"
                                 alt="Img Profile"
                               />
                             </div>
@@ -314,7 +315,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="assets/img/mlane.jpg"
+                                src="{{asset ('assets/img/mlane.jpg')}}"
                                 alt="Img Profile"
                               />
                             </div>
@@ -329,7 +330,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="assets/img/talha.jpg"
+                                src="{{asset ('assets/img/talha.jpg')}}"
                                 alt="Img Profile"
                               />
                             </div>
@@ -397,7 +398,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                src="assets/img/profile2.jpg"
+                                src="{{asset ('assets/img/profile2.jpg')}}"
                                 alt="Img Profile"
                               />
                             </div>
@@ -515,7 +516,7 @@
                   >
                     <div class="avatar-sm">
                       <img
-                        src="assets/img/profile.jpg"
+                        src="{{asset ('assets/img/profile.jpg')}}"
                         alt="..."
                         class="avatar-img rounded-circle"
                       />
@@ -531,7 +532,7 @@
                         <div class="user-box">
                           <div class="avatar-lg">
                             <img
-                              src="assets/img/profile.jpg"
+                              src="{{asset ('assets/img/profile.jpg')}}"
                               alt="image profile"
                               class="avatar-img rounded"
                             />
@@ -555,7 +556,14 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Account Setting</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                       </li>
                     </div>
                   </ul>
@@ -790,7 +798,7 @@
                                 <td>
                                   <div class="flag">
                                     <img
-                                      src="assets/img/flags/id.png"
+                                      src="{{asset ('assets/img/flags/id.png')}}"
                                       alt="indonesia"
                                     />
                                   </div>
@@ -803,7 +811,7 @@
                                 <td>
                                   <div class="flag">
                                     <img
-                                      src="assets/img/flags/us.png"
+                                      src="{{asset ('assets/img/flags/us.png')}}"
                                       alt="united states"
                                     />
                                   </div>
@@ -816,7 +824,7 @@
                                 <td>
                                   <div class="flag">
                                     <img
-                                      src="assets/img/flags/au.png"
+                                      src="{{asset ('assets/img/flags/au.png')}}"
                                       alt="australia"
                                     />
                                   </div>
@@ -829,7 +837,7 @@
                                 <td>
                                   <div class="flag">
                                     <img
-                                      src="assets/img/flags/ru.png"
+                                      src="{{asset ('assets/img/flags/ru.png')}}"
                                       alt="russia"
                                     />
                                   </div>
@@ -842,7 +850,7 @@
                                 <td>
                                   <div class="flag">
                                     <img
-                                      src="assets/img/flags/cn.png"
+                                      src="{{asset ('assets/img/flags/cn.png')}}"
                                       alt="china"
                                     />
                                   </div>
@@ -855,7 +863,7 @@
                                 <td>
                                   <div class="flag">
                                     <img
-                                      src="assets/img/flags/br.png"
+                                      src="{{asset ('assets/img/flags/br.png')}}"
                                       alt="brazil"
                                     />
                                   </div>
@@ -917,7 +925,7 @@
                       <div class="item-list">
                         <div class="avatar">
                           <img
-                            src="assets/img/jm_denis.jpg"
+                            src="{{asset ('assets/img/jm_denis.jpg')}}"
                             alt="..."
                             class="avatar-img rounded-circle"
                           />
@@ -954,7 +962,7 @@
                       <div class="item-list">
                         <div class="avatar">
                           <img
-                            src="assets/img/talha.jpg"
+                            src="{{asset ('assets/img/talha.jpg')}}"
                             alt="..."
                             class="avatar-img rounded-circle"
                           />
@@ -973,7 +981,7 @@
                       <div class="item-list">
                         <div class="avatar">
                           <img
-                            src="assets/img/chadengle.jpg"
+                            src="{{asset ('assets/img/chadengle.jpg')}}"
                             alt="..."
                             class="avatar-img rounded-circle"
                           />
@@ -1413,41 +1421,41 @@
       <!-- End Custom template -->
     </div>
     <!--   Core JS Files   -->
-    <script src="assets/js/core/jquery-3.7.1.min.js"></script>
-    <script src="assets/js/core/popper.min.js"></script>
-    <script src="assets/js/core/bootstrap.min.js"></script>
+    <script src="{{asset ('assets/js/core/jquery-3.7.1.min.js')}}"></script>
+    <script src="{{asset ('assets/js/core/popper.min.js')}}"></script>
+    <script src="{{asset ('assets/js/core/bootstrap.min.js')}}"></script>
 
     <!-- jQuery Scrollbar -->
-    <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="{{asset ('assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js')}}"></script>
 
     <!-- Chart JS -->
-    <script src="assets/js/plugin/chart.js/chart.min.js"></script>
+    <script src="{{asset ('assets/js/plugin/chart.js/chart.min.js')}}"></script>
 
     <!-- jQuery Sparkline -->
-    <script src="assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+    <script src="{{asset ('assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js')}}"></script>
 
     <!-- Chart Circle -->
-    <script src="assets/js/plugin/chart-circle/circles.min.js"></script>
+    <script src="{{asset ('assets/js/plugin/chart-circle/circles.min.js')}}"></script>
 
     <!-- Datatables -->
-    <script src="assets/js/plugin/datatables/datatables.min.js"></script>
+    <script src="{{asset ('assets/js/plugin/datatables/datatables.min.js')}}"></script>
 
     <!-- Bootstrap Notify -->
-    <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <script src="{{asset ('assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js')}}"></script>
 
     <!-- jQuery Vector Maps -->
-    <script src="assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
-    <script src="assets/js/plugin/jsvectormap/world.js"></script>
+    <script src="{{asset ('assets/js/plugin/jsvectormap/jsvectormap.min.js')}}"></script>
+    <script src="{{asset ('assets/js/plugin/jsvectormap/world.js')}}"></script>
 
     <!-- Sweet Alert -->
-    <script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+    <script src="{{asset ('assets/js/plugin/sweetalert/sweetalert.min.js')}}"></script>
 
     <!-- Kaiadmin JS -->
-    <script src="assets/js/kaiadmin.min.js"></script>
+    <script src="{{asset ('assets/js/kaiadmin.min.js')}}"></script>
 
     <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="assets/js/setting-demo.js"></script>
-    <script src="assets/js/demo.js"></script>
+    <script src="{{asset ('assets/js/setting-demo.js')}}"></script>
+    <script src="{{asset ('assets/js/demo.js')}}"></script>
     <script>
       $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
         type: "line",

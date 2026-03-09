@@ -40,4 +40,9 @@ class Pegawai extends Model
     {
         return $this->hasMany(Izin::class, 'id_pegawai', 'id_pegawai');
     }
+
+    public function akun()
+    {
+        return $this->hasOne(Akun::class, 'id_pegawai', 'id_pegawai');
+    }
 }

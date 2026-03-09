@@ -603,7 +603,14 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Account Setting</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                       </li>
                     </div>
                   </ul>
@@ -633,7 +640,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('izin.index') }}">Forms</a>
+                            <a href="{{ route('admin.izin.index') }}">Forms</a>
                         </li>
 
                         <li class="separator">
@@ -641,7 +648,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('dokumentasi.index') }}">Dokumentasi</a>
+                            <a href="{{ route('admin.dokumentasi.index') }}">Dokumentasi</a>
                         </li>
                     </ul>
                 </div>
@@ -651,7 +658,7 @@
                     <div class="col-md-12">
 
                         <!-- FORM -->
-                        <form action="{{ route('dokumentasi.store') }}" method="POST" id="dokumentasiForm" enctype="multipart/form-data">
+                        <form action="{{ route('admin.dokumentasi.store') }}" method="POST" id="dokumentasiForm" enctype="multipart/form-data">
                             @csrf
 
                             <div class="card">
@@ -745,7 +752,7 @@
                                 <!-- CARD ACTION -->
                                 <div class="card-action d-flex justify-content-end">
                                     <button type="submit" class="btn btn-success">Simpan</button>
-                                    <a href="{{ route('dokumentasi.index') }}" class="btn btn-danger ms-2">Batal</a>
+                                    <a href="{{ route('admin.dokumentasi.index') }}" class="btn btn-danger ms-2">Batal</a>
                                 </div>
 
                             </div>

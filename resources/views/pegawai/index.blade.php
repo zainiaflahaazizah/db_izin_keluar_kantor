@@ -18,7 +18,7 @@
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('pegawai.index') }}">Pegawai</a>
+                  <a href="{{ route('admin.pegawai.index') }}">Pegawai</a>
                 </li>
               </ul>
             </div>
@@ -28,7 +28,7 @@
                   <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Tabel Pegawai</h4>
-                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('pegawai.create') }}">
+                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('admin.pegawai.create') }}">
                         <i class="fa fa-plus"></i>
                         Tambah Pegawai
                         </a>
@@ -101,7 +101,7 @@
                                     <div class="form-button-action d-flex gap-2">
 
                                         {{-- SHOW / DETAIL --}}
-                                        <a href="{{ route('pegawai.show', $pegawai->id_pegawai) }}"
+                                        <a href="{{ route('admin.pegawai.show', $pegawai->id_pegawai) }}"
                                         class="btn btn-link btn-info"
                                         data-bs-toggle="tooltip"
                                         title="Lihat Detail">
@@ -109,7 +109,7 @@
                                         </a>
 
                                         {{-- EDIT --}}
-                                        <a href="{{ route('pegawai.edit', $pegawai->id_pegawai) }}"
+                                        <a href="{{ route('admin.pegawai.edit', $pegawai->id_pegawai) }}"
                                         class="btn btn-link btn-primary"
                                         data-bs-toggle="tooltip"
                                         title="Edit">
@@ -117,7 +117,7 @@
                                         </a>
 
                                         {{-- DELETE --}}
-                                        <form action="{{ route('pegawai.destroy', $pegawai->id_pegawai) }}"
+                                        <form action="{{ route('admin.pegawai.destroy', $pegawai->id_pegawai) }}"
                                             method="POST"
                                             onsubmit="return confirm('Yakin hapus data ini?');">
                                             @csrf

@@ -1,123 +1,180 @@
-@extends('layouts.anggota')
+@extends('layouts.anggota2')
 
 @section('title', 'Data Dokumentasi')
 
 @section('content')
 
-<section class="section-padding" id="section_2">
     <div class="container">
-
-        <!-- Judul Section -->
-        <div class="row mb-4">
-            <div class="col-lg-12 text-center">
-                <h2 class="mb-3">Data Dokumentasi</h2>
-                <p class="text-muted">
-                    Daftar dokumentasi kegiatan pegawai
-                </p>
+          <div class="page-inner">
+            <div class="page-header">
+              <h3 class="fw-bold mb-3">Dokumentasi</h3>
+              <ul class="breadcrumbs mb-3">
+                <li class="nav-home">
+                  <a href="#">
+                    <i class="icon-home"></i>
+                  </a>
+                </li>
+                <li class="separator">
+                  <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                  <a href="#">Forms</a>
+                </li>
+                <li class="separator">
+                  <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                  <a href="#">Dokumentasi</a>
+                </li>
+              </ul>
             </div>
-        </div>
-
-        <!-- Card Tabel -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card shadow-sm border-1">
-
-                    <!-- Card Header -->
-                    <div class="card-header bg-white border-0 d-flex align-items-center">
-                        <h5 class="mb-0 fw-bold">Tabel Dokumentasi</h5>
-
-                        <a href="{{ route('anggota.dokumentasi.create') }}"
-                           class="btn btn-sm btn-success ms-auto">
-                            <i class="bi bi-plus-circle me-1"></i>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="d-flex align-items-center">
+                        <h4 class="card-title">Tabel Dokumentasi</h4>
+                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('anggota.dokumentasi.create') }}">
+                            <i class="fa fa-plus"></i>
                             Tambah Dokumentasi
                         </a>
                     </div>
+                  </div>
+                  <div class="card-body">
 
-                    <!-- Card Body -->
-                    <div class="card-body">
+                    @if(session('success'))
+                    <script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Berhasil!',
+                            text: '{{ session("success") }}',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    </script>
+                    @endif
 
-                        {{-- Alert Success --}}
-                        @if(session('success'))
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                {{ session('success') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                            </div>
-                        @endif
+                    <div class="table-responsive">
+                      <table
+                        id="basic-datatables"
+                        class="display table table-striped table-hover">
+                        <thead class="text-center align-middle">
+                          <tr>
+                            <th>Pegawai</th>
+                            <th>Izin</th>
+                            <th>Foto</th>
+                            <th>Lokasi</th>
+                            <th style="width: 10%">Action</th>
+                          </tr>
+                        </thead>
+                        <tfoot class="text-center align-middle">
+                          <tr>
+                            <th>Pegawai</th>
+                            <th>Izin</th>
+                            <th>Foto</th>
+                            <th>Lokasi</th>
+                            <th style="width: 10%">Action</th>
+                          </tr>
+                        </tfoot>
+                        <tbody class="text-center align-middle">
+                           @forelse ($dokumentasis as $dokumentasi)
+                                <tr>
 
-                        <div class="table-responsive">
-                            <table class="table table-hover align-middle text-center">
+                                    <td>
+                                        {{ $dokumentasi->pegawai->nama ?? '-' }}
+                                    </td>
 
-                                <thead class="table-dark">
-                                    <tr>
-                                        <th>Foto</th>
-                                        <th>Lokasi</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
+                                    <td>
+                                        {{ $dokumentasi->izin->alasan ?? 'Tanpa Izin' }}
+                                    </td>
 
-                                <tbody>
-                                @forelse ($dokumentasis as $dokumentasi)
-                                    <tr>
-                                        <td>
-                                            <img src="{{ Storage::url($dokumentasi->foto) }}"
-                                                 class="img-thumbnail"
-                                                 width="120">
-                                        </td>
-                                        <td>
-                                            {{ $dokumentasi->latitude }},
-                                            {{ $dokumentasi->longitude }}
-                                        </td>
+                                    <td>
+                                        <img src="{{ Storage::url($dokumentasi->foto) }}" width="100">
+                                    </td>
 
-                                        <td>
-                                            <div class="d-flex justify-content-center gap-2">
+                                    <td>
+                                        {{ $dokumentasi->latitude }}, {{ $dokumentasi->longitude }}
+                                    </td>
+                                    <td>
+                                    <div class="form-button-action d-flex gap-2">
 
-                                                <!-- Detail -->
-                                                <a href="{{ route('anggota.dokumentasi.show', $dokumentasi->id_dokumentasi) }}"
-                                                   class="btn btn-sm btn-outline-info"
-                                                   title="Detail">
-                                                    <i class="bi bi-eye"></i>
-                                                </a>
+                                        {{-- SHOW / DETAIL --}}
+                                        <a href="{{ route('anggota.dokumentasi.show', $dokumentasi->id_dokumentasi) }}"
+                                        class="btn btn-link btn-info"
+                                        data-bs-toggle="tooltip"
+                                        title="Lihat Detail">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
 
-                                                <!-- Edit -->
-                                                <a href="{{ route('anggota.dokumentasi.edit', $dokumentasi->id_dokumentasi) }}"
-                                                   class="btn btn-sm btn-outline-primary"
-                                                   title="Edit">
-                                                    <i class="bi bi-pencil"></i>
-                                                </a>
+                                        {{-- EDIT
+                                        <a href="{{ route('anggota.dokumentasi.edit', $dokumentasi->id_dokumentasi) }}"
+                                        class="btn btn-link btn-primary"
+                                        data-bs-toggle="tooltip"
+                                        title="Edit">
+                                            <i class="fa fa-edit"></i>
+                                        </a> --}}
 
-                                                <!-- Delete -->
-                                                <form action="{{ route('anggota.dokumentasi.destroy', $dokumentasi->id_dokumentasi) }}"
-                                                      method="POST"
-                                                      onsubmit="return confirm('Yakin hapus data ini?')">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="btn btn-sm btn-outline-danger"
-                                                            title="Hapus">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </form>
+                                        {{-- DELETE --}}
+                                        <form action="{{ route('anggota.dokumentasi.destroy', $dokumentasi->id_dokumentasi) }}"
+                                            method="POST"
+                                            onsubmit="return confirm('Yakin hapus data ini?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                    class="btn btn-link btn-danger"
+                                                    data-bs-toggle="tooltip"
+                                                    title="Hapus">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </form>
 
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    </div>
+                                    </td>
+                                </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="3" class="text-center text-muted">
-                                            Tidak ada data dokumentasi
-                                        </td>
+                                        <td colspan="10" class="text-center">Tidak ada data dokumentasi</td>
                                     </tr>
-                                @endforelse
-                                </tbody>
-
-                            </table>
-                        </div>
-
+                            @endforelse
+                        </tbody>
+                      </table>
                     </div>
+                  </div>
                 </div>
+              </div>
+
+
             </div>
+          </div>
         </div>
 
-    </div>
-</section>
+<script>
+    // PREVIEW FILE / FOTO
+        function previewFile(event) {
+            let file = event.target.files[0];
+            let previewImage = document.getElementById("previewImage");
+            let fileName = document.getElementById("fileName");
+
+            if (!file) return;
+
+            // Jika file adalah gambar → tampilkan preview
+            if (file.type.startsWith("image/")) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = "block";
+                    fileName.style.display = "none";
+                }
+                reader.readAsDataURL(file);
+            } else {
+                // Jika file PDF / Word → tampilkan nama file saja
+                previewImage.style.display = "none";
+                fileName.innerText = "File terupload: " + file.name;
+                fileName.style.display = "block";
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 @endsection

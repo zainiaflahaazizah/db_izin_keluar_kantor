@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('dokumentasis', function (Blueprint $table) {
             $table->id('id_dokumentasi');
-            $table->unsignedBigInteger('id_izin');
+            $table->unsignedBigInteger('id_izin')->nullable();
             $table->string('foto');
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();

@@ -21,7 +21,9 @@ class AkunController extends Controller
 
     public function create(): View
     {
-        return view('admin.akun.create');
+        $pegawais = \App\Models\Pegawai::all();
+
+        return view('admin.akun.create', compact('pegawais'));
     }
 
     /**
@@ -34,10 +36,19 @@ class AkunController extends Controller
     {
         //validate form
         $request->validate([
-            'username'        => 'required|string|max:100',
-            'password'        => 'required|string',
-            'role'            => 'required|in:Anggota,Ketua Tim,Kasubbag Umum,Kepala BPS,Admin',
+            'username'        => 'required|unique:akuns,username',
+            'password'        => 'required',
+            'role'            => 'required',
+            'id_pegawai'      => 'required|exists:pegawais,id_pegawai', // validasi
+            ], [
+            'username.unique' => 'Username sudah digunakan!',
         ]);
+
+        // $request->validate([
+        //     'username'        => 'required|string|max:100',
+        //     'password'        => 'required|string',
+        //     'role'            => 'required|in:Anggota,Ketua Tim,Kasubbag Umum,Kepala BPS,Admin',
+        // ]);
 
         // //upload image
         // $image = $request->file('image');
@@ -48,10 +59,11 @@ class AkunController extends Controller
             'username'        => $request->username,
             'password'        => Hash::make($request->password),
             'role'            => $request->role,
+            'id_pegawai'      => $request->id_pegawai,
         ]);
 
         //redirect to index
-        return redirect()->route('akun.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('admin.akun.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     public function show(string $id_akun): View
@@ -65,11 +77,10 @@ class AkunController extends Controller
 
     public function edit(string $id_akun): View
     {
-        //get pegawai by ID
-        $akun = AKun::findOrFail($id_akun);
+        $akun = Akun::findOrFail($id_akun);
+        $pegawais = \App\Models\Pegawai::all();
 
-        //render view with pegawai
-        return view('admin.akun.edit', compact('akun'));
+        return view('admin.akun.edit', compact('akun', 'pegawais'));
     }
 
     /**
@@ -81,24 +92,27 @@ class AkunController extends Controller
      */
     public function update(Request $request, $id_akun): RedirectResponse
     {
-        //validate form
         $request->validate([
-            'username'        => 'required|string|max:100',
-            'password'        => 'required|string',
-            'role'            => 'required|in:Anggota,Ketua Tim,Kasubbag Umum,Kepala BPS,Admin',
+            'username'   => 'required|string|max:100',
+            'role'       => 'required|in:anggota,ketua_tim,kasubbag_umum,kepala_bps,admin',
+            'id_pegawai' => 'required|exists:pegawais,id_pegawai',
         ]);
 
-        //get akun by ID
-        $akun = AKun::findOrFail($id_akun);
+        $akun = Akun::findOrFail($id_akun);
 
-        $akun->update([
-            'username'        => $request->username,
-            'password'        => Hash::make($request->password),
-            'role'            => $request->role,
-    ]);
+        $akun->username = $request->username;
+        $akun->role = $request->role;
+        $akun->id_pegawai = $request->id_pegawai;
 
-        //redirect to index
-        return redirect()->route('akun.index')->with(['success' => 'Data Berhasil Diubah!']);
+        // hanya update password kalau diisi
+        if ($request->filled('password')) {
+            $akun->password = Hash::make($request->password);
+        }
+
+        $akun->save();
+
+        return redirect()->route('admin.akun.index')
+            ->with('success', 'Data Berhasil Diubah!');
     }
 
     public function destroy($id_akun): RedirectResponse
@@ -110,7 +124,7 @@ class AkunController extends Controller
         $akun->delete();
 
         //redirect to index
-        return redirect()->route('akun.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('admin.akun.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }
 

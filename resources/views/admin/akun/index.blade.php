@@ -35,7 +35,7 @@
                   <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Tabel Akun</h4>
-                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('akun.create') }}">
+                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('admin.akun.create') }}">
                             <i class="fa fa-plus"></i>
                             Tambah Akun
                         </a>
@@ -78,14 +78,14 @@
                         <tbody>
                             @forelse ($akuns as $akun)
                                 <tr>
-                                    <td>{{ $akun->username }}</td>
-                                    <td>{{ $akun->password }}</td>
-                                    <td>{{ $akun->role }}</td>
+                                    <td class="text-center">{{ $akun->username }}</td>
+                                    <td class="text-center">{{ $akun->password }}</td>
+                                    <td class="text-center">{{ $akun->role }}</td>
                                     <td>
                                     <div class="form-button-action d-flex gap-2">
 
                                         {{-- SHOW / DETAIL --}}
-                                        <a href="{{ route('akun.show', $akun->id_akun) }}"
+                                        <a href="{{ route('admin.akun.show', $akun->id_akun) }}"
                                         class="btn btn-link btn-info"
                                         data-bs-toggle="tooltip"
                                         title="Lihat Detail">
@@ -93,7 +93,7 @@
                                         </a>
 
                                         {{-- EDIT --}}
-                                        <a href="{{ route('akun.edit', $akun->id_akun) }}"
+                                        <a href="{{ route('admin.akun.edit', $akun->id_akun) }}"
                                         class="btn btn-link btn-primary"
                                         data-bs-toggle="tooltip"
                                         title="Edit">
@@ -101,7 +101,7 @@
                                         </a>
 
 
-                                        <form action="{{ route('akun.destroy', $akun->id_akun) }}"
+                                        <form action="{{ route('admin.akun.destroy', $akun->id_akun) }}"
                                             method="POST"
                                             onsubmit="return confirm('Yakin hapus data ini?');">
                                             @csrf

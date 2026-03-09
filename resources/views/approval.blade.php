@@ -99,7 +99,7 @@
                 </a>
               </li>
                 <li class="nav-item">
-                    <a  href="{{route('pegawai.index')}}">
+                    <a  href="{{route('admin.pegawai.index')}}">
                     <i class='bx bxs-user-badge'></i>
                     <p>Pegawai</p>
                     </a>
@@ -113,12 +113,12 @@
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{ route('izin.index') }}">
+                      <a href="{{ route('admin.izin.index') }}">
                         <span class="sub-item">Form Izin</span>
                       </a>
                     </li>
                     <li>
-                      <a href="{{route('dokumentasi.index')}}">
+                      <a href="{{route('admin.dokumentasi.index')}}">
                         <span class="sub-item">Form Dokumentasi</span>
                       </a>
                     </li>
@@ -579,7 +579,14 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Account Setting</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                       </li>
                     </div>
                   </ul>
@@ -772,10 +779,9 @@
                                             <div class="d-flex justify-content-center gap-1">
 
                                                 {{-- SETUJUI --}}
-                                                <form action="{{ route('approval.setujui', $izin->id_izin) }}"
-                                                    method="POST">
+                                                <form action="{{ route('approval.setujui', $izin->id_izin) }}" method="POST">
                                                     @csrf
-                                                    @method('PATCH')
+                                                    @method('PUT')
                                                     <button type="submit"
                                                             class="btn btn-success btn-sm"
                                                             data-bs-toggle="tooltip"
@@ -785,10 +791,9 @@
                                                 </form>
 
                                                 {{-- TOLAK --}}
-                                                <form action="{{ route('approval.tolak', $izin->id_izin) }}"
-                                                    method="POST">
+                                                <form action="{{ route('approval.tolak', $izin->id_izin) }}" method="POST">
                                                     @csrf
-                                                    @method('PATCH')
+                                                    @method('PUT')
                                                     <button type="submit"
                                                             class="btn btn-danger btn-sm"
                                                             data-bs-toggle="tooltip"
