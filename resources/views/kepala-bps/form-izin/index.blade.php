@@ -1,4 +1,4 @@
-@extends('layouts.kepala')
+@extends('layouts.kepala-bps')
 
 @section('title', 'Data Izin')
 

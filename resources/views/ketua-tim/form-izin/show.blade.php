@@ -1,113 +1,126 @@
-@extends('layouts.anggota')
+@extends('layouts.ketua-tim')
 
 @section('title', 'Detail Izin')
 
 @section('content')
-<section class="section-padding" id="section_2">
-    <div class="container">
 
-        <!-- Judul -->
-        <div class="row mb-4">
-            <div class="col-lg-12 text-center">
-                <h2 class="mb-2">Detail Izin Pegawai</h2>
-                <p class="text-muted">Informasi lengkap pengajuan izin</p>
+<div class="container">
+          <div class="page-inner">
+            <div class="page-header">
+              <h3 class="fw-bold mb-3">Izin</h3>
+              <ul class="breadcrumbs mb-3">
+                {{-- <li class="nav-home">
+                  <a href="#">
+                    <i class="icon-home"></i>
+                  </a>
+                </li> --}}
+                <li class="separator">
+                  <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('ketua-tim.izin.index')}}">Forms</a>
+                </li>
+                <li class="separator">
+                  <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('ketua-tim.izin.index')}}">Izin</a>
+                </li>
+                <li class="separator">
+                  <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                  <a href="#">Detail</a>
+                </li>
+              </ul>
             </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-
-                <div class="card shadow-sm border-1">
-                    <div class="card-header bg-white fw-bold">
-                        Data Izin
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="d-flex align-items-center">
+                        <h4 class="card-title">Tabel Izin</h4>
                     </div>
+                  </div>
+                  <div class="card-body">
+                        <div class="col-md-10 mx-auto">
+                            <div class="card shadow-lg border-0 rounded-3">
+                                <div class="card-body px-5 py-4">
 
-                    <div class="card-body">
-                        <table class="table table-borderless">
-                            <tr>
-                                <th width="35%">Nama</th>
-                                <td>: {{ $izin->pegawai->nama }}</td>
-                            </tr>
+                                    <h2 class="mb-0 text-primary fw-bold">
+                                        <i class="fa fa-id-card me-2"></i> Detail Izin
+                                    </h2>
+                                    <p class="text-muted">Informasi lengkap pegawai BPS</p>
+                                    <hr class="mt-0 mb-4">
 
-                            <tr>
-                                <th>NIP</th>
-                                <td>: {{ $izin->pegawai->nip }}</td>
-                            </tr>
+                                    <div class="text-center mb-4">
+                                        <h3 class="fw-bold text-dark">{{ $izin->pegawai->nama }}</h3>
+                                        <span class="badge bg-info text-dark px-3 py-2" style="font-size: 14px;">
+                                            {{ $izin->pegawai->jabatan }}
+                                        </span>
+                                    </div>
 
-                            <tr>
-                                <th>Jabatan</th>
-                                <td>: {{ $izin->pegawai->jabatan }}</td>
-                            </tr>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <th width="30%">NIP</th>
+                                                    <td>{{ $izin->pegawai->nip ?? '-' }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Jabatan</th>
+                                                    <td>{{ $izin->pegawai->jabatan ?? '-' }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Alasan Keluar</th>
+                                                    <td>{{ $izin->alasan }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Jam Keluar</th>
+                                                    <td>{{ $izin->jam_keluar }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Jam Kembali</th>
+                                                    <td>{{ $izin->jam_kembali }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Keterangan</th>
+                                                    <td>{{ $izin->keterangan }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Tujuan Persetujuan</th>
+                                                    <td>{{ $izin->tujuan_persetujuan }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Status</th>
+                                                    <td>
+                                                        <span class="badge
+                                                            @if ($izin->status == 'Aktif') bg-success
+                                                            @elseif ($izin->status == 'Cuti') bg-warning text-dark
+                                                            @else bg-secondary
+                                                            @endif
+                                                        px-3 py-2">
+                                                            {{ $izin->status }}
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
 
-                            <tr>
-                                <th>Alasan</th>
-                                <td>:
-                                    @if ($izin->alasan === 'Pribadi')
-                                        <span class="badge bg-info">Pribadi</span>
-                                    @elseif ($izin->alasan === 'Dinas')
-                                        <span class="badge bg-primary">Dinas</span>
-                                    @else
-                                        <span class="badge bg-secondary">-</span>
-                                    @endif
-                                </td>
-                            </tr>
+                                    <div class="text-end mt-4">
+                                        <a href="{{ route('ketua-tim.izin.index') }}" class="btn btn-secondary">
+                                            <i class="fa fa-arrow-left me-1"></i> Kembali
+                                        </a>
+                                    </div>
 
-                            <tr>
-                                <th>Jam Keluar</th>
-                                <td>: {{ $izin->jam_keluar }}</td>
-                            </tr>
-
-                            <tr>
-                                <th>Jam Kembali</th>
-                                <td>: {{ $izin->jam_kembali ?? '-' }}</td>
-                            </tr>
-
-                            <tr>
-                                <th>Keterangan</th>
-                                <td>: {{ $izin->keterangan ?? '-' }}</td>
-                            </tr>
-
-                            <tr>
-                                <th>Tujuan Persetujuan</th>
-                                <td>: {{ $izin->tujuan_persetujuan }}</td>
-                            </tr>
-
-                            <tr>
-                                <th>Status</th>
-                                <td>:
-                                    @if ($izin->status === 'menunggu')
-                                        <span class="badge bg-warning text-dark">Menunggu</span>
-                                    @elseif ($izin->status === 'disetujui')
-                                        <span class="badge bg-success">Disetujui</span>
-                                    @else
-                                        <span class="badge bg-danger">Ditolak</span>
-                                    @endif
-                                </td>
-                            </tr>
-                        </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <!-- Footer -->
-                    <div class="card-footer bg-white d-flex justify-content-between">
-                        <a href="{{ route('ketua-tim.izin.index') }}"
-                           class="btn btn-outline-secondary">
-                            <i class="bi bi-arrow-left"></i> Kembali
-                        </a>
-
-                        @if ($izin->status === 'disetujui')
-                            <a href="{{ route('surat-keluar.pdf', $izin->id_izin) }}"
-                               target="_blank"
-                               class="btn btn-outline-danger">
-                                <i class="bi bi-file-earmark-pdf"></i> Cetak PDF
-                            </a>
-                        @endif
-                    </div>
-
                 </div>
-
+              </div>
             </div>
+          </div>
         </div>
-
-    </div>
-</section>
 @endsection

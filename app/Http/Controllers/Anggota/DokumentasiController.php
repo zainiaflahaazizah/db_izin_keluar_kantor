@@ -15,9 +15,9 @@ class DokumentasiController extends Controller
 
     public function index()
     {
+        // $dokumentasis = Dokumentasi::with(['pegawai','izin']) ->latest() ->get();
         $dokumentasis = Dokumentasi::with(['pegawai','izin'])
-                        ->latest()
-                        ->get();
+        ->where('id_pegawai', Auth::user()->id_pegawai) ->latest() ->get();
 
         return view('anggota.form-dokumentasi.index', compact('dokumentasis'));
     }
@@ -45,13 +45,12 @@ class DokumentasiController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+        // dd(Auth::user()->id_pegawai);
         $request->validate([
-            'id_izin' => 'nullable|exists:izins,id_izin',
-
-            'foto' => 'required|array',
-            'foto.*' => 'image|mimes:jpeg,png,jpg|max:5120',
-
-            'latitude' => 'nullable',
+            'id_izin'   => 'nullable|exists:izins,id_izin',
+            'foto'      => 'required|array',
+            'foto.*'    => 'image|mimes:jpeg,png,jpg|max:10240',
+            'latitude'  => 'nullable',
             'longitude' => 'nullable',
         ]);
 
@@ -62,10 +61,11 @@ class DokumentasiController extends Controller
             $path = $file->store('dokumentasi', 'public');
 
             Dokumentasi::create([
-                'id_izin' => $request->id_izin,
-                'foto' => $path,
-                'latitude' => $request->latitude,
-                'longitude' => $request->longitude
+                'id_pegawai' => Auth::user()->id_pegawai,
+                'id_izin'    => $request->id_izin,
+                'foto'       => $path,
+                'latitude'   => $request->latitude,
+                'longitude'  => $request->longitude
             ]);
         }
 
@@ -80,27 +80,50 @@ class DokumentasiController extends Controller
 
     //     return view('anggota.form-dokumentasi.show', compact('dokumentasi'));
     // }
-    public function show(string $id_dokumentasi): View
+    // public function show(string $id_dokumentasi): View
+    // {
+    //     $dokumentasi = Dokumentasi::with('izin')
+    //         ->where('id_dokumentasi', $id_dokumentasi)
+    //         ->whereHas('izin', function ($query) {
+    //             $query->where('id_pegawai', Auth::user()->id_pegawai);
+    //         })
+    //         ->firstOrFail();
+
+    //     return view('anggota.form-dokumentasi.show', compact('dokumentasi'));
+    // }
+
+    public function show(string $id_dokumentasi)
     {
-        $dokumentasi = Dokumentasi::with('izin')
+        $dokumentasi = Dokumentasi::with(['pegawai','izin'])
             ->where('id_dokumentasi', $id_dokumentasi)
-            ->whereHas('izin', function ($query) {
-                $query->where('id_pegawai', Auth::user()->id_pegawai);
-            })
+            ->where('id_pegawai', Auth::user()->id_pegawai)
             ->firstOrFail();
+        // $dokumentasi = Dokumentasi::with('izin')->findOrFail($id_dokumentasi);
 
         return view('anggota.form-dokumentasi.show', compact('dokumentasi'));
     }
 
 
-    public function destroy(string $id_dokumentasi): RedirectResponse
+    // public function destroy(string $id_dokumentasi): RedirectResponse
+    // {
+    //     // $dokumentasi = Dokumentasi::findOrFail($id_dokumentasi);
+    //     $dokumentasi = Dokumentasi::where('id_dokumentasi', $id_dokumentasi)
+    //     ->whereHas('izin', function ($query) {
+    //         $query->where('id_pegawai', Auth::user()->id_pegawai);
+    //     })
+    //     ->firstOrFail();
+
+    //     $dokumentasi->delete();
+
+    //     return redirect()->route('anggota.dokumentasi.index')
+    //         ->with('success', 'Data berhasil dihapus');
+    // }
+
+    public function destroy(string $id_dokumentasi)
     {
-        // $dokumentasi = Dokumentasi::findOrFail($id_dokumentasi);
         $dokumentasi = Dokumentasi::where('id_dokumentasi', $id_dokumentasi)
-        ->whereHas('izin', function ($query) {
-            $query->where('id_pegawai', Auth::user()->id_pegawai);
-        })
-        ->firstOrFail();
+            ->where('id_pegawai', Auth::user()->id_pegawai)
+            ->firstOrFail();
 
         $dokumentasi->delete();
 

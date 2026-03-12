@@ -1,4 +1,4 @@
-@extends('layouts.anggota')
+@extends('layouts.ketua-tim')
 
 @section('title', 'Edit Dokumentasi')
 

@@ -105,7 +105,7 @@ class IzinController extends Controller
     {
         Izin::findOrFail($id_izin)->delete();
 
-        return redirect()->route('izin.index')
+        return redirect()->route('admin.izin.index')
             ->with('success', 'Data berhasil dihapus');
     }
 

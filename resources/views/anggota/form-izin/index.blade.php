@@ -138,7 +138,7 @@
                                         {{-- DELETE --}}
                                         <form action="{{ route('anggota.izin.destroy', $izin->id_izin) }}"
                                             method="POST"
-                                            onsubmit="return confirm('Yakin hapus data ini?');">
+                                            onsubmit="return confirmDelete(event)">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"

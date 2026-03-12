@@ -85,7 +85,7 @@
                                     </td>
 
                                     <td>
-                                        {{ $dokumentasi->izin->alasan ?? 'Tanpa Izin' }}
+                                        {{ $dokumentasi->izin->keterangan ?? 'Tanpa Izin' }}
                                     </td>
 
                                     <td>
@@ -117,7 +117,7 @@
                                         {{-- DELETE --}}
                                         <form action="{{ route('anggota.dokumentasi.destroy', $dokumentasi->id_dokumentasi) }}"
                                             method="POST"
-                                            onsubmit="return confirm('Yakin hapus data ini?');">
+                                            onsubmit="return confirmDelete(event)">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"

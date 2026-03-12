@@ -15,7 +15,8 @@ class PegawaiController extends Controller
     public function index() : View
     {
         //get all pegawais
-        $pegawais = Pegawai::latest()->paginate(10);
+        // $pegawais = Pegawai::latest()->paginate(10);
+        $pegawais = Pegawai::latest()->get();
 
         //render view with pegawais
         return view('kepala-bps.pegawai.index', compact('pegawais'));

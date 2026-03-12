@@ -1,4 +1,4 @@
-@extends('layouts.kepala')
+@extends('layouts.kasubbag')
 
 @section('title', 'Data Izin')
 
@@ -12,11 +12,11 @@
                     <h3 class="fw-bold mb-3">Izin</h3>
 
                     <ul class="breadcrumbs mb-3">
-                        <li class="nav-home">
+                        {{-- <li class="nav-home">
                             <a href="{{ url('dashboard') }}">
                                 <i class="icon-home"></i>
                             </a>
-                        </li>
+                        </li> --}}
 
                         <li class="separator">
                             <i class="icon-arrow-right"></i>
@@ -63,25 +63,15 @@
 
                                             {{-- NAMA --}}
                                             <div class="form-group">
-                                                <label for="id_pegawai">Nama</label>
-                                                <select
+                                                <label>Nama</label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    value="{{ $izin->pegawai->nama }}"
+                                                    readonly>
+
+                                                <input type="hidden"
                                                     name="id_pegawai"
-                                                    id="id_pegawai"
-                                                    class="form-control @error('id_pegawai') is-invalid @enderror"
-                                                    required
-                                                >
-                                                    <option value="">-- Pilih Nama Pegawai --</option>
-                                                    @foreach ($pegawais as $pegawai)
-                                                        <option
-                                                            value="{{ $pegawai->id_pegawai }}"
-                                                            data-nip="{{ $pegawai->nip }}"
-                                                            data-jabatan="{{ $pegawai->jabatan }}"
-                                                            {{ old('id_pegawai', $izin->id_pegawai) == $pegawai->id_pegawai ? 'selected' : '' }}
-                                                        >
-                                                            {{ $pegawai->nama }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
+                                                    value="{{ $izin->id_pegawai }}">
                                             </div>
 
                                             @error('id_pegawai')
@@ -90,26 +80,20 @@
 
                                             {{-- NIP --}}
                                             <div class="form-group">
-                                                <label for="nip">NIP</label>
-                                                <input
-                                                    type="text"
-                                                    id="nip"
+                                                <label>NIP</label>
+                                                <input type="text"
                                                     class="form-control"
                                                     value="{{ $izin->pegawai->nip }}"
-                                                    readonly
-                                                >
+                                                    readonly>
                                             </div>
 
                                             {{-- JABATAN --}}
                                             <div class="form-group">
-                                                <label for="jabatan">Jabatan</label>
-                                                <input
-                                                    type="text"
-                                                    id="jabatan"
+                                                <label>Jabatan</label>
+                                                <input type="text"
                                                     class="form-control"
                                                     value="{{ $izin->pegawai->jabatan }}"
-                                                    readonly
-                                                >
+                                                    readonly>
                                             </div>
 
                                             {{-- ALASAN --}}
@@ -207,31 +191,31 @@
                                             @enderror
 
                                             {{-- TUJUAN PERSETUJUAN --}}
+                                            {{-- {{ dd($izin->tujuan_persetujuan) }} --}}
                                             <div class="form-group">
                                                 <label for="tujuan_persetujuan">Tujuan Persetujuan</label>
-                                                <select
-                                                    name="tujuan_persetujuan"
-                                                    class="form-control @error('tujuan_persetujuan') is-invalid @enderror"
-                                                    required
-                                                >
-                                                    <option value="">-- Pilih Tujuan --</option>
-                                                    <option value="Ketua Tim" {{ old('tujuan_persetujuan', $izin->tujuan_persetujuan) == 'Ketua Tim' ? 'selected' : '' }}>
-                                                        Ketua Tim
+                                                <select name="tujuan_persetujuan" class="form-control">
+
+                                                    @foreach($kepalaBps as $kbps)
+
+                                                    @php
+                                                    $tujuan = "Kepala Subbagian Umum - " . $kbps->nama;
+                                                    @endphp
+
+                                                    <option value="{{ $tujuan }}"
+                                                    {{ old('tujuan_persetujuan', $izin->tujuan_persetujuan) == $tujuan ? 'selected' : '' }}>
+                                                    {{ $tujuan }}
                                                     </option>
-                                                    <option value="Kepala Subbagian Umum" {{ old('tujuan_persetujuan', $izin->tujuan_persetujuan) == 'Kepala Subbagian Umum' ? 'selected' : '' }}>
-                                                        Kepala Subbagian Umum
-                                                    </option>
-                                                    <option value="Kepala BPS Banjar" {{ old('tujuan_persetujuan', $izin->tujuan_persetujuan) == 'Kepala BPS Banjar' ? 'selected' : '' }}>
-                                                        Kepala BPS Banjar
-                                                    </option>
+
+                                                    @endforeach
+
                                                 </select>
+
+                                                @error('tujuan_persetujuan')
+                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                                @enderror
                                             </div>
 
-                                            @error('tujuan_persetujuan')
-                                                <div class="alert alert-danger mt-2">{{ $message }}</div>
-                                            @enderror
-
-                                        </div>
                                         {{-- END KOLOM KANAN --}}
 
                                     </div>
@@ -252,6 +236,6 @@
                 </div>
 
             </div>
-        </div>
+</div>
 
 @endsection

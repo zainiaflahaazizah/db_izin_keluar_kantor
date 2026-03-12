@@ -176,15 +176,9 @@
                                                 <label>Tujuan Persetujuan</label>
                                                 <select name="tujuan_persetujuan" class="form-control" required>
                                                     <option value="">-- Pilih Tujuan Persetujuan --</option>
-
-                                                    @foreach($ketuaTim as $ketua)
-                                                        @php
-                                                            $tujuan = "Ketua Tim - " . $ketua->nama;
-                                                        @endphp
-
-                                                        <option value="{{ $tujuan }}"
-                                                            {{ old('tujuan_persetujuan') == $tujuan ? 'selected' : '' }}>
-                                                            {{ $tujuan }}
+                                                    @foreach($ketua_tim as $kt)
+                                                        <option value="Ketua Tim - {{ $kt->nama }}">
+                                                            Ketua Tim - {{ $kt->nama }}
                                                         </option>
                                                     @endforeach
                                                 </select>

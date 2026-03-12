@@ -100,6 +100,12 @@
         <div class="sidebar-wrapper scrollbar scrollbar-inner">
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
+                <li class="nav-item {{ request()->routeIs('kepala-bps.pegawai.*') ? 'active' : '' }}">
+                    <a  href="{{route('kepala-bps.pegawai.index')}}">
+                    <i class='bx bxs-user-badge'></i>
+                    <p>Pegawai</p>
+                    </a>
+                </li>
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#forms">
                   <i class="fas fa-pen-square"></i>
@@ -108,31 +114,62 @@
                 </a>
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
-                    {{-- <li>
-                      <a href="{{route ('anggota.izin.index')}}">
-                        <span class="sub-item">Form Izin</span>
-                      </a>
-                    </li> --}}
-                    <li class="nav-item {{ request()->routeIs('anggota.izin.*') ? 'active' : '' }}">
-                        <a href="{{ route('anggota.izin.index') }}">
-                            <i class="fas fa-file-alt"></i>
+                    <li class="{{ request()->routeIs('kepala-bps.izin.*') ? 'active' : '' }}">
+                      <a href="{{route ('kepala-bps.izin.index')}}">
+                        <i class="fas fa-file-alt"></i>
                             <p>Form Izin</p>
-                        </a>
-                    </li>
-                    {{-- <li>
-                      <a href="{{route('anggota.dokumentasi.index')}}">
-                        <span class="sub-item">Form Dokumentasi</span>
                       </a>
-                    </li> --}}
-                    <li class="nav-item {{ request()->routeIs('anggota.dokumentasi.*') ? 'active' : '' }}">
-                        <a href="{{ route('anggota.dokumentasi.index') }}">
-                            <i class="fas fa-camera"></i>
+                    </li>
+                    <li class="{{ request()->routeIs('kepala-bps.dokumentasi.*') ? 'active' : '' }}">
+                      <a href="{{route('kepala-bps.dokumentasi.index')}}">
+                        <i class="fas fa-camera"></i>
                             <p>Dokumentasi</p>
-                        </a>
+                      </a>
                     </li>
                   </ul>
                 </div>
               </li>
+              <li class="nav-item {{ request()->routeIs('kepala-bps.persetujuan.*') ? 'active' : '' }}">
+                <a href="{{route ('kepala-bps.persetujuan.index')}}">
+                  <i class="fas fa-table"></i>
+                  <p>Approval</p>
+                </a>
+                <div class="collapse" id="tables">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="tables/tables.html">
+                        <span class="sub-item">Basic Table</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="tables/datatables.html">
+                        <span class="sub-item">Datatables</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              {{-- <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#maps">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <p>Maps</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="maps">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="../maps/googlemaps.html">
+                        <span class="sub-item">Google Maps</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="../maps/jsvectormap.html">
+                        <span class="sub-item">Jsvectormap</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li> --}}
             </ul>
           </div>
         </div>
@@ -925,7 +962,7 @@
     }
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @if(session('success'))
         <script>
             Swal.fire({

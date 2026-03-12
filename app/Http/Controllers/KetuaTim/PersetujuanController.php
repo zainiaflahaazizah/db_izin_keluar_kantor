@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\KetuaTim;
-
-use App\Models\Izin;
-use Illuminate\View\View;
 use App\Http\Controllers\Controller;
+use App\Models\Izin;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class PersetujuanController extends Controller
 {
@@ -14,7 +14,10 @@ class PersetujuanController extends Controller
      */
     public function index(): View
     {
+        $namaKetuaTim = Auth::user()->pegawai->nama;
+
         $izins = Izin::with('pegawai')
+            ->where('tujuan_persetujuan', 'like', '%'.$namaKetuaTim.'%')
             ->orderBy('created_at', 'desc')
             ->get();
 
@@ -26,7 +29,11 @@ class PersetujuanController extends Controller
      */
     public function setujui($id_izin): RedirectResponse
     {
-        $izin = Izin::findOrFail($id_izin);
+        $namaKetuaTim = Auth::user()->pegawai->nama;
+
+        $izin = Izin::where('id_izin', $id_izin)
+            ->where('tujuan_persetujuan', 'like', '%'.$namaKetuaTim.'%')
+            ->firstOrFail();
 
         $izin->update([
             'status' => 'disetujui'
@@ -40,7 +47,11 @@ class PersetujuanController extends Controller
      */
     public function tolak($id_izin): RedirectResponse
     {
-        $izin = Izin::findOrFail($id_izin);
+        $namaKetuaTim = Auth::user()->pegawai->nama;
+
+        $izin = Izin::where('id_izin', $id_izin)
+            ->where('tujuan_persetujuan', 'like', '%'.$namaKetuaTim.'%')
+            ->firstOrFail();
 
         $izin->update([
             'status' => 'ditolak'

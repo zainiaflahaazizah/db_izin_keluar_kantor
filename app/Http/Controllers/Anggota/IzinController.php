@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Anggota;
 
-use App\Models\Izin;
-use Illuminate\View\View;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Izin;
+use App\Models\Pegawai;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class IzinController extends Controller
 {
@@ -32,9 +33,10 @@ class IzinController extends Controller
         }
 
         // Ambil semua pegawai dengan jabatan Ketua Tim
-        $ketuaTim = \App\Models\Pegawai::where('jabatan', 'Ketua Tim')->get();
+        // $ketuaTim = \App\Models\Pegawai::where('jabatan', 'Ketua Tim')->get();
+        $ketua_tim = Pegawai::where('jabatan', 'Ketua Tim')->get();
 
-        return view('anggota.form-izin.create', compact('pegawai', 'ketuaTim'));
+        return view('anggota.form-izin.create', compact('pegawai', 'ketua_tim'));
     }
 
     public function store(Request $request): RedirectResponse
@@ -46,7 +48,7 @@ class IzinController extends Controller
             'jam_keluar'         => ['required', 'regex:/^\d{2}:\d{2}(:\d{2})?$/'],
             'jam_kembali'        => ['nullable', 'regex:/^\d{2}:\d{2}(:\d{2})?$/'],
             'keterangan'         => 'nullable|string',
-            'tujuan_persetujuan' => 'required|string|max:100',
+            'tujuan_persetujuan' => 'required|string|max:255',
         ]);
 
         Izin::create([
@@ -60,7 +62,7 @@ class IzinController extends Controller
         ]);
 
         return redirect()->route('anggota.izin.index')
-            ->with('success', 'Data berhasil disimpan');
+            ->with('success', 'Izin berhasil disimpan');
     }
 
     /**
@@ -88,7 +90,8 @@ class IzinController extends Controller
 
         $ketuaTim = \App\Models\Pegawai::where('jabatan', 'Ketua Tim')->get();
 
-        return view('anggota.form-izin.edit', compact('izin', 'ketuaTim'));
+        return view('anggota.form-izin.edit', compact('izin', 'ketuaTim'))
+                ->with('success','Izin berhasil diperbarui');;
     }
 
     /**
@@ -116,7 +119,7 @@ class IzinController extends Controller
             'jam_keluar'         => ['required', 'regex:/^\d{2}:\d{2}(:\d{2})?$/'],
             'jam_kembali'        => ['nullable', 'regex:/^\d{2}:\d{2}(:\d{2})?$/'],
             'keterangan'         => 'nullable|string',
-            'tujuan_persetujuan' => 'required|string|max:100',
+            'tujuan_persetujuan' => 'required|string|max:255',
         ]);
 
         $izin->update($request->only([

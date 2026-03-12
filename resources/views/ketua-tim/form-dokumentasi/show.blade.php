@@ -1,90 +1,103 @@
-@extends('layouts.anggota')
+@extends('layouts.ketua-tim')
 
 @section('title', 'Detail Dokumentasi')
 
 @section('content')
 
-<section class="section-padding" id="section_2">
     <div class="container">
-
-        <!-- Judul -->
-        <div class="row mb-4">
-            <div class="col-lg-12 text-center">
-                <h2 class="mb-3">Detail Dokumentasi</h2>
-                <p class="text-muted">
-                    Informasi lengkap dokumentasi kegiatan
-                </p>
+          <div class="page-inner">
+            <div class="page-header">
+              <h3 class="fw-bold mb-3">Izin</h3>
+              <ul class="breadcrumbs mb-3">
+                {{-- <li class="nav-home">
+                  <a href="#">
+                    <i class="icon-home"></i>
+                  </a>
+                </li> --}}
+                <li class="separator">
+                  <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('ketua-tim.izin.index')}}">Forms</a>
+                </li>
+                <li class="separator">
+                  <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('ketua-tim.izin.index')}}">Izin</a>
+                </li>
+                <li class="separator">
+                  <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                  <a href="#">Detail</a>
+                </li>
+              </ul>
             </div>
-        </div>
-
-        <!-- Card Detail -->
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-
-                <div class="card shadow-sm border-1">
-
-                    <div class="card-header bg-white border-0">
-                        <h5 class="mb-0 fw-bold">Data Dokumentasi</h5>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="d-flex align-items-center">
+                        <h4 class="card-title">Tabel Izin</h4>
                     </div>
+                  </div>
+                  <div class="card-body">
+                        <div class="col-md-10 mx-auto">
+                            <div class="card shadow-lg border-0 rounded-3">
+                                <div class="card-body px-5 py-4">
 
-                    <div class="card-body">
+                                    <h2 class="mb-0 text-primary fw-bold">
+                                        <i class="fa fa-id-card me-2"></i> Detail Dokumentasi
+                                    </h2>
+                                    <p class="text-muted">Informasi lengkap dokumentasi izin</p>
+                                    <hr class="mt-0 mb-4">
 
-                        <!-- Foto -->
-                        <div class="text-center mb-4">
-                            <img src="{{ Storage::url($dokumentasi->foto) }}"
-                                 class="img-fluid rounded shadow-sm"
-                                 style="max-height: 350px;">
+                                    {{-- <div class="text-center mb-4">
+                                        <h3 class="fw-bold text-dark">{{ $izin->pegawai->nama }}</h3>
+                                        <span class="badge bg-info text-dark px-3 py-2" style="font-size: 14px;">
+                                            {{ $izin->pegawai->nip }}
+                                        </span>
+                                    </div> --}}
+
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <th width="35%">Nama</th>
+                                                    <td>: {{ $dokumentasi->pegawai->nama ?? '-' }}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>Izin</th>
+                                                    <td>: {{ $dokumentasi->izin->keterangan ?? '-'  }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="30%">foto</th>
+                                                    <td>
+                                                        <img src="{{ asset('storage/' . $dokumentasi->foto) }}"
+                                                            alt="Foto Dokumentasi"
+                                                            style="max-width: 300px; height: auto;">
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="text-end mt-4">
+                                        <a href="{{ route('ketua-tim.dokumentasi.index') }}" class="btn btn-secondary">
+                                            <i class="fa fa-arrow-left me-1"></i> Kembali
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
-
-                        <!-- Detail Data -->
-                        {{-- <table class="table table-borderless">
-                            <tr>
-                                <th class="text-start" width="30%">Latitude</th>
-                                <td class="text-start">: {{ $dokumentasi->latitude }}</td>
-                            </tr>
-                            <tr>
-                                <th class="text-start">Longitude</th>
-                                <td class="text-start">: {{ $dokumentasi->longitude }}</td>
-                            </tr>
-                        </table> --}}
-
-                        <!-- Tombol -->
-                        <div class="d-flex justify-content-between mt-4">
-
-                            <a href="{{ route('ketua-tim.dokumentasi.index') }}"
-                               class="btn btn-outline-secondary">
-                                <i class="bi bi-arrow-left"></i>
-                                Kembali
-                            </a>
-
-                            {{-- <div class="d-flex gap-2">
-                                <a href="{{ route('ketua-tim.dokumentasi.edit', $dokumentasi->id_dokumentasi) }}"
-                                   class="btn btn-outline-primary">
-                                    <i class="bi bi-pencil"></i>
-                                    Edit
-                                </a>
-
-                                <form action="{{ route('ketua-tim.dokumentasi.destroy', $dokumentasi->id_dokumentasi) }}"
-                                      method="POST"
-                                      onsubmit="return confirm('Yakin hapus data ini?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-outline-danger">
-                                        <i class="bi bi-trash"></i>
-                                        Hapus
-                                    </button>
-                                </form>
-                            </div> --}}
-
-                        </div>
-
                     </div>
                 </div>
-
+              </div>
             </div>
+          </div>
         </div>
-
-    </div>
-</section>
 
 @endsection

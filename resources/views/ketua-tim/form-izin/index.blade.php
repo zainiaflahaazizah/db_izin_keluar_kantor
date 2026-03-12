@@ -1,4 +1,4 @@
-@extends('layouts.kepala')
+@extends('layouts.ketua-tim')
 
 @section('title', 'Data Izin')
 
@@ -15,13 +15,13 @@
           <i class="icon-arrow-right"></i>
         </li>
         <li class="nav-item">
-          <a href="#">Forms</a>
+          <a href="{{ route('ketua-tim.izin.index') }}">Forms</a>
         </li>
         <li class="separator">
           <i class="icon-arrow-right"></i>
         </li>
         <li class="nav-item">
-          <a href="#">Izin</a>
+          <a href="{{ route('ketua-tim.izin.index') }}">Izin</a>
         </li>
       </ul>
     </div>

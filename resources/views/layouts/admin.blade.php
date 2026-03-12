@@ -92,13 +92,19 @@
                 </span>
                 <h4 class="text-section">Components</h4>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="{{ route('admin.akun.index') }}">
                   <i class='bx bxs-user-circle'></i>
                   <p>Akun</p>
                 </a>
-              </li>
-                <li class="nav-item">
+              </li> --}}
+              <li class="nav-item {{ request()->routeIs('admin.akun.*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.akun.index') }}">
+                    <i class="bx bxs-user-circle"></i>
+                    <p>Akun</p>
+                    </a>
+                </li>
+                <li class="nav-item {{ request()->routeIs('admin.pegawai.*') ? 'active' : '' }}">
                     <a  href="{{route('admin.pegawai.index')}}">
                     <i class='bx bxs-user-badge'></i>
                     <p>Pegawai</p>
@@ -112,24 +118,26 @@
                 </a>
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
-                    <li>
+                    <li class="nav-item {{ request()->routeIs('admin.izin.*') ? 'active' : '' }}">
                       <a href="{{ route('admin.izin.index') }}">
-                        <span class="sub-item">Form Izin</span>
+                        <i class="fas fa-file-alt"></i>
+                            <p>Form Izin</p>
                       </a>
                     </li>
-                    <li>
+                    <li class="nav-link {{ request()->routeIs('admin.dokumentasi.*') ? 'active' : '' }}"></li>
                       <a href="{{route('admin.dokumentasi.index')}}">
-                        <span class="sub-item">Form Dokumentasi</span>
+                        <i class="fas fa-camera"></i>
+                            <p>Dokumentasi</p>
                       </a>
                     </li>
                   </ul>
                 </div>
               </li>
-              <li class="nav-item">
-                <a href="{{url('approval')}}">
-                  <i class="fas fa-table"></i>
-                  <p>Approval</p>
-                </a>
+                    <li class="nav-item {{ request()->is('approval*') ? 'active' : '' }}">
+                        <a href="{{ url('approval') }}">
+                            <i class="fas fa-table"></i>
+                            <p>Approval</p>
+                        </a>
                 <div class="collapse" id="tables">
                   <ul class="nav nav-collapse">
                     <li>
@@ -511,7 +519,7 @@
                     </div>
                     <span class="profile-username">
                       <span class="op-7">Hi,</span>
-                      <span class="fw-bold">Hizrian</span>
+                      <span class="fw-bold">{{ Auth::user()->pegawai->nama }}</span>
                     </span>
                   </a>
                   <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -526,7 +534,7 @@
                             />
                           </div>
                           <div class="u-text">
-                            <h4>Hizrian</h4>
+                            <h4>{{ Auth::user()->pegawai->nama }}</h4>
                             <p class="text-muted">hello@example.com</p>
                             <a
                               href="profile.html"
@@ -857,6 +865,65 @@
           $("#addRowModal").modal("hide");
         });
       });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if(session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil',
+                text: '{{ session("success") }}',
+                timer: 2000,
+                showConfirmButton: false
+            });
+            </script>
+            @endif
+
+            @if(session('error'))
+            <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: '{{ session("error") }}',
+            });
+        </script>
+    @endif
+
+    <script>
+        function confirmDelete(event) {
+            event.preventDefault();
+
+            const form = event.target;
+
+            Swal.fire({
+                title: 'Yakin hapus data?',
+                text: "Data tidak bisa dikembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+
+            return false;
+        }
+    </script>
+
+    <script>
+    document.getElementById('id_pegawai').addEventListener('change', function () {
+        const selected = this.options[this.selectedIndex];
+
+        document.getElementById('nip').value =
+            selected.getAttribute('data-nip') ?? '';
+
+        document.getElementById('jabatan').value =
+            selected.getAttribute('data-jabatan') ?? '';
+    });
     </script>
   </body>
 </html>

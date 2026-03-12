@@ -100,7 +100,7 @@
         <div class="sidebar-wrapper scrollbar scrollbar-inner">
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
-                <li class="nav-item">
+                <li class="nav-item {{ request()->routeIs('kasubbag-umum.pegawai.*') ? 'active' : '' }}">
                     <a  href="{{route('kasubbag-umum.pegawai.index')}}">
                     <i class='bx bxs-user-badge'></i>
                     <p>Pegawai</p>
@@ -114,20 +114,22 @@
                 </a>
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
-                    <li>
+                    <li class="{{ request()->routeIs('kasubbag-umum.izin.*') ? 'active' : '' }}">
                       <a href="{{route ('kasubbag-umum.izin.index')}}">
-                        <span class="sub-item">Form Izin</span>
+                        <i class="fas fa-file-alt"></i>
+                            <p>Form Izin</p>
                       </a>
                     </li>
-                    <li>
+                    <li class="{{ request()->routeIs('kasubbag-umum.dokumentasi.*') ? 'active' : '' }}">
                       <a href="{{route('kasubbag-umum.dokumentasi.index')}}">
-                        <span class="sub-item">Form Dokumentasi</span>
+                        <i class="fas fa-camera"></i>
+                            <p>Dokumentasi</p>
                       </a>
                     </li>
                   </ul>
                 </div>
               </li>
-              <li class="nav-item">
+              <li class="nav-item {{ request()->routeIs('kasubbag-umum.persetujuan.*') ? 'active' : '' }}">
                 <a href="{{route ('kasubbag-umum.persetujuan.index')}}">
                   <i class="fas fa-table"></i>
                   <p>Approval</p>
@@ -142,27 +144,6 @@
                     <li>
                       <a href="tables/datatables.html">
                         <span class="sub-item">Datatables</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#maps">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <p>Maps</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="maps">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="../maps/googlemaps.html">
-                        <span class="sub-item">Google Maps</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="../maps/jsvectormap.html">
-                        <span class="sub-item">Jsvectormap</span>
                       </a>
                     </li>
                   </ul>
@@ -512,7 +493,7 @@
                     </div>
                     <span class="profile-username">
                       <span class="op-7">Hi,</span>
-                      <span class="fw-bold">Hizrian</span>
+                      <span class="fw-bold">{{ Auth::user()->pegawai->nama }}</span>
                     </span>
                   </a>
                   <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -527,7 +508,7 @@
                             />
                           </div>
                           <div class="u-text">
-                            <h4>Hizrian</h4>
+                            <h4>{{ Auth::user()->pegawai->nama }}</h4>
                             <p class="text-muted">hello@example.com</p>
                             <a
                               href="profile.html"
@@ -828,6 +809,65 @@
     <!-- Kaiadmin DEMO methods, don't include it in your project! -->
     <script src="{{asset ('assets/js/setting-demo2.js')}}"></script>
 
+
+    <script>
+      $(document).ready(function () {
+        $("#basic-datatables").DataTable({});
+
+        $("#multi-filter-select").DataTable({
+          pageLength: 5,
+          initComplete: function () {
+            this.api()
+              .columns()
+              .every(function () {
+                var column = this;
+                var select = $(
+                  '<select class="form-select"><option value=""></option></select>'
+                )
+                  .appendTo($(column.footer()).empty())
+                  .on("change", function () {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    column
+                      .search(val ? "^" + val + "$" : "", true, false)
+                      .draw();
+                  });
+
+                column
+                  .data()
+                  .unique()
+                  .sort()
+                  .each(function (d, j) {
+                    select.append(
+                      '<option value="' + d + '">' + d + "</option>"
+                    );
+                  });
+              });
+          },
+        });
+
+        // Add Row
+        $("#add-row").DataTable({
+          pageLength: 5,
+        });
+
+        var action =
+          '<td> <div class="form-button-action"> <button type="button" data-bs-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-bs-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
+
+        $("#addRowButton").click(function () {
+          $("#add-row")
+            .dataTable()
+            .fnAddData([
+              $("#addName").val(),
+              $("#addPosition").val(),
+              $("#addOffice").val(),
+              action,
+            ]);
+          $("#addRowModal").modal("hide");
+        });
+      });
+    </script>
+
     <script>
     // AMBIL LOKASI USER
         function getLocation() {
@@ -902,7 +942,51 @@
     }
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if(session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil',
+                text: '{{ session("success") }}',
+                timer: 2000,
+                showConfirmButton: false
+            });
+            </script>
+            @endif
 
+            @if(session('error'))
+            <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: '{{ session("error") }}',
+            });
+        </script>
+    @endif
+
+    <script>
+        function confirmDelete(event) {
+            event.preventDefault();
+
+            const form = event.target;
+
+            Swal.fire({
+                title: 'Yakin hapus data?',
+                text: "Data tidak bisa dikembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+
+            return false;
+        }
+    </script>
   </body>
 </html>

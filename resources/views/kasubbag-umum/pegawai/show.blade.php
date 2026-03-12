@@ -1,4 +1,4 @@
-@extends('layouts.kepala')
+@extends('layouts.kasubbag')
 
 @section('title', 'Data Pegawai')
 

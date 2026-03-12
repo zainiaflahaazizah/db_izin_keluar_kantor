@@ -79,7 +79,7 @@
                                                     <option value="Anggota">Anggota</option>
                                                     <option value="Mahasiswa Magang/PKL">Mahasiswa Magang/PKL</option>
                                                 </select>
-                                                <i class='bx bx-chevron-down'></i>
+                                                {{-- <i class='bx bx-chevron-down'></i> --}}
                                             </div>
                                         </div>
 

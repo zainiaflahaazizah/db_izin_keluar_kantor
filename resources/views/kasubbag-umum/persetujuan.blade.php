@@ -1,4 +1,4 @@
-@extends('layouts.kepala')
+@extends('layouts.kasubbag')
 
 @section('title', 'Data Pegawai')
 
@@ -182,38 +182,44 @@
 
                                     {{-- ACTION --}}
                                     <td>
-                                        @if ($izin->status === 'menunggu')
-                                            <div class="d-flex justify-content-center gap-1">
+                                        @if ($izin->status === 'menunggu' && str_contains($izin->tujuan_persetujuan, 'Kepala Subbagian Umum'))
 
-                                                {{-- SETUJUI --}}
-                                                <form action="{{ route('approval.setujui', $izin->id_izin) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('PATCH')
-                                                    <button type="submit"
-                                                            class="btn btn-success btn-sm"
-                                                            data-bs-toggle="tooltip"
-                                                            title="Setujui">
-                                                        <i class="fa fa-check"></i>
-                                                    </button>
-                                                </form>
+                                        <div class="d-flex justify-content-center gap-1">
 
-                                                {{-- TOLAK --}}
-                                                <form action="{{ route('approval.tolak', $izin->id_izin) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('PATCH')
-                                                    <button type="submit"
-                                                            class="btn btn-danger btn-sm"
-                                                            data-bs-toggle="tooltip"
-                                                            title="Tolak">
-                                                        <i class="fa fa-times"></i>
-                                                    </button>
-                                                </form>
+                                        {{-- SETUJUI --}}
+                                        <form action="{{ route('approval.setujui', $izin->id_izin) }}" method="POST">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit"
+                                                class="btn btn-success btn-sm"
+                                                data-bs-toggle="tooltip"
+                                                title="Setujui">
+                                            <i class="fa fa-check"></i>
+                                        </button>
+                                        </form>
 
-                                            </div>
+                                        {{-- TOLAK --}}
+                                        <form action="{{ route('approval.tolak', $izin->id_izin) }}" method="POST">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit"
+                                                class="btn btn-danger btn-sm"
+                                                data-bs-toggle="tooltip"
+                                                title="Tolak">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                        </form>
+
+                                        </div>
+
+                                        @elseif ($izin->status !== 'menunggu')
+
+                                        <span class="text-muted fst-italic">Selesai</span>
+
                                         @else
-                                            <span class="text-muted fst-italic">Selesai</span>
+
+                                        <span class="text-muted fst-italic">Tidak ada aksi</span>
+
                                         @endif
                                     </td>
                                 </tr>

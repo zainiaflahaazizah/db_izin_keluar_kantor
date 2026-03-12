@@ -9,6 +9,7 @@ class Dokumentasi extends Model
         protected $primaryKey = 'id_dokumentasi';
 
     protected $fillable = [
+        'id_pegawai',
         'id_izin',
         'foto',
         'latitude',
@@ -19,4 +20,10 @@ class Dokumentasi extends Model
     {
         return $this->belongsTo(Izin::class, 'id_izin');
     }
+
+    public function pegawai()
+    {
+        return $this->belongsTo(Pegawai::class,'id_pegawai','id_pegawai');
+    }
+
 }

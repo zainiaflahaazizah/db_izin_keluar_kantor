@@ -1,10 +1,10 @@
-@extends('layouts.kepala')
+@extends('layouts.kasubbag')
 
 @section('title', 'Data Pegawai')
 
 @section('content')
 
-<div class="container">
+        <div class="container">
           <div class="page-inner">
             <div class="page-header">
               <h3 class="fw-bold mb-3">Tabel Pegawai</h3>
@@ -18,7 +18,7 @@
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('kasubbag-umum.pegawai.index') }}">Pegawai</a>
+                  <a href="{{ route('kepala-bps.pegawai.index') }}">Pegawai</a>
                 </li>
               </ul>
             </div>
@@ -28,10 +28,10 @@
                   <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title">Tabel Pegawai</h4>
-                        {{-- <a class="btn btn-primary btn-round ms-auto" href="{{ route('kasubbag-umum.pegawai.create') }}">
+                        <a class="btn btn-primary btn-round ms-auto" href="{{ route('kepala-bps.pegawai.create') }}">
                         <i class="fa fa-plus"></i>
                         Tambah Pegawai
-                        </a> --}}
+                        </a>
                     </div>
                   </div>
                   <div class="card-body">
@@ -101,7 +101,7 @@
                                     <div class="form-button-action d-flex gap-2">
 
                                         {{-- SHOW / DETAIL --}}
-                                        <a href="{{ route('kasubbag-umum.pegawai.show', $pegawai->id_pegawai) }}"
+                                        <a href="{{ route('kepala-bps.pegawai.show', $pegawai->id_pegawai) }}"
                                         class="btn btn-link btn-info"
                                         data-bs-toggle="tooltip"
                                         title="Lihat Detail">
@@ -109,15 +109,15 @@
                                         </a>
 
                                         {{-- EDIT --}}
-                                        {{-- <a href="{{ route('kasubbag-umum.pegawai.edit', $pegawai->id_pegawai) }}"
+                                        {{-- <a href="{{ route('kepala-bps.pegawai.edit', $pegawai->id_pegawai) }}"
                                         class="btn btn-link btn-primary"
                                         data-bs-toggle="tooltip"
                                         title="Edit">
                                             <i class="fa fa-edit"></i>
-                                        </a>
+                                        </a> --}}
 
                                         {{-- DELETE --}}
-                                        {{-- <form action="{{ route('kasubbag-umum.pegawai.destroy', $pegawai->id_pegawai) }}"
+                                        {{-- <form action="{{ route('kepala-bps.pegawai.destroy', $pegawai->id_pegawai) }}"
                                             method="POST"
                                             onsubmit="return confirm('Yakin hapus data ini?');">
                                             @csrf

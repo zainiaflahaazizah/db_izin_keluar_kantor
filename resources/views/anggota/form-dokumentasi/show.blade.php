@@ -18,13 +18,13 @@
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="{{route('izin.index')}}">Forms</a>
+                  <a href="{{route('anggota.izin.index')}}">Forms</a>
                 </li>
                 <li class="separator">
                   <i class="icon-arrow-right"></i>
                 </li>
                 <li class="nav-item">
-                  <a href="{{route('izin.index')}}">Izin</a>
+                  <a href="{{route('anggota.izin.index')}}">Izin</a>
                 </li>
                 <li class="separator">
                   <i class="icon-arrow-right"></i>
@@ -64,6 +64,15 @@
                                         <table class="table table-bordered table-striped">
                                             <tbody>
                                                 <tr>
+                                                    <th width="35%">Nama</th>
+                                                    <td>: {{ $dokumentasi->pegawai->nama }}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>Izin</th>
+                                                    <td>: {{ $dokumentasi->izin->keterangan }}</td>
+                                                </tr>
+                                                <tr>
                                                     <th width="30%">foto</th>
                                                     <td>
                                                         <img src="{{ asset('storage/' . $dokumentasi->foto) }}"
@@ -76,7 +85,7 @@
                                     </div>
 
                                     <div class="text-end mt-4">
-                                        <a href="{{ route('anggota.izin.index') }}" class="btn btn-secondary">
+                                        <a href="{{ route('anggota.dokumentasi.index') }}" class="btn btn-secondary">
                                             <i class="fa fa-arrow-left me-1"></i> Kembali
                                         </a>
                                     </div>

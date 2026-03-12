@@ -118,9 +118,9 @@
                 <h4 class="text-section">Components</h4>
               </li>
               <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#base">
+                <a href="{{ route('admin.akun.index') }}">
                   <i class='bx bxs-user-circle'></i>
-                  <p>User</p>
+                  <p>Akun</p>
                 </a>
               </li>
                 <li class="nav-item">
@@ -137,14 +137,16 @@
                 </a>
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
-                    <li>
+                    <li class="{{ request()->routeIs('admin.izin.*') ? 'active' : '' }}">
                       <a href="{{ route('admin.izin.index') }}">
-                        <span class="sub-item">Form Izin</span>
+                        <i class="fas fa-file-alt"></i>
+                            <p>Form Izin</p>
                       </a>
                     </li>
-                    <li>
+                    <li class="{{ request()->routeIs('admin.dokumentasi.*') ? 'active' : '' }}">
                       <a href="{{route('admin.dokumentasi.index')}}">
-                        <span class="sub-item">Form Dokumentasi</span>
+                        <i class="fas fa-camera"></i>
+                            <p>Dokumentasi</p>
                       </a>
                     </li>
                   </ul>

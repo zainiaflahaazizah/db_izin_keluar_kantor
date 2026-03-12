@@ -15,7 +15,8 @@ class PersetujuanController extends Controller
     public function index(): View
     {
         $izins = Izin::with('pegawai')
-            ->orderBy('created_at', 'desc')
+            ->orderByRaw("tujuan_persetujuan LIKE '%Kepala Subbagian Umum%' DESC")
+            ->orderBy('created_at','desc')
             ->get();
 
         return view('kasubbag-umum.persetujuan', compact('izins'));
@@ -27,6 +28,10 @@ class PersetujuanController extends Controller
     public function setujui($id_izin): RedirectResponse
     {
         $izin = Izin::findOrFail($id_izin);
+
+        if (!str_contains($izin->tujuan_persetujuan, 'Kepala Subbagian Umum')) {
+            return redirect()->back()->with('error', 'Anda tidak berhak menyetujui izin ini');
+        }
 
         $izin->update([
             'status' => 'disetujui'
@@ -41,6 +46,10 @@ class PersetujuanController extends Controller
     public function tolak($id_izin): RedirectResponse
     {
         $izin = Izin::findOrFail($id_izin);
+
+        if (!str_contains($izin->tujuan_persetujuan, 'Kepala Subbagian Umum')) {
+            return redirect()->back()->with('error', 'Anda tidak berhak menolak izin ini');
+        }
 
         $izin->update([
             'status' => 'ditolak'

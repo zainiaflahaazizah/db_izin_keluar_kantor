@@ -12,11 +12,11 @@
                     <h3 class="fw-bold mb-3">Dokumentasi</h3>
 
                     <ul class="breadcrumbs mb-3">
-                        <li class="nav-home">
+                        {{-- <li class="nav-home">
                             <a href="{{ url('dashboard') }}">
                                 <i class="icon-home"></i>
                             </a>
-                        </li>
+                        </li> --}}
 
                         <li class="separator">
                             <i class="icon-arrow-right"></i>
@@ -39,10 +39,20 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        
+
                         <!-- FORM -->
                         <form action="{{ route('anggota.dokumentasi.store') }}" method="POST" id="dokumentasiForm" enctype="multipart/form-data">
                             @csrf
+
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
 
                             <div class="card">
 
@@ -60,11 +70,40 @@
                                         <!-- KOLOM KIRI -->
                                         <div class="col-md-6">
                                             <div class="form-group">
+                                                    <label>Pegawai</label>
+                                                    <input type="text"
+                                                        class="form-control"
+                                                        value="{{ auth()->user()->pegawai->nama }}"
+                                                        readonly>
+
+                                                    <input type="hidden"
+                                                        name="id_pegawai"
+                                                        value="{{ auth()->user()->pegawai->id_pegawai }}">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Izin / Keterangan</label>
+
+                                                <select name="id_izin" class="form-control">
+                                                    <option value="">-- Pilih Izin --</option>
+
+                                                    @foreach ($izins as $izin)
+                                                        <option value="{{ $izin->id_izin }}">
+                                                            {{ $izin->keterangan }}
+                                                        </option>
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
                                                 <!-- Upload Dokumen -->
                                                 <div class="mb-3">
                                                     <label for="foto" class="form-label">Upload Foto</label>
                                                     <input type="file" id="foto" name="foto[]" class="form-control"
-                                                        accept="image/jpeg,image/png,image/jpg" multiple onchange="previewFiles(event)">
+                                                        accept="image/jpeg,image/png,image/jpg" multiple required onchange="previewFiles(event)">
                                                 </div>
 
                                                 @error('foto')
@@ -76,6 +115,7 @@
                                                     <div class="mt-3" id="previewContainer"></div>
                                                 </div>
                                             </div>
+                                        </div>
 
                                         {{--<div class="col-md-6">
                                             <div class="form-group">

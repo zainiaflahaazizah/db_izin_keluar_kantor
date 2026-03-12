@@ -1,151 +1,102 @@
-@extends('layouts.kepala')
+@extends('layouts.ketua-tim')
 
-@section('title', 'Data Dokumentasi')
+@section('title', 'Tambah Dokumentasi')
 
 @section('content')
 
-<div class="container">
-            <div class="page-inner">
+<section class="section-padding" id="section_2">
+    <div class="container">
 
-                <!-- PAGE HEADER -->
-                <div class="page-header">
-                    <h3 class="fw-bold mb-3">Dokumentasi</h3>
+        <!-- Judul -->
+        <div class="row mb-4">
+            <div class="col-lg-12 text-center">
+                <h2 class="mb-3">Tambah Dokumentasi</h2>
+                <p class="text-muted">
+                    Unggah dokumentasi kegiatan yang telah dilakukan
+                </p>
+            </div>
+        </div>
 
-                    <ul class="breadcrumbs mb-3">
-                        <li class="nav-home">
-                            <a href="{{ url('dashboard') }}">
-                                <i class="icon-home"></i>
-                            </a>
-                        </li>
+        <!-- Card Form -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
 
-                        <li class="separator">
-                            <i class="icon-arrow-right"></i>
-                        </li>
+                <div class="card shadow-sm border-1">
 
-                        <li class="nav-item">
-                            <a href="{{ route('izin.index') }}">Forms</a>
-                        </li>
+                    <div class="card-header bg-white border-0">
+                        <h5 class="mb-0 fw-bold">Form Dokumentasi</h5>
+                    </div>
 
-                        <li class="separator">
-                            <i class="icon-arrow-right"></i>
-                        </li>
+                    <div class="card-body">
 
-                        <li class="nav-item">
-                            <a href="{{ route('kasubbag-umum.dokumentasi.index') }}">Dokumentasi</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- END PAGE HEADER -->
-
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <!-- FORM -->
-                        <form action="{{ route('kasubbag-umum.dokumentasi.store') }}" method="POST" id="dokumentasiForm" enctype="multipart/form-data">
+                        <form action="{{ route('ketua-tim.dokumentasi.store') }}"
+                              method="POST"
+                              enctype="multipart/form-data">
                             @csrf
 
-                            <div class="card">
-
-                                <!-- CARD HEADER -->
-                                <div class="card-header">
-                                    <div class="card-title">
-                                        Formulir Pengajuan Dokumentasi Keluar Kantor
-                                    </div>
-                                </div>
-
-                                <!-- CARD BODY -->
-                                <div class="card-body">
-                                    <div class="row">
-
-                                        <!-- KOLOM KIRI -->
-                                        <div class="col-md-6">
-
-                                            <div class="form-group">
-                                                <!-- Upload Dokumen -->
-                                                <div class="mb-3">
-                                                    <label for="foto" class="form-label">Upload Foto</label>
-                                                    <input type="file" id="foto" name="foto" class="form-control"
-                                                        accept="image/jpeg,image/png,image/jpg" onchange="previewFile(event)">
-                                                </div>
-
-                                                @error('foto')
-                                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
-                                                @enderror
-
-                                                <!-- Preview Gambar / Nama File -->
-                                                <div class="mt-3">
-                                                    <img id="previewImage" src=""
-                                                        style="max-width: 250px; display: none; border-radius: 10px;">
-
-                                                    <p id="fileName"
-                                                    style="display:none; font-weight: bold; margin-top: 10px;">
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                        {{--<div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="mb-3">
-                                                    <input type="hidden"    name="id_izin" value="{{ $izin->id }}">
-                                                </div>
-                                            </div>
-                                        </div>  --}}
-
-                                        {{-- <div class="col-md-6">
-
-                                            <div class="form-group">
-                                                <label>Lokasi (Otomatis dari Peta)</label>
-
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <input
-                                                            type="text"
-                                                            name="latitude"
-                                                            id="latitude"
-                                                            class="form-control @error('latitude') is-invalid @enderror"
-                                                            placeholder="Latitude"
-                                                            readonly>
-                                                        </div>
-
-                                                    <div class="col-md-6">
-                                                        <input
-                                                            type="text"
-                                                            name="longitude"
-                                                            id="longitude"
-                                                            class="form-control @error('longitude') is-invalid @enderror"
-                                                            placeholder="Longitude"
-                                                            readonly>
-                                                        </div>
-                                                    </div>
-
-                                                    @error('latitude')
-                                                        <div class="alert alert-danger mt-2">{{ $message }}</div>
-                                                    @enderror
-                                                    @error('longitude')
-                                                        <div class="alert alert-danger mt-2">{{ $message }}</div>
-                                                    @enderror
-                                                </div>
-                                            </div> --}}
-                                        </div>
-                                        <!-- END KOLOM KIRI -->
-                                    </div>
-                                </div>
-                                <!-- END CARD BODY -->
-
-                                <!-- CARD ACTION -->
-                                <div class="card-action d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-success">Simpan</button>
-                                    <a href="{{ route('kasubbag-umum.dokumentasi.index') }}" class="btn btn-danger ms-2">Batal</a>
-                                </div>
-
+                            <!-- Upload Foto -->
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Foto Dokumentasi</label>
+                                <input type="file"
+                                       name="foto"
+                                       class="form-control @error('foto') is-invalid @enderror"
+                                       required>
+                                @error('foto')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
+
+                            <!-- Latitude -->
+                            {{-- <div class="mb-3">
+                                <label class="form-label fw-semibold">Latitude</label>
+                                <input type="text"
+                                       name="latitude"
+                                       class="form-control @error('latitude') is-invalid @enderror"
+                                       value="{{ old('latitude') }}"
+                                       placeholder="Contoh: -3.442190"
+                                       required>
+                                @error('latitude')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div> --}}
+
+                            <!-- Longitude -->
+                            {{-- <div class="mb-4">
+                                <label class="form-label fw-semibold">Longitude</label>
+                                <input type="text"
+                                       name="longitude"
+                                       class="form-control @error('longitude') is-invalid @enderror"
+                                       value="{{ old('longitude') }}"
+                                       placeholder="Contoh: 114.832430"
+                                       required>
+                                @error('longitude')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div> --}}
+
+                            <!-- Tombol -->
+                            <div class="d-flex justify-content-between">
+                                <a href="{{ route('ketua-tim.dokumentasi.index') }}"
+                                   class="btn btn-outline-secondary">
+                                    <i class="bi bi-arrow-left"></i>
+                                    Kembali
+                                </a>
+
+                                <button type="submit" class="btn btn-success">
+                                    <i class="bi bi-save me-1"></i>
+                                    Simpan
+                                </button>
+                            </div>
+
                         </form>
-                        <!-- END FORM -->
 
                     </div>
                 </div>
 
             </div>
         </div>
+
+    </div>
+</section>
 
 @endsection

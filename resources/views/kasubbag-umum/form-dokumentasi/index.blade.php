@@ -1,4 +1,4 @@
-@extends('layouts.kepala')
+@extends('layouts.kasubbag')
 
 @section('title', 'Data Dokumentasi')
 
@@ -60,6 +60,8 @@
                         class="display table table-striped table-hover">
                         <thead class="text-center align-middle">
                           <tr>
+                            <th>Pegawai</th>
+                            <th>Izin</th>
                             <th>Foto</th>
                             <th>Lokasi</th>
                             <th style="width: 10%">Action</th>
@@ -67,6 +69,8 @@
                         </thead>
                         <tfoot class="text-center align-middle">
                           <tr>
+                            <th>Pegawai</th>
+                            <th>Izin</th>
                             <th>Foto</th>
                             <th>Lokasi</th>
                             <th style="width: 10%">Action</th>
@@ -75,6 +79,14 @@
                         <tbody class="text-center align-middle">
                             @forelse ($dokumentasis as $dokumentasi)
                                 <tr>
+                                    <td>
+                                        {{ $dokumentasi->pegawai->nama ?? '-' }}
+                                    </td>
+
+                                    <td>
+                                        {{ $dokumentasi->izin->keterangan ?? 'Tanpa Izin' }}
+                                    </td>
+                                    
                                     <td>
                                         <img src="{{ Storage::url($dokumentasi->foto) }}" width="100">
                                     </td>
